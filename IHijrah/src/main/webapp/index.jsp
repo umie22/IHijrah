@@ -9,7 +9,6 @@
 <body>
 	<h1>Project</h1>
 	
-	<p>I love Sir Taufik</p>
 	
 </body>
 </html>
