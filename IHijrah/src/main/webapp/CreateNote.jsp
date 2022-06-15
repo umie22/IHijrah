@@ -29,11 +29,37 @@
  <!-- TOPBAR -->   
 
 
-	<div style="margin: 20px 10px 0px 210px; background-color:#004a80; height:600px; ">
-	
-
-</div> 
- 
- 	
+	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:600px; ">
+		
+		<!-- FILL IN FORM -->
+		<form action="/action_page.php">
+    		<div class="row">
+      			<div class="col-25">
+        		<label for="a_date">Date</label>
+      			</div>
+      		
+      			<div class="col-75">
+        		<input type="date" id="a_date" name="a_date" placeholder="DD-MM-YYYY">
+      			</div>
+   			 </div>
+    
+    		<div class="row">
+      			<div class="col-25">
+        		<label for="details">Details</label>
+      			</div>
+      
+      			<div class="col-75">
+        		<textarea id="details" name="details" placeholder="Announcement details" style="height:200px"></textarea>
+      			</div>
+    		</div>
+    
+    		<div class="row">
+  				<input type="submit">
+    		</div>
+  		</form>
+		<!-- FILL IN FORM --> 
+		
+	</div>
+		
 </body>
 </html>
