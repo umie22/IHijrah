@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Ticket Info</title>
+<title>Note Info</title>
 <link href="css/boostrap.min.css" rel="stylesheet">
 <style>
 div{
