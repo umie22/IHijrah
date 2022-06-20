@@ -1,0 +1,33 @@
+@charset "UTF-8";
+body{
+	padding:0; 
+	margin:0;
+}
+
+.container{
+	 	height: 500px;
+        background-color: black;/* For browsers that do not support gradients */
+ 
+}
+a.btn1,a.btn2,a.btn3,a.btn4,a.btn5,a.btn6,a.btn7,a.btn8{
+	height:50px;
+	text-align: center;
+}
+
+
+
+a:link{
+  background-color: #353c49;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size:11px;
+  
+}
+
+a:hover, a:active {
+  background-color: grey;
+}
+a{
+  color: white;
+}
