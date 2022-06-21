@@ -69,7 +69,7 @@ h4{
       <div class="form-style">
       
       
-        <form action ="Controller.Login" method="post" >
+        <form action ="LoginController" method="post" >
           <div class="form-group pb-3">
             <label for="staffid"><b>Staff ID</b></label>
             

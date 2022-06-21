@@ -14,7 +14,7 @@
 <h3 style="text-align: center; color: rgb(255, 255, 255);">WELCOME</h3>
 <a href="#" class="btn2" style="display:block;">PAYMENT VERIFICATION </a>
 <a href="#" class="btn4" style="display:block;">CLASS SCHEDULE</a>
-<a href="AnnouncementList" class="btn5" style="display:block;">ANNOUNCEMENT</a>
+<a href="AnnouncementList.jsp" class="btn5" style="display:block;">ANNOUNCEMENT</a>
 <a href="#" class="btn1" style="display:block;">REPORT</a>
 <a href="#" class="btn6" style="display:block;">ACCOUNT</a>
 <a href="#" class="btn8" style="display:block;">REGISTER STAFF</a>
