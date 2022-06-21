@@ -81,7 +81,7 @@ h4{
           </div>
          
           <div class="pb-2">
-            <button type= "submit" value="Submit"></button>
+            <button type= "submit" value="Submit" width="200px;"></button>
           </div>
         </form>
     
