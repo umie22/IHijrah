@@ -11,7 +11,6 @@ public class LoginDAO {
 	
 	static Connection con = null;
 	static PreparedStatement ps = null;
-	static Statement stmt = null;
 	static ResultSet rs = null;
 	
 public static boolean validate(String name,String pass){  
@@ -20,7 +19,7 @@ try{
 	
 
 con = ConnectionManager.getConnection();     
-PreparedStatement ps=con.prepareStatement( "select * from staff where staff_id=? and participant_password=?");  
+PreparedStatement ps=con.prepareStatement( "select * from staff where staff_id=? and staff_password=?");  
 ps.setString(1,name);  
 ps.setString(2,pass);  
       

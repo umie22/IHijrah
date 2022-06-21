@@ -37,18 +37,18 @@ public class AddAnnouncementController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Announcement announ =new Announcement();
-		
+			
 		announ.setAnnouncement_ID(Integer.parseInt(request.getParameter("Id")));
 		announ.setAnnouncement_Detail(request.getParameter("Detail"));
 		announ.setAnnouncement_Date(request.getParameter("Date"));
 
 		dao.addCust(announ);
 		
-		/*
+		
 		//redirect to listData.jsp
 		request.setAttribute("announce",AnnouncementDAO.getAllCust());
-		RequestDispatcher view=request.getRequestDispatcher("listCust.jsp");
+		RequestDispatcher view=request.getRequestDispatcher("AnnouncementList.jsp");
 		view.forward(request, response);
-		*/
+		
 	}
 }

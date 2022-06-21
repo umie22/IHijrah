@@ -58,7 +58,7 @@ public class UpdateAnnouncementController extends HttpServlet {
 		
 		//redirect to listData.jsp
 		request.setAttribute("customers",AnnouncementDAO.getAllCust());
-		RequestDispatcher view=request.getRequestDispatcher("listCust.jsp");
+		RequestDispatcher view=request.getRequestDispatcher("AnnouncementList.jsp");
 		view.forward(request, response);
 	}
 

@@ -34,7 +34,7 @@ public class DeleteAnnouncementController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("Id"));
 		dao.deleteServ(id);
 		request.setAttribute("announce",AnnouncementDAO.getAllCust());
 

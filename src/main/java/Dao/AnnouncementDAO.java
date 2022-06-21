@@ -69,7 +69,7 @@ public class AnnouncementDAO {
 				
 				//3. create statement 
 				stmt = con.createStatement();
-				String sql = "SELECT * FROM announcement ORDER BY Id";
+				String sql = "SELECT * FROM announcement ORDER BY announcement_id";
 				
 				//4. execute query
 				rs = stmt.executeQuery(sql);
@@ -104,7 +104,7 @@ public class AnnouncementDAO {
 				con = ConnectionManager.getConnection();
 				
 				//3. create statement 
-				ps = con.prepareStatement("SELECT * FROM announcement_id WHERE Id=?");
+				ps = con.prepareStatement("SELECT * FROM announcement WHERE announcement_id=?");
 				ps.setInt(1, id);
 				
 				//4. execute query
@@ -133,7 +133,7 @@ public class AnnouncementDAO {
 				con = ConnectionManager.getConnection();
 				
 				//3. create statement 			
-				ps = con.prepareStatement("DELETE FROM customer WHERE Id=?");
+				ps = con.prepareStatement("DELETE FROM announcement WHERE announcement_id=?");
 				ps.setInt(1, id);
 				
 				//4. execute query
@@ -154,7 +154,7 @@ public class AnnouncementDAO {
 				con = ConnectionManager.getConnection();
 
 				//3. create statement 			
-				ps = con.prepareStatement("DELETE FROM announcement_id WHERE announcement_id=?");
+				ps = con.prepareStatement("DELETE FROM announcement WHERE announcement_id=?");
 				ps.setInt(1, id);
 
 				//4. execute query

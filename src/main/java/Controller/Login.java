@@ -12,10 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import Dao.LoginDAO;  
   
   
-public class StaffLoginController extends HttpServlet {  
-/**
-	 * 
-	 */
+public class Login extends HttpServlet {  
+
 	private static final long serialVersionUID = 1L;
 
 public void doPost(HttpServletRequest request, HttpServletResponse response)  
@@ -26,14 +24,16 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
           
     String n=request.getParameter("username");  
     String p=request.getParameter("userpass");  
-          
+    
+    
+    
     if(LoginDAO.validate(n, p)){  
-        RequestDispatcher rd=request.getRequestDispatcher("servlet2");  
+        RequestDispatcher rd=request.getRequestDispatcher("Welcome");  
         rd.forward(request,response);  
     }  
     else{  
         out.print("Sorry username or password error");  
-        RequestDispatcher rd=request.getRequestDispatcher("index.html");  
+        RequestDispatcher rd=request.getRequestDispatcher("loginstaff.jsp");  
         rd.include(request,response);  
     }  
           
