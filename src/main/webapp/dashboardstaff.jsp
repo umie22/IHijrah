@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%><!DOCTYPE html>
 <html>
 <title>Dashboard Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,7 +75,7 @@
 
 	
 <div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">Ã—</span>
   <form class="modal-content" action="/action_page.php">
     <div class="modal-container">
       <h1>Delete Account</h1>
