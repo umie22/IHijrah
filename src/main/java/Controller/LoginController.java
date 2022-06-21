@@ -16,8 +16,7 @@ import Dao.LoginDAO;
  * Servlet implementation class LoginController
  */
 @WebServlet("/LoginController")
-public class LoginController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class LoginController extends HttpServlet {private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
