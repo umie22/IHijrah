@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-HI NAMA SAYA MUHAMMAD RAZIQ
+HI NAMA SAYA MUHAMMAD RAZIQ.
 </body>
 </html>
