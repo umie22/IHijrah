@@ -80,7 +80,10 @@
 </html>
 <%
 String a =request.getParameter("Id");
-String b = request.getParameter("Date");
+String b = r
+Connection conn = null;
+PreparedStatement stat = null;
+Class.forName(DB_DRIVER).newInstance();equest.getParameter("Date");
 String c = request.getParameter("Detail");
 
 String DB_DRIVER = "org.postgresql.Driver";
@@ -88,9 +91,6 @@ String DB_DRIVER = "org.postgresql.Driver";
 	String DB_USER = "zaiaryvqbpwwcb";	
 	String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
 
-Connection conn = null;
-PreparedStatement stat = null;
-Class.forName(DB_DRIVER).newInstance();
 if(a!=null && b!=null && c!=null){
 	conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
 	String data = "insert into announcement(announcement_id,announcement_date,announcement_detail) values(?,?,?)";
