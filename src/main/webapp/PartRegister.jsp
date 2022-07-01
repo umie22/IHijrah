@@ -11,7 +11,7 @@
 
 <!-- SIDEBAR -->
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:auto">
-<img class="logo" alt="" src="IHijrahLogo.PNG">
+
 <h3 style="text-align: center; color: white;">WELCOME</h3>
 <a href="#" class="btn1" style="display:block;">DASHBOARD</a>
 <a href="#" class="btn2" style="display:block;">REGISTER COURSE</a>
