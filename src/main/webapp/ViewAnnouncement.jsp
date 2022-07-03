@@ -15,15 +15,15 @@
 
 
 <!-- SIDEBAR -->
-<div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:auto">
-<img alt="" src="IHijrahLogo.png" style="width:150px; margin: 20px 20px 0px 50px;">
+<div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden;">
+<img class="logo" alt="" src="IHijrahLogo.PNG">
 <h3 style="text-align: center; color: white; padding-bottom:2em;">WELCOME</h3>
-<a href="#" class="btn1" style="display:block;">DASHBOARD</a>
-<a href="#" class="btn2" style="display:block;">PAYMENT VERIFICATION </a>
-<a href="#" class="btn4" style="display:block;">CLASS SCHEDULE</a>
-<a href="AnnouncementList.jsp" class="btn5" style="display:block;">ANNOUNCEMENT</a>
-<a href="#" class="btn6" style="display:block;">ACCOUNT</a>
-<a href="#" class="btn8" style="display:block;">LOGOUT</a>
+<a href="#" class="btn1" style="display:block; height:6px;">DASHBOARD</a>
+<a href="#" class="btn2" style="display:block; height:6px;">PAYMENT VERIFICATION </a>
+<a href="#" class="btn4" style="display:block; height:6px;">CLASS SCHEDULE</a>
+<a href="AnnouncementList.jsp" class="btn5" style="display:block; height:6px;">ANNOUNCEMENT</a>
+<a href="#" class="btn6" style="display:block; height:6px;">ACCOUNT</a>
+<a href="#" class="btn8" style="display:block; height:6px;">LOGOUT</a>
 
 </div>
 <!-- SIDEBAR -->
@@ -64,17 +64,18 @@
 		
 			<div class="row">
       			<div class="col-25">
-        		<label for="a_date">ID</label>
+        		<label for="a_date">ID :</label>
       			</div>
       		
       			<div class="col-75" >
-        		<input type="text" id="a_id" name="Id" value='<%=res.getString("announcement_id") %>'/>
+        		<input type="text" name="Id" placeholder="DD-MM-YYYY" disabled value='<%=res.getString("announcement_id") %>'/>
+        		<input type="hidden" name="Id" placeholder="DD-MM-YYYY"  value='<%=res.getString("announcement_id") %>'/>
       			</div>
    			 </div>
 			
     		<div class="row">
       			<div class="col-25">
-        		<label for="a_date">Date</label>
+        		<label for="a_date">Date :</label>
       			</div>
       		
       			<div class="col-75">
@@ -84,11 +85,11 @@
     
     		<div class="row">
       			<div class="col-25">
-        		<label for="details">Details</label>
+        		<label for="details">Details :</label>
       			</div>
       
       			<div class="col-75">
-        		<input id="details" name="Detail" placeholder="Announcement details" style="height:200px" value='<%=res.getString("announcement_detail") %>'/>
+        		<input id="details" name="Detail" placeholder="Announcement details" style="height:200px; width:82%;" value='<%=res.getString("announcement_detail") %>'/>
       			</div>
     		</div><br>
     
@@ -96,7 +97,7 @@
     		 	<%
             }
    			%>
-  				<input type="submit">
+  				<input type="submit" value="Update" style="margin-left: 10px;">
   				<input type="reset" style="text-align:left;">
     		</div>
   		  

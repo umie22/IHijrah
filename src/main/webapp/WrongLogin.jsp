@@ -77,12 +77,12 @@ h4{
           </div>
           <div class="form-group pb-3">
             <label for="email"><b>Password</b></label>
-            <input type="password" placeholder="Password" class="form-control" id="exampleInputPassword1" name="	">
+            <input type="password" placeholder="Password" class="form-control" id="exampleInputPassword1" name="userpass">
           </div>
          
           <div class="pb-2">
                    <input type="hidden" name="action" value="loginStaff">
-            <button type= "submit"  name="submit"  style="text-align: center;	margin-left: 120px; width:200px;">Sign in</button>
+            <button type= "submit"  name="submit" width="200px;" style="text-align: center;	margin-left: 120px; width:200px;">Sign in</button>
           </div>
         </form>
     
@@ -93,4 +93,31 @@ h4{
     </div>
   </div>
 </div>
+
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content" action="/action_page.php">
+    <div class="modal-container">
+      <h1>Delete Account</h1>
+      <p>Are you sure you want to this account?</p>
+    
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" formaction = "" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
+      </div>
+    </div>
+  </form>
+</div>
+<script>
+//Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 </html>

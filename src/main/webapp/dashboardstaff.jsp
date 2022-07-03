@@ -18,7 +18,7 @@
 <a href="AnnouncementList.jsp" class="btn5" style="display:block;">ANNOUNCEMENT</a>
 <a href="#" class="btn1" style="display:block;">REPORT</a>
 <a href="#" class="btn6" style="display:block;">ACCOUNT</a>
-<a href="#" class="btn8" style="display:block;">REGISTER STAFF</a>
+<a href="#" class="btn8" style="display:block;">MANAGE STAFF</a>
 
 </div>
 <!-- SIDEBAR -->
@@ -35,26 +35,18 @@
             <h5>Full Name</h5>
         </div>
         <div class="col-md-9 text-secondary">
-            Idham Ahmad
+            ${Staff_Name}
         </div>
 
     </div>
-    <hr>
-    <div class="row">
-        <div class="col-md-3">
-            <h5>Email</h5>
-        </div>
-        <div class="col-md-9 text-secondary">
-            idhamahmad@gmail.com
-        </div>
-    </div>
+
     <hr>
     <div class="row">
         <div class="col-md-3">
             <h5>Phone</h5>
         </div>
         <div class="col-md-9 text-secondary">
-            0134567890
+            ${Staff_TelNo}
         </div>
         </div>
         <hr>
@@ -63,7 +55,7 @@
                 <h5>Role</h5>
             </div>
             <div class="col-md-9 text-secondary">
-                Head Administration
+                ${Staff_Role}
             </div>
             </div>
             <hr>
