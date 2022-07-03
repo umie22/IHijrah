@@ -57,7 +57,7 @@
   <p>COURSE REGISTRATION</p><br><br>
   <button id="myBtn" style="background-color: grey;color:white;position: relative; left:10px; width: 70%;border-color:grey; padding: 5px;">HAJJ COURSE</button><br><br><br><button id="myBtn" style="background-color: grey;color:white;position: relative; left:10px; width: 70%;border-color:grey;padding: 5px;">UMRAH COURSE</button></div>
             
-  <div class="item2"><img src="WEB-INF/pic1.jpg"></div>
+  <div class="item2"><img src="pic1.jpg"></div>
  
 </div>
           
