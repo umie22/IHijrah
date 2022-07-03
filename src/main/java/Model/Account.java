@@ -1,4 +1,4 @@
-package okkut;
+package Model;
 
 import java.io.Serializable;
 

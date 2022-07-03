@@ -1,6 +1,4 @@
-package okkut;
-
-import static java.lang.System.out;
+package Dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,7 +25,7 @@ public class AccountDA {
 
     }
 
-    public void addAcc (Account acc) throws SQLException {
+    public void addAcc (AccountDA acc) throws SQLException {
 
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement
