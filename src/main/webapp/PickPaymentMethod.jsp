@@ -67,7 +67,7 @@
   <div class="item2" ><img src="pic2.jpg" style="position: relative; left:10px; width: 100%; height:650px;"></div>
  
 </div>
-          
+               
 	
 </body>
 </html>
