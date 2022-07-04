@@ -8,10 +8,11 @@
 <style>
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto ;
   gap: 10px;
   background-color: #004a80;
-  padding: 10px;
+  height: 600px;
+  
 }
 
 .grid-container > div {
@@ -19,13 +20,19 @@
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
+  height: 600px;
 }
 
 .item1 {
 
   grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row-end: 1;
 }
+.item1 {
+
+ height: 500px;
+}
+
 </style>
 </head>
 
@@ -55,12 +62,13 @@
 		<div class="grid-container">
   <div class="item1">
   <p>COURSE REGISTRATION</p><br><br>
-  <button id="myBtn" style="background-color: grey;color:white;position: relative; left:10px; width: 70%;border-color:grey; padding: 5px;">HAJJ COURSE</button><br><br><br><button id="myBtn" style="background-color: grey;color:white;position: relative; left:10px; width: 70%;border-color:grey;padding: 5px;">UMRAH COURSE</button></div>
+  <button id="myBtn" style="background-color: grey;color:white;position: relative; left:10px; width: 70%;border-color:grey; padding: 10px; border-radius: 10px;">HAJJ COURSE</button><br><br><br><br><br><button id="myBtn" style="background-color: grey;color:white;position: relative; left:10px; width: 70%;border-color:grey;padding: 10px; border-radius: 10px;">UMRAH COURSE</button></div>
             
-  <div class="item2"><img src="pic1.jpg"></div>
+  <div class="item2" ><img src="pic1.jpg" style="position: relative; left:10px; width: 100%; height:650px;"></div>
  
 </div>
           
 	
 </body>
 </html>
+
