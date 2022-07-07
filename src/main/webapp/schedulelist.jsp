@@ -1,6 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<title>Dashboard Page</title>
+<title>Schedule Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head><link rel="stylesheet" href="main.css"></head>
@@ -15,9 +17,8 @@
 <a href="#" class="btn2" style="display:block;">PAYMENT VERIFICATION </a>
 <a href="#" class="btn4" style="display:block;">CLASS SCHEDULE</a>
 <a href="AnnouncementList.jsp" class="btn5" style="display:block;">ANNOUNCEMENT</a>
-<a href="#" class="btn1" style="display:block;">REPORT</a>
 <a href="#" class="btn6" style="display:block;">ACCOUNT</a>
-<a href="#" class="btn8" style="display:block;">REGISTER STAFF</a>
+
 
 </div>
 <!-- SIDEBAR -->
@@ -63,7 +64,7 @@
 </div>
 
 <div id="id01" class="modal">
-<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">Ã—</span>
 <form class="modal-content" action="/action_page.php">
 <div class="modal-container">
   <h1>Delete Schedule</h1>
