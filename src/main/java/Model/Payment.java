@@ -5,14 +5,14 @@ import java.sql.Time;
 
 public class Payment {
 	
-int Payment_ID;
+String Payment_ID;
 Time Payment_Date;
 Date Payment_Time;
 String Payment_Status;
-public int getPayment_ID() {
+public String getPayment_ID() {
 	return Payment_ID;
 }
-public void setPayment_ID(int payment_ID) {
+public void setPayment_ID(String payment_ID) {
 	Payment_ID = payment_ID;
 }
 public Time getPayment_Date() {

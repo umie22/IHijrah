@@ -5,6 +5,13 @@ public class Announcement {
 	private int Announcement_ID;
 	private String Announcement_Detail;
 	private String Announcement_Date;
+	public String getStaff_ID() {
+		return Staff_ID;
+	}
+	public void setStaff_ID(String staff_ID) {
+		Staff_ID = staff_ID;
+	}
+	private String Staff_ID;
 
 	
 	public int getAnnouncement_ID() {

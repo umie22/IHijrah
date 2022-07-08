@@ -25,8 +25,6 @@
 <a href="StaffLogin.jsp" class="btn8" style="display:block; font-size:13px;">LOGOUT</a>
 
 </div>
-
-</div>
 <!-- SIDEBAR -->
 
 <!-- TOPBAR -->      
@@ -56,7 +54,7 @@
        <%
        stat = conn.createStatement();
        String u = request.getParameter("u");
-       String data = "select * from schedule where schedule_id='"+u+"'";
+       String data = "select * from payment where payment_id='"+u+"'";
        res = stat.executeQuery(data);
        while(res.next()){
        %>

@@ -3,12 +3,14 @@
 <%@page import="java.sql.Statement" %>
 <%@page import="java.sql.Connection" %>
 <%@page import="java.sql.PreparedStatement" %>
+<%@page import="java.sql.Date" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <title>Announcement List</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<head><link rel="stylesheet" href="style.css"></head>
+<head><link rel="stylesheet" href="main.css"></head>
 
 <body>
 
@@ -36,12 +38,11 @@
 
 	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:600px; ">
 	
-	<h2>ANNOUNCEMENT DETAILS</h2>
+	<h2>SCHEDULE DETAILS</h2>
 		
 		<!-- FILL IN FORM -->
-		<form action="" method="post">
+		<form action="ScheduleServlet" method="post">
 		
-			<div class="row">
 
 			
     		<div class="row">
@@ -50,21 +51,46 @@
       			</div>
       		
       			<div class="col-75">
-        		<input type="date" id="a_date" name="Date" placeholder="DD-MM-YYYY">
+        		<input type="date" id="a_date" name="date" placeholder="DD-MM-YYYY">
       			</div>
    			 </div>
     
     		<div class="row">
       			<div class="col-25">
-        		<label for="details">Details</label>
+        		<label for="details">Time</label>
       			</div>
       
       			<div class="col-75">
-        		<textarea id="details" name="Detail" placeholder="Announcement details" style="height:200px"></textarea>
+        		<input type="time" id="time" name="time" placeholder="" min="09:00" max="18:00">
       			</div>
     		</div><br>
+    		
+    		<div class="row">
+      			<div class="col-25">
+        		<label for="details">Description</label>
+      			</div>
+      
+      			<div class="col-75">
+        		<input type="text" id="details" name="description" placeholder="Announcement details" style="height:200px">
+      			</div>
+    		</div><br>
+    		
+			<label for="cars">Choose Availability:</label>
+			  <select name="availability" id="availability">
+			    <option value="Available">Available</option>
+			    <option value="Fully Booked">Fully Booked</option>
+			  </select>
+			  <br><br>
+			  
+			  <label for="cars">Choose Course:</label>
+			  <select name="course" id="course">
+			    <option value="901">901 - Hajj</option>
+			    <option value="902">902 - Umrah</option>
+			  </select>
+			  <br><br>
     
     		<div class="row">
+    		  	<input type="hidden" value="AddSchedule" name="action" style="margin-left:20px;">	
   				<input type="submit" style="margin-left:20px;">	
   				<input type="reset" style="text-align:left; ">
     		</div>
@@ -75,33 +101,3 @@
 		
 </body>
 </html>
-<%
-String a =request.getParameter("id");
-String b = request.getParameter("Date");
-String id = session.getAttribute("Staff_ID").toString(); 
-Connection conn = null;
-PreparedStatement stat = null;
-String c = request.getParameter("Detail");
-
-String DB_DRIVER = "org.postgresql.Driver";
-	String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-	String DB_USER = "zaiaryvqbpwwcb";	
-	String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
-
-if(b!=null && c!=null){
-	conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
-	String data = "insert into announcement(announcement_date,announcement_detail,staff_id) values(?,?,?)";
-	
-	stat = conn.prepareStatement(data);
-
-	stat.setString(1,b);
-	stat.setString(2,c);
-	stat.setString(3,id);
-
-	stat.executeUpdate();
-	response.sendRedirect("AnnouncementList.jsp");
-}
-
-
-
-%>

@@ -17,10 +17,11 @@
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden;">
 <img class="logo" alt="" src="IHijrahLogo.PNG">
 <h3 style="text-align: center; color: white; padding-bottom:2em;">WELCOME</h3>
-<a href="VerifiedList" class="btn2" style="display:block; font-size:13px;">PAYMENT VERIFICATION </a>
-<a href="schedulelist" class="btn4" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
+<a href="VerfiedList.jsp" class="btn2" style="display:block; font-size:13px;">PAYMENT VERIFICATION </a>
+<a href="schedulelist.jsp" class="btn4" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
 <a href="AnnouncementList.jsp" class="btn5" style="display:block; font-size:13px;">ANNOUNCEMENT</a>
 <a href="dashboardstaff.jsp" class="btn6" style="display:block; font-size:13px;">ACCOUNT</a>
+<a href="StaffList.jsp" class="btn8" style="display:block; font-size:13px;">STAFF LIST</a>
 <a href="StaffLogin.jsp" class="btn8" style="display:block; font-size:13px;">LOGOUT</a>
 
 </div>
@@ -36,18 +37,16 @@
 	
 		
 		<!-- FILL IN FORM -->
-		<h2>ANNOUNCEMENT LIST</h2><br><br>
-		 <a href='CreateAnnouncement.jsp?id= <%session.getAttribute("Staff_ID");%>' style="  margin-left:1150px; margin-right:20px; height:5px; text-align: center; background-color: #3366ff; border-radius: 20px; padding:20px;">Add Announcement</a>
+		<h2>STAFF LIST</h2><br><br>
 		<br><br><br><br>
 		<!-- FILL IN FORM -->
 		
-		<%session.getAttribute("Staff_ID");%>
        <table class="table table-bordered table-striped table-hover" style="margin-left:20px; width:97%; ">
    <thead style="background-color: #000000">
        <tr style="color: white">
          <th>No.</th>
          <th>Name</th>
-         <th>Date</th>
+         <th>Role</th>         
          <th>Action</th>
          
          
@@ -56,6 +55,9 @@
     </thead>
     <tbody style="border: solid black 1px;">
        <%
+       
+       String namesession =  session.getAttribute("Staff_ID").toString();
+       
        String DB_DRIVER = "org.postgresql.Driver";
    	String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
    	String DB_USER = "zaiaryvqbpwwcb";	
@@ -68,18 +70,20 @@
        Class.forName(DB_DRIVER);
        con = DriverManager.getConnection(DB_CONNECTION,DB_USER,DB_PASSWORD);
        stat = con.createStatement();
-       String data = "select * from announcement order by announcement_id";
+       String data = "select * from staff where staff_id!='"+namesession+"'";
        res = stat.executeQuery(data);
        while(res.next()){
        %>
        <tr>
-         <td style=" text-align: center; border: solid black 1px;"><%=res.getString("announcement_id")%></td>
-         <td style=" text-align: center; border: solid black 1px;"><%=res.getString("announcement_detail")%></td>
-         <td style=" text-align: center; border: solid black 1px;"><%=res.getString("announcement_date")%></td>
+         <td style=" text-align: center; border: solid black 1px;"><%=res.getString("staff_id")%></td>
+         <td style=" text-align: center; border: solid black 1px;"><%=res.getString("staff_name")%></td>
+         <td style=" text-align: center; border: solid black 1px;"><%=res.getString("staff_role")%></td>
+
+         
 
          <td class="text-center" style=" text-align: center; border: solid black 1px;">
-           <a href='ViewAnnouncement.jsp?u=<%=res.getString("announcement_id")%>' class="btn btn-warning" style= "padding:20px; background-color:#33cc33 ">Edit</a>
-           <a href='DeleteAnnouncement.jsp?d=<%=res.getString("announcement_id")%>' class="btn btn-danger" style= "padding:20px; background-color: #e60000" onclick="ConfirmDelete()" id="id01">Delete</a>
+           <a href='ViewStaff.jsp?u=<%=res.getString("staff_id")%>' class="btn btn-warning" style= "padding:5px; background-color:#33cc33 ">Edit</a>
+           <a href='DeleteStaff.jsp?d=<%=res.getString("staff_id")%>' class="btn btn-danger" style= "padding:5px; background-color: #e60000" onclick="ConfirmDelete()" id="id01">Delete</a>
            
          </td>
         </tr>
@@ -100,7 +104,7 @@
       <h1>Delete Announcement</h1>
       <p>Are you sure you want to delete these announcement?</p>
       
-    
+    	
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>

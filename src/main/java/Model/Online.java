@@ -3,7 +3,7 @@ package Model;
 import Model.Payment;
 
 public class Online extends Payment {
-	private int Payment_ID;
+	private String Payment_ID;
 	private String Bank_Name;
 	
 	public Online() {
@@ -11,10 +11,10 @@ public class Online extends Payment {
 		
 	}
 	
-	public int getPayment_ID() {
+	public String getPayment_ID() {
 		return Payment_ID;
 	}
-	public void setPayment_ID(int payment_ID) {
+	public void setPayment_ID(String payment_ID) {
 		Payment_ID = payment_ID;
 	}
 	public String getBank_Name() {

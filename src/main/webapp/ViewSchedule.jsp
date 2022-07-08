@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 <html>
-<title>Announcement</title>
+<title>Schedule List</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head><link rel="stylesheet" href="style.css"></head>
 
@@ -25,8 +25,6 @@
 <a href="StaffLogin.jsp" class="btn8" style="display:block; font-size:13px;">LOGOUT</a>
 
 </div>
-
-</div>
 <!-- SIDEBAR -->
 
 <!-- TOPBAR -->      
@@ -36,7 +34,7 @@
 
 	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:600px; ">
 	
-	<h2>ANNOUNCEMENT DETAILS</h2>
+	<h2>SCHEDULE DETAILS</h2>
 	
 	<%
 	
@@ -52,7 +50,7 @@
        Class.forName(DB_DRIVER).newInstance();
        conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
        %>
-       <form action="" method="post">
+       <form action="ScheduleServlet" method="post">
        <%
        stat = conn.createStatement();
        String u = request.getParameter("u");
@@ -63,69 +61,64 @@
 		
 		<!-- FILL IN FORM -->
 		
-			<div class="row">
-      			<div class="col-25">
-        		<label for="a_date">ID :</label>
-      			</div>
-      		
-      			<div class="col-75" >
-        		<input type="text" name="Id" placeholder="DD-MM-YYYY" disabled value='<%=res.getString("announcement_id") %>'/>
-        		<input type="hidden" name="Id" placeholder="DD-MM-YYYY"  value='<%=res.getString("announcement_id") %>'/>
-      			</div>
-   			 </div>
-			
     		<div class="row">
       			<div class="col-25">
-        		<label for="a_date">Date :</label>
+        		<label for="a_date">Date</label>
       			</div>
       		
+      		    <input type="hidden"  name="id" value='<%=res.getString("schedule_id") %>'>
+      		
       			<div class="col-75">
-        		<input type="date" id="a_date" name="Date" placeholder="DD-MM-YYYY" value='<%=res.getString("announcement_date") %>'/>
+        		<input type="date" id="a_date" name="date" placeholder="DD-MM-YYYY" value='<%=res.getString("schedule_date") %>'>
       			</div>
    			 </div>
     
     		<div class="row">
       			<div class="col-25">
-        		<label for="details">Details :</label>
+        		<label for="details">Time</label>
       			</div>
       
       			<div class="col-75">
-        		<input id="details" name="Detail" placeholder="Announcement details" style="height:200px; width:82%;" value='<%=res.getString("announcement_detail") %>'/>
+        		<input type="time" id="time" name="time" placeholder="" min="09:00" max="18:00">
       			</div>
     		</div><br>
-    
+    		
     		<div class="row">
+      			<div class="col-25">
+        		<label for="details">Description</label>
+      			</div>
+      
+      			<div class="col-75">
+        		<input type="text" id="details" name="description" placeholder="Announcement details" style="height:200px" value='<%=res.getString("schedule_description") %>'>
+      			</div>
+    		</div><br>
+    		
+			<label for="cars">Choose Availability:</label>
+			  <select name="availability" id="availability" >
+			    <option value="Available">Available</option>
+			    <option value="Fully Booked">Fully Booked</option>
+			  </select>
+			  <br><br>
+			  
+			  <label for="cars">Choose Course:</label>
+			  <select name="course" id="course">
+			    <option value="901">901 - Hajj</option>
+			    <option value="902">902 - Umrah</option>
+			  </select>
+			  <br><br>
+			  
     		 	<%
             }
    			%>
+  				<input type="hidden" name="action" value="updateSchedule" style="margin-left: 10px;">
   				<input type="submit" value="Update" style="margin-left: 10px;">
   				<input type="reset" style="text-align:left;">
+  				</form>
     		</div>
-  		  
- 
-   			
-   			</form>
 		
-	</div>
 		
 </body>
 </html>
 
-   			<%
-   			String a = request.getParameter("Id");
-   			String b = request.getParameter("Date");
-   			String c = request.getParameter("Detail");
-   			if(a!=null && b!=null && c!=null){
-   				String query = "update announcement set announcement_id=?,announcement_date=?,announcement_detail=? where announcement_id='"+a+"'";
-   				stmt = conn.prepareStatement(query);
-   				stmt.setString(1,a);
-   				stmt.setString(2,b);
-   				stmt.setString(3,c);
-;
-   				
-   				stmt.executeUpdate();
-   				response.sendRedirect("AnnouncementList.jsp");
-   			}
-   			%>
    			
    			

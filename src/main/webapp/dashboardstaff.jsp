@@ -10,15 +10,16 @@
 
 
 <!-- SIDEBAR -->
-<div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:auto">
+<!-- SIDEBAR -->
+<div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden;">
 <img class="logo" alt="" src="IHijrahLogo.PNG">
-<h3 style="text-align: center; color: rgb(255, 255, 255);">WELCOME</h3>
-<a href="#" class="btn2" style="display:block;">PAYMENT VERIFICATION </a>
-<a href="#" class="btn4" style="display:block;">CLASS SCHEDULE</a>
-<a href="AnnouncementList.jsp" class="btn5" style="display:block;">ANNOUNCEMENT</a>
-<a href="#" class="btn1" style="display:block;">REPORT</a>
-<a href="#" class="btn6" style="display:block;">ACCOUNT</a>
-<a href="#" class="btn8" style="display:block;">MANAGE STAFF</a>
+<h3 style="text-align: center; color: white; padding-bottom:2em;">WELCOME</h3>
+<a href="VerfiedList.jsp" class="btn2" style="display:block; font-size:13px;">PAYMENT VERIFICATION </a>
+<a href="schedulelist.jsp" class="btn4" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
+<a href="AnnouncementList.jsp" class="btn5" style="display:block; font-size:13px;">ANNOUNCEMENT</a>
+<a href="dashboardstaff.jsp" class="btn6" style="display:block; font-size:13px;">ACCOUNT</a>
+<a href="StaffList.jsp" class="btn8" style="display:block; font-size:13px;">STAFF LIST</a>
+<a href="StaffLogin.jsp" class="btn8" style="display:block; font-size:13px;">LOGOUT</a>
 
 </div>
 <!-- SIDEBAR -->

@@ -48,19 +48,32 @@ public class LoginController extends HttpServlet {private static final long seri
 		    case "loginStaff":
 		        loginStaff(request, response);
 		        break;
-		    /*case "viewStaff":
-		        viewStaff(request, response);
-		        break;*/
-		    case "deleteStaff":
-		        deleteStaff(request, response);
-		        break;
-		    case "updateStaff":
-		        updateStaff(request, response);
-		        break;
-		}}
+		    /*case "logout":
+		    	logout(request, response);
+		    	break;*/
+		    //case "viewStaff":
+		       // viewStaff(request, response);
+		        //break;
+		    //case "deleteStaff":
+		        //deleteStaff(request, response);
+		       // break;
+		    //case "updateStaff":
+		        //updateStaff(request, response);
+		        //break;
+		}
+	}
         
 	
  
+	private void logout(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+		  HttpSession session = request.getSession();
+	        session.removeAttribute("Staff_ID");
+	        session.removeAttribute("Staff_Name");
+	        session.invalidate();
+	        response.sendRedirect("StaffLogin.jsp");
+	}
+
 		// TODO Auto-generated method st
 	
 
@@ -69,11 +82,11 @@ public class LoginController extends HttpServlet {private static final long seri
         response.setContentType("text/html");  
         PrintWriter out = response.getWriter(); 
 		
-		String name = request.getParameter("staffname"); 
-		int phonenumber = Integer.parseInt(request.getParameter("staffphonenumber"));
-		String email = request.getParameter("staffemail");
-		String password = request.getParameter("staffpassword");
-		String role = request.getParameter("staffrole");
+		String name = request.getParameter("name"); 
+		int phonenumber = Integer.parseInt(request.getParameter("number"));
+		int managerid = Integer.parseInt(request.getParameter("manid"));
+		String password = request.getParameter("pass");
+		String role = request.getParameter("role");
 
 		try {
 			
@@ -85,13 +98,15 @@ public class LoginController extends HttpServlet {private static final long seri
 				String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
 
 				conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
-				String data = "insert into staff(staff_name,staff_password,staff_telno,staff_role) values(?,?,?,?)";
+				String data = "insert into staff(staff_name,staff_password,manager_id,staff_telno,staff_role) values(?,?,?,?,?)";
 				stat = conn.prepareStatement(data);
+				
 				stat.setString(1,name);
 				stat.setInt(2,phonenumber);
-				stat.setString(3,email);
+				stat.setInt(3,managerid);
 				stat.setString(4,password);
 				stat.setString(5,role);
+				
 				stat.executeUpdate();
 				response.sendRedirect("StaffLogin.jsp");
 			}
@@ -110,14 +125,76 @@ public class LoginController extends HttpServlet {private static final long seri
 		// TODO Auto-generated method stub
 		
 
-	private void deleteStaff(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		
-	}
+	private void deleteStaff(HttpServletRequest request, HttpServletResponse response) 
+		            throws SQLException, IOException {
+		        String id = request.getParameter("id");
+		        
+				try {
+					
+					Connection conn = null;
+					PreparedStatement stat = null;
+						String DB_DRIVER = "org.postgresql.Driver";
+						String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
+						String DB_USER = "zaiaryvqbpwwcb";	
+						String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
 
-	private void updateStaff(HttpServletRequest request, HttpServletResponse response) {
+						conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+						String data = "DELETE * staff where staff_id '"+id+"'";
+						stat = conn.prepareStatement(data);
+						
+						
+						stat.executeUpdate();
+						response.sendRedirect("dasboardstaff.jsp");
+					}
+					
+					 catch (Exception e){
+				            e.printStackTrace();
+				            
+				        }
+		    }
+	
+
+	private void updateStaff(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException { 
 		// TODO Auto-generated method stub
+        response.setContentType("text/html");  
+        PrintWriter out = response.getWriter(); 
 		
+		String id = request.getParameter("id"); 
+		String name = request.getParameter("name"); 
+		int phonenumber = Integer.parseInt(request.getParameter("number"));
+		int managerid = Integer.parseInt(request.getParameter("manid"));
+		String password = request.getParameter("pass");
+		String role = request.getParameter("role");
+
+		try {
+			
+			Connection conn = null;
+			PreparedStatement stat = null;
+				String DB_DRIVER = "org.postgresql.Driver";
+				String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
+				String DB_USER = "zaiaryvqbpwwcb";	
+				String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+
+				conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+				String data = "UPDATE staff (staff_name=?,staff_password=?,manager_id=?,staff_telno=?,staff_role=? where staff_id=?)";
+				stat = conn.prepareStatement(data);
+				
+				stat.setString(1,name);
+				stat.setInt(2,phonenumber);
+				stat.setInt(3,managerid);
+				stat.setString(4,password);
+				stat.setString(5,role);
+				stat.setString(6,id);
+
+				
+				stat.executeUpdate();
+				response.sendRedirect("dashboardstaff.jsp");
+			}
+			
+			 catch (Exception e){
+		            e.printStackTrace();
+		            
+		        }
 	}
 
 	public void loginStaff(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
