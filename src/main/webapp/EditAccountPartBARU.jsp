@@ -6,32 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head><link rel="stylesheet" href="style.css">
 <style>
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto ;
-  gap: 10px;
-  background-color: #004a80;
-  height: 100%;
-  
-}
-
-.grid-container > div {
-  background-color: #004a80;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
-  height: 100%;
-}
-
-.item1 {
-
-  grid-row-start: 1;
-  grid-row-end: 1;
-}
-.item1 {
-
- height: 250px;
-}
 
 .navbar {
 padding-top:30px;
@@ -148,16 +122,41 @@ padding-top:30px;
 
 
 	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:460px; ">
-		<div class="grid-container">
-  <div class="item1">
-  <p>COURSE REGISTRATION</p><br><br>
-  <button id="myBtn" style="box-shadow: 0 0 30px rgba(0, 0, 0, 0.40);background-color: grey;color:white;position: relative; left:10px; width: 50%;border-color:grey; padding: 10px; border-radius: 10px;">HAJJ COURSE</button><br><br><br><br><br><button id="myBtn" style="background-color: grey;color:white;position: relative; left:10px; width: 50%;border-color:grey;padding: 10px; border-radius: 10px;">UMRAH COURSE</button></div>
+		
+  <p style="font-size:25px;">ACCOUNT </p>
+   <form method="post" action="AccountHandler" >
+		<div class="part">
+			<label>ID</label> 
+			<input type="text" name="partID" style="margin-left:75px;">
+		</div>
+		<br>
+		
+		<div class="part">
+			<label>Name</label> 
+			<input type="text" name="partName" style="margin-left:55px;">
+		</div>
+		<br><br>
+		<div class="part">
+			<label>Email</label> 
+			<input type="text" name="partEmail"style="margin-left:55px;">
+		</div>
+		<br><br>
+		<div class="part">
+			<label>Phone Number</label> 
+			<input type="text" name="partPhone">
+		</div>
+	</form>
+  <button id="myBtn" style="box-shadow: 0 0 30px rgba(0, 0, 0, 0.40);background-color: #e0b012;color:white;position: relative; left:10px; width: 100px;border-color:grey; padding: 10px; border-radius: 10px;">Cancel</button>
+  <button id="myBtn" style="background-color: #e0b012;color:white;position: relative; left:10px; width: 100px;border-color:grey;padding: 10px; border-radius: 10px;margin-left:900px;">Save</button>
+  </div>
             
-  <div class="item2" ><img src="pic1.jpg" style="position: relative; left:10px; width: 100%; height:50%;"></div>
+
  
 </div>
           
+
 	
 </body>
-</html>
 
+
+</html>
