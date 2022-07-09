@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" href="ListStyle.css">
+<title>Verified List</title>
 </head>
 <body>
 
@@ -17,11 +18,16 @@
 <a href="schedulelist.jsp" class="btn4" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
 <a href="AnnouncementList.jsp" class="btn5" style="display:block; font-size:13px;">ANNOUNCEMENT</a>
 <a href="dashboardstaff.jsp" class="btn6" style="display:block; font-size:13px;">ACCOUNT</a>
-<a href="StaffList.jsp" class="btn8" style="display:block; font-size:13px;">STAFF LIST</a>
 <a href="StaffLogin.jsp" class="btn8" style="display:block; font-size:13px;">LOGOUT</a>
 
 </div>
-
+<!-- TOPBAR -->      
+ <div style=" background-color: #102e44; height:100px; color:blue; padding-left:70px; "><img class="user" alt="" src="user.jpg"></div>
+ <div class="container" style="margin: 20px 10px 0px 210px; background-color:lightgrey; height:600px; ">
+		
+    <!-- FILL IN FORM -->
+    <h2>VERIFIED LIST</h2><br><br>
+         <a href=NotVerifiedList.jsp style="margin-left: 200px;">Unverified List</a>
 
 
 <sql:setDataSource var="ic" driver="org.postgresql.Driver"
@@ -32,14 +38,18 @@
     SELECT row_number() over (order by payment_id) "rank",payment_id,payment_date,payment_status from payment where payment_status = 'Verified'
 </sql:query>
 
- <table style="text-align: center;" >
+ 
+ <table class="table table-bordered table-striped table-hover" style="margin-left:20px; width:95%; ">
+<thead style="background-color: >
+   <tr style="color: white">
             <tr>
-                <th  style="width: 80px; height: 50px;">No.</th>
-                <th  style="width:400px;">Payment ID</th>
-                <th  style="width: 300px;">Payment_Date</th>
-                <th  style="width: 450px;">Payment Status</th>
+                <th>No.</th>
+                <th>Payment ID</th>
+                <th>Payment Date</th>
+                <th>Payment Status</th>
 
             </tr>
+             
             <c:forEach var="payment" items="${oc.rows}">
                 <tr>
                    <td>
@@ -60,9 +70,11 @@
 
                 </tr>
             </c:forEach>
+            
+           
         </table>
         
-        <a href=NotVerifiedList.jsp style="margin-left: 200px;">Unverified List</a>
+   
 </body>
 <style>
 td,th{border:1px solid;}
