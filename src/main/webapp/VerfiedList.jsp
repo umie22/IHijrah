@@ -65,7 +65,7 @@
                      <td style=" text-align: center; border: solid black 1px;">
                         <c:out value="${payment.Payment_Date}"/>
                     </td>
- 					<td style=" text-align: center; border: solid black 1px;background-color: #00FF00;">
+ 					<td style=" text-align: center; border: solid black 1px;background-color: #3CB371">
                          <c:out value="${payment.Payment_Status}"/>
                     </td>
  

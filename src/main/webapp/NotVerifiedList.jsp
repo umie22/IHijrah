@@ -37,7 +37,7 @@
 		
 		<!-- FILL IN FORM -->
 		<h2>UNVERIFIED LIST</h2><br><br>
-		<a href=VerifiedList.jsp style="  margin-left:1500px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #00FF00; border-radius: 20px; padding:20px;">Verified List</a>
+		<a href=VerifiedList.jsp style="  margin-left:1500px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #3CB371; border-radius: 20px; padding:20px;">Verified List</a>
 <sql:setDataSource var="ic" driver="org.postgresql.Driver"
                    url="jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0"
                    user = "zaiaryvqbpwwcb"
@@ -54,7 +54,7 @@
                 <th>Payment ID</th>
                 <th>Payment Date</th>
                 <th>Payment Status</th>
-                <th>Action</th>
+               
 
             </tr>
             <tbody style="border: solid black 1px;">

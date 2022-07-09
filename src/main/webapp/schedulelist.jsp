@@ -105,8 +105,8 @@
 
     
      <td class="text-center" style=" text-align: center; border: solid black 1px;">
-        <a href='ViewSchedule.jsp?u=<%=res.getString("schedule_id")%>' class="btn btn-warning" style= "padding:20px; background-color: #4B6FE8;">Edit</a>
-        <a href='DeleteSchedule.jsp?d=<%=res.getString("schedule_id")%>' class="btn btn-danger" style="padding:20px; background-color: #e60000;">Delete</a>
+        <a href='ViewSchedule.jsp?u=<%=res.getString("schedule_id")%>' class="btn btn-warning" style= "padding:20px;border-radius:20px;font-size:15px; background-color: #4B6FE8;">Edit</a>
+        <a href='DeleteSchedule.jsp?d=<%=res.getString("schedule_id")%>' class="btn btn-danger" style="padding:20px;border-radius:20px; font-size:15px;background-color: #e60000;">Delete</a>
       </td>
     </tr>
          <%

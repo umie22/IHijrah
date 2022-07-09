@@ -77,8 +77,8 @@
          <td style=" text-align: center; border: solid black 1px;"><%=res.getString("announcement_date")%></td>
 
          <td class="text-center" style=" text-align: center; border: solid black 1px;">
-           <a href='ViewAnnouncement.jsp?u=<%=res.getString("announcement_id")%>' class="btn btn-warning" style= "padding:20px; background-color:#4B6FE8">Edit</a>
-           <a href='DeleteAnnouncement.jsp?d=<%=res.getString("announcement_id")%>' class="btn btn-danger" style= "padding:20px; background-color: #e60000" onclick="ConfirmDelete()" id="id01">Delete</a>
+           <a href='ViewAnnouncement.jsp?u=<%=res.getString("announcement_id")%>' class="btn btn-warning" style= "padding:20px;border-radius:20px; background-color:#4B6FE8;font-size:15px;">Edit</a>
+           <a href='DeleteAnnouncement.jsp?d=<%=res.getString("announcement_id")%>' class="btn btn-danger" style= "padding:20px;border-radius:20px;font-size:15px; background-color: #e60000" onclick="ConfirmDelete()" id="id01">Delete</a>
            
          </td>
         </tr>
