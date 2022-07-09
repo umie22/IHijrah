@@ -26,8 +26,9 @@
  <div class="container" style="margin: 20px 10px 0px 210px; background-color:lightgrey; height:600px; ">
 		
     <!-- FILL IN FORM -->
-    <h2>VERIFIED LIST</h2><br><br>
-         <a href=NotVerifiedList.jsp style="margin-left: 200px;">Unverified List</a>
+    <h2>VERIFIED LIST</h2><br>
+    
+         <a href=NotVerifiedList.jsp style="  margin-left:1500px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #ff0000; border-radius: 20px; padding:20px;">Unverified List</a>
 
 
 <sql:setDataSource var="ic" driver="org.postgresql.Driver"
@@ -38,30 +39,33 @@
     SELECT row_number() over (order by payment_id) "rank",payment_id,payment_date,payment_status from payment where payment_status = 'Verified'
 </sql:query>
 
- 
- <table class="table table-bordered table-striped table-hover" style="margin-left:20px; width:95%; ">
-<thead style="background-color: >
-   <tr style="color: white">
-            <tr>
-                <th>No.</th>
-                <th>Payment ID</th>
-                <th>Payment Date</th>
-                <th>Payment Status</th>
+ <br><br><br>
+<table class="table table-bordered table-striped table-hover" style="margin-left:20px; width:97%; ">
+   <thead style="background-color: #000000">
+       <tr style="color: white">
+         <th>No.</th>
+         <th>Payment ID</th>
+         <th>Payment Date</th>
+         <th>Payment Status</th>
+         
+         
 
-            </tr>
+        </tr>
+    </thead>
+    <tbody style="border: solid black 1px;">
              
             <c:forEach var="payment" items="${oc.rows}">
                 <tr>
-                   <td>
+                   <td style=" text-align: center; border: solid black 1px;">
                         <c:out value="${payment.rank}"/>
                     </td>
-                     <td>
+                     <td style=" text-align: center; border: solid black 1px;">
                         <c:out value="${payment.Payment_ID}"/>
                     </td>
-                     <td>
+                     <td style=" text-align: center; border: solid black 1px;">
                         <c:out value="${payment.Payment_Date}"/>
                     </td>
- 					<td>
+ 					<td style=" text-align: center; border: solid black 1px;background-color: #00FF00;">
                          <c:out value="${payment.Payment_Status}"/>
                     </td>
  
@@ -76,7 +80,5 @@
         
    
 </body>
-<style>
-td,th{border:1px solid;}
-</style>
+
 </html>
