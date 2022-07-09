@@ -7,7 +7,6 @@
 <title>User</title>
 <style>
 
-
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
