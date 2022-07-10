@@ -5,7 +5,82 @@
 <html>
 <title>Upload Receipt</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<head><link rel="stylesheet" href="style.css"></head>
+<head><link rel="stylesheet" href="style.css">
+<style>
+.navbar {
+padding-top:30px;
+  overflow: hidden;
+  background-color: #102e44;
+}
+
+.navbar a {
+  float: right;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 16px 14px;
+  text-decoration: none;
+  background-color: #102e44;
+  
+}
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 16px 14px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: green;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  background-color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.notification .badge {
+  position: absolute;
+  top: 30px;
+  right: 12px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
+</style>
+</head>
 
 <body>
 
@@ -24,7 +99,25 @@
 <!-- SIDEBAR -->
 
 <!-- TOPBAR -->      
- <div style=" background-color: #102e44; height:100px; color:blue; padding-left:70px; "></div>
+ <div style=" background-color: #102e44; height:100px; color:blue; padding-left:70px; ">
+  <div style=" background-color: #102e44; height:100px; color:blue; padding-left:70px; ">
+ <div class="navbar">
+
+  <div class="dropdown">
+    <button class="dropbtn">Announcement 
+      <i class="fa fa-caret-down">
+      <a href="#" class="notification">
+      <span class="badge">3</span></i></a>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Class is cancelled</a>
+      <a href="#">Class will be held at dataran masjid</a>
+      <a href="#">Class is postponed to 3 p.m</a>
+    </div>
+  </div> 
+</div>
+ 
+ </div></div>
  <!-- TOPBAR -->   
 
 
