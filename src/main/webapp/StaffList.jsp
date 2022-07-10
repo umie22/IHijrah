@@ -101,8 +101,8 @@
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
   <form class="modal-content" action="/action_page.php">
     <div class="modal-container">
-      <h1>Delete Announcement</h1>
-      <p>Are you sure you want to delete these announcement?</p>
+      <h1>Delete Staff</h1>
+      <p>Are you sure you want to delete this Staff</p>
       
     	
       <div class="clearfix">

@@ -6,10 +6,39 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 	<!DOCTYPE html>
 <html>
-<title>Dashboard Page</title>
+<title>Schedule Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head><link rel="stylesheet" href="main.css"></head>
+<head><link rel="stylesheet" href="ListStyle.css"></head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto ;
+  gap: 10px;
+  background-color: #004a80;
+  height: 600px;
+  
+}
+
+.grid-container > div {
+  background-color: #004a80;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+  height: 600px;
+}
+
+.item1 {
+
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+.item1 {
+
+ height: 500px;
+}
+
+</style>
 
 <body>
 
@@ -18,11 +47,10 @@
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden;">
 <img class="logo" alt="" src="IHijrahLogo.PNG">
 <h3 style="text-align: center; color: white; padding-bottom:2em;">WELCOME</h3>
-<a href="VerfiedList.jsp" class="btn2" style="display:block; font-size:13px;">PAYMENT VERIFICATION </a>
-<a href="schedulelist.jsp" class="btn4" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
-<a href="AnnouncementList.jsp" class="btn5" style="display:block; font-size:13px;">ANNOUNCEMENT</a>
-<a href="dashboardstaff.jsp" class="btn6" style="display:block; font-size:13px;">ACCOUNT</a>
-<a href="StaffList.jsp" class="btn8" style="display:block; font-size:13px;">STAFF LIST</a>
+<a href="VerfiedList.jsp" class="btn1" style="display:block; font-size:13px;">PAYMENT VERIFICATION </a>
+<a href="schedulelist.jsp" class="btn2" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
+<a href="AnnouncementList.jsp" class="btn4" style="display:block; font-size:13px;">ANNOUNCEMENT</a>
+<a href="dashboardstaff.jsp" class="btn5" style="display:block; font-size:13px;">ACCOUNT</a>
 <a href="StaffLogin.jsp" class="btn8" style="display:block; font-size:13px;">LOGOUT</a>
 
 </div>
@@ -34,8 +62,7 @@
 		
     <!-- FILL IN FORM -->
     <h2>SCHEDULE</h2><br><br>
-    <a href="CreateSchedule.jsp" style=" display:block; margin-left:20px; margin-right:20px; height:5px; text-align: center; background-color: #353c49">Add Schedule</a>
-    <br><br>
+    
     <!-- FILL IN FORM -->
    <table class="table table-bordered table-striped table-hover" style="margin-left:20px; width:95%; ">
 <thead style="background-color: #000000">
@@ -48,6 +75,7 @@
 
     </tr>
 </thead>
+
 <tbody style="border: solid black 1px;">
 
        <%
@@ -77,8 +105,8 @@
 
     
      <td class="text-center" style=" text-align: center; border: solid black 1px;">
-        <a href='ViewSchedule.jsp?u=<%=res.getString("schedule_id")%>' class="btn btn-warning" style= "padding:20px; background-color: #37fd12;">Edit</a>
-        <a href='DeleteSchedule.jsp?d=<%=res.getString("schedule_id")%>' class="btn btn-danger" style="padding:20px; background-color: #353c49;">Delete</a>
+        <a href='ViewSchedule.jsp?u=<%=res.getString("schedule_id")%>' class="btn btn-warning" style= "padding:20px;border-radius:20px;font-size:15px; background-color: #4B6FE8;">Edit</a>
+        <a href='DeleteSchedule.jsp?d=<%=res.getString("schedule_id")%>' class="btn btn-danger" style="padding:20px;border-radius:20px; font-size:15px;background-color: #e60000;">Delete</a>
       </td>
     </tr>
          <%
@@ -86,7 +114,11 @@
         %>
      
 </tbody>
+
 </table>
+<br><br>
+<a href="CreateSchedule.jsp" style=" margin-left:1150px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #353c49; border-radius: 20px; padding:20px;">Add Schedule</a>
+    <br><br>
 </div>
 
 <div id="id01" class="modal">
@@ -114,5 +146,6 @@ modal.style.display = "none";
 }
 }
 </script>
+
 </body>
 </html>

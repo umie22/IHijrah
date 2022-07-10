@@ -37,8 +37,7 @@
 		
 		<!-- FILL IN FORM -->
 		<h2>ANNOUNCEMENT LIST</h2><br><br>
-		 <a href='CreateAnnouncement.jsp?id= <%session.getAttribute("Staff_ID");%>' style="  margin-left:1150px; margin-right:20px; height:5px; text-align: center; background-color: #3366ff; border-radius: 20px; padding:20px;">Add Announcement</a>
-		<br><br><br><br>
+		
 		<!-- FILL IN FORM -->
 		
 		<%session.getAttribute("Staff_ID");%>
@@ -78,8 +77,8 @@
          <td style=" text-align: center; border: solid black 1px;"><%=res.getString("announcement_date")%></td>
 
          <td class="text-center" style=" text-align: center; border: solid black 1px;">
-           <a href='ViewAnnouncement.jsp?u=<%=res.getString("announcement_id")%>' class="btn btn-warning" style= "padding:20px; background-color:#33cc33 ">Edit</a>
-           <a href='DeleteAnnouncement.jsp?d=<%=res.getString("announcement_id")%>' class="btn btn-danger" style= "padding:20px; background-color: #e60000" onclick="ConfirmDelete()" id="id01">Delete</a>
+           <a href='ViewAnnouncement.jsp?u=<%=res.getString("announcement_id")%>' class="btn btn-warning" style= "padding:20px;border-radius:20px; background-color:#4B6FE8;font-size:15px;">Edit</a>
+           <a href='DeleteAnnouncement.jsp?d=<%=res.getString("announcement_id")%>' class="btn btn-danger" style= "padding:20px;border-radius:20px;font-size:15px; background-color: #e60000" onclick="ConfirmDelete()" id="id01">Delete</a>
            
          </td>
         </tr>
@@ -89,6 +88,9 @@
          
     </tbody>
 </table>
+<br><br>
+ <a href='CreateAnnouncement.jsp?id= <%session.getAttribute("Staff_ID");%>' style="  margin-left:1150px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #353c49; border-radius: 20px; padding:20px;">Add Announcement</a>
+		<br><br>
 	</div>
 	
 	
