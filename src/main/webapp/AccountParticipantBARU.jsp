@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<title>Course Registration</title>
+<title>Account</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head><link rel="stylesheet" href="style.css">
 <style>
@@ -234,7 +234,7 @@ padding-top:30px;
     <p>Are you sure you want to dactivate your account?</p><br><br><br>
     <button id="myBtn" style="background-color: green;color:white;position: relative; right:10px; width: 20%;border-color:green;padding: 10px; border-radius: 10px;margin-left:120px;"a href="proceedRegister.html">Yes</a></button>
   	<button id="myBtn" style="background-color: Red;color:white;position: relative; left:10px; width: 20%;border-color:red;padding: 10px; border-radius: 10px;margin-right:120px;"a href="proceedRegister.html">No</a></button>
-  	
+  
   </div>
     </div>		
 </body>
