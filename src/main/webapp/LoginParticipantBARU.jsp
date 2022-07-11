@@ -101,7 +101,7 @@ span.psw {
   </div>
 </div>
 
-<form action="PLogin" method="post">
+<form action="Login" method="post">
 	<div class="item1">
  <h2 style="text-align:center;">Login</h2>
   <br>
