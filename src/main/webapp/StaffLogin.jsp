@@ -9,9 +9,6 @@
 <style>
 body {
   background: #c9ccd1;
-  background-image:url('https://wallpapercave.com/wp/wp2122124.jpg');
-  background-repeat: no-repeat;
-  
 
 }
 .form-style input {
@@ -59,20 +56,21 @@ h4{
 
 
 </style>
-
   <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
   <div class="container">
   <div class="row m-5 no-gutters shadow-lg">
-
+    <div class="col-md-6 d-none d-md-block">
+      <img src="https://wallpapercave.com/wp/wp2122124.jpg" class="img-fluid" style="min-height:100%;" />
+    </div>
     <div class="col-md-6 bg-white p-5">
-      <h4 class="pb-3" >Staff Login</h4>
+      <h4 class="pb-3" >Login</h4>
       <div class="form-style">
       
       
         <form action ="LoginController" method="post" >
-          <div class="fo	rm-group pb-3">
+          <div class="form-group pb-3">
             <label for="staffid"><b>Staff ID</b></label>
             
             <input type="text" placeholder="Staff Id" class="form-control" id="exampleInputstaffid" name="username">
@@ -83,17 +81,14 @@ h4{
           </div>
          
           <div class="pb-2">
-                   <input type="hidden" name="action" value="loginStaff">
-            <button type= "submit"  name="submit"  style="text-align: center;	margin-left: 120px; width:200px;">Sign in</button>
-            
-            
+            <button type= "submit" value="Submit" width="200px;" style="text-align: center;	margin-left: 120px; width:200px;">Log in</button>
           </div>
         </form>
     
        
         
       </div>
-
+ 
     </div>
   </div>
 </div>

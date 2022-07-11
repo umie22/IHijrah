@@ -17,8 +17,8 @@
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden;">
 <img class="logo" alt="" src="IHijrahLogo.PNG">
 <h3 style="text-align: center; color: white; padding-bottom:2em;">WELCOME</h3>
-<a href="VerifiedList" class="btn2" style="display:block; font-size:13px;">PAYMENT VERIFICATION </a>
-<a href="schedulelist" class="btn4" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
+<a href="VerifiedList.jsp" class="btn2" style="display:block; font-size:13px;">PAYMENT VERIFICATION </a>
+<a href="schedulelist.jsp" class="btn4" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
 <a href="AnnouncementList.jsp" class="btn5" style="display:block; font-size:13px;">ANNOUNCEMENT</a>
 <a href="dashboardstaff.jsp" class="btn6" style="display:block; font-size:13px;">ACCOUNT</a>
 <a href="StaffLogin.jsp" class="btn8" style="display:block; font-size:13px;">LOGOUT</a>
@@ -89,7 +89,7 @@
     </tbody>
 </table>
 <br><br>
- <a href='CreateAnnouncement.jsp?id= <%session.getAttribute("Staff_ID");%>' style="  margin-left:1150px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #353c49; border-radius: 20px; padding:20px;">Add Announcement</a>
+ <a href='CreateAnnouncement.jsp?id= <%session.getAttribute("Staff_ID");%>' style="  margin-left:1450px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #353c49; border-radius: 20px; padding:20px;">Add Announcement</a>
 		<br><br>
 	</div>
 	

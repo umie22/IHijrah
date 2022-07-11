@@ -100,7 +100,7 @@ if(b!=null && c!=null){
 	stat.setString(3,id);
 
 	stat.executeUpdate();
-	response.sendRedirect("AnnouncementList.jsp");
+	response.sendRedirect("SAAnnouncementList.jsp");
 }
 
 

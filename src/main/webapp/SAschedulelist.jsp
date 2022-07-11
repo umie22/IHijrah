@@ -119,7 +119,7 @@
 
 </table>
 <br><br>
-<a href="CreateSchedule.jsp" style=" margin-left:1150px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #353c49; border-radius: 20px; padding:20px;">Add Schedule</a>
+<a href="SACreateSchedule.jsp" style=" margin-left:1150px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #353c49; border-radius: 20px; padding:20px;">Add Schedule</a>
     <br><br>
 </div>
 

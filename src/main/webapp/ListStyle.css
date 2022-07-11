@@ -175,12 +175,19 @@ hr {
   font-weight: bold;
   color: #f1f1f1;
 }
+.col-75{
+	border: 1px solid;
+}
 
 .close:hover,
 .close:focus {
   color: #f44336;
   cursor: pointer;
 }
+.col-25{
+	border:2px solid black;
+}
+
 
 /* Clear floats */
 .clearfix::after {

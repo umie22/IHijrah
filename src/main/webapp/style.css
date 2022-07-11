@@ -55,6 +55,7 @@ form
   border: 1px solid black;
   border-radius:25px;
   padding:20px;
+  height: 100%;
   vertical-align:center;
   background-color: lightgrey;
   margin-bottom: 50px;

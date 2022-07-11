@@ -8,9 +8,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
-<title>Announcement List</title>
+<title>Schedule List</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<head><link rel="stylesheet" href="main.css"></head>
+<head><link rel="stylesheet" href="style.css"></head>
 
 <body>
 
@@ -37,53 +37,53 @@
  
  
 
-	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:600px; ">
+	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#ffffff; height:800px; ">
 	
-	<h2>SCHEDULE DETAILS</h2>
+	<h1 style=text-align:center;>SCHEDULE DETAILS</h1>
 		
 		<!-- FILL IN FORM -->
 		<form action="ScheduleServlet" method="post">
 		
 
-			
-    		<div class="row">
-      			<div class="col-25">
+			<div class="form";font-size:30px;height:200px;>
+    		<div class="row"style=;>
+      			<div class="col-25" style=margin-left:50px;padding-top:30px;>
         		<label for="a_date">Date</label>
       			</div>
       		
-      			<div class="col-75">
+      			<div class="col-75"style=padding:15px;margin-left:30px;border-style: solid; >
         		<input type="date" id="a_date" name="date" placeholder="DD-MM-YYYY">
       			</div>
    			 </div>
     
     		<div class="row">
-      			<div class="col-25">
+      			<div class="col-25"style=margin-left:50px;>
         		<label for="details">Time</label>
       			</div>
       
-      			<div class="col-75">
+      			<div class="col-75"style=padding:15px;margin-left:30px;>
         		<input type="time" id="time" name="time" placeholder="" min="09:00" max="18:00">
       			</div>
     		</div><br>
     		
     		<div class="row">
-      			<div class="col-25">
+      			<div class="col-25"style=margin-left:50px;>
         		<label for="details">Description</label>
       			</div>
       
-      			<div class="col-75">
-        		<input type="text" id="details" name="description" placeholder="Announcement details" style="height:200px">
+      			<div class="col-75"style=padding:15px;margin-left:30px;>
+        		<input type="text" id="details" name="description" placeholder="Schedule details" style="height:200px">
       			</div>
     		</div><br>
     		
-			<label for="cars">Choose Availability:</label>
+			<label for="cars"style=padding:15px;margin-left:30px;>Choose Availability:</label>
 			  <select name="availability" id="availability">
 			    <option value="Available">Available</option>
 			    <option value="Fully Booked">Fully Booked</option>
 			  </select>
 			  <br><br>
 			  
-			  <label for="cars">Choose Course:</label>
+			  <label for="cars"style=padding:15px;margin-left:30px;>Choose Course:</label>
 			  <select name="course" id="course">
 			    <option value="901">901 - Hajj</option>
 			    <option value="902">902 - Umrah</option>
@@ -92,10 +92,12 @@
     
     		<div class="row">
     		  	<input type="hidden" value="AddSchedule" name="action" style="margin-left:20px;">	
-  				<input type="submit" style="margin-left:20px;">	
+  				<input type="submit" style="margin-left:50px;">	
   				<input type="reset" style="text-align:left; ">
+  				</div>
     		</div>
   		</form>
+  		
 		<!-- FILL IN FORM --> 
 		
 	</div>
