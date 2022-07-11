@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/Login")
+@WebServlet("/PLogin")
 public class PLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -24,6 +24,8 @@ public class PLogin extends HttpServlet {
     }	
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+     doPost(request, response);
+    
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -55,7 +57,7 @@ public class PLogin extends HttpServlet {
 
       String email = request.getParameter("participant_email");
       String password = request.getParameter("participant_password");
-
+      
       try {
           Class.forName("org.postgresql.Driver");
     	  String dbURL = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0";
@@ -77,7 +79,7 @@ public class PLogin extends HttpServlet {
           	          session.setAttribute("participant_email", res.getString(4));
           	          session.setAttribute("participat_password",res.getString(2));
        	     
-          	        response.sendRedirect("LoginParticipantBARU.jsp");
+          	        response.sendRedirect("AccountParticipantBARU.jsp");
 
 
                   }
@@ -102,7 +104,7 @@ public class PLogin extends HttpServlet {
 	        session.removeAttribute("participant_email");
 	        session.removeAttribute("participant_password");
 	        session.invalidate();
-	        response.sendRedirect("PartSignUp.jsp");
+	        response.sendRedirect("SignupParticipantBARU.jsp");
 	}
 
 }
