@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <!DOCTYPE html>
 <html>
 <title>Account</title>
@@ -189,7 +190,6 @@ padding-top:30px;
 <% Object name = session.getAttribute("participant_name"); 
 	Object email = session.getAttribute("participant_email");
 	Object phone = session.getAttribute("participant_phoneno");
-	Object password = session.getAttribute("participat_password");
 	Object status = session.getAttribute("registration_status");%>
 	
 	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:600px; ">

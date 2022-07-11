@@ -32,7 +32,7 @@ public class AccountServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	
@@ -100,12 +100,12 @@ public class AccountServlet extends HttpServlet {
             throws SQLException, IOException {
         String participant_id = request.getParameter("participant");
         ad.deleteAcc(participant_id);
-        response.sendRedirect("index.jsp");
+        response.sendRedirect(" ");
     }
     
     private void cancel(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        response.sendRedirect("PartAccount.jsp");
+        response.sendRedirect("AccountParticipantBARU.jsp");
     }
 
 }

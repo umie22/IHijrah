@@ -165,7 +165,6 @@ padding-top:30px;
             <th>No.</th>
             <th>Date</th>
             <th>Description</th>
-            <th>Availability</th>
         </tr>
     </thead>
     <tbody>
@@ -180,9 +179,7 @@ padding-top:30px;
                     <td class="detail">
                         <c:out value="${result.announcement_detail}"/>
                     </td>
-                    <td class="date">
-                        <c:out value="${result.announcement_availability}"/>
-                    </td>
+                    
                 </tr>
             </c:forEach>
     </tbody>

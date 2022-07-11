@@ -24,6 +24,8 @@ public class PLogin extends HttpServlet {
     }	
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+     doPost(request, response);
+    
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -55,7 +57,7 @@ public class PLogin extends HttpServlet {
 
       String email = request.getParameter("participant_email");
       String password = request.getParameter("participant_password");
-
+      
       try {
           Class.forName("org.postgresql.Driver");
     	  String dbURL = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0";
@@ -102,7 +104,7 @@ public class PLogin extends HttpServlet {
 	        session.removeAttribute("participant_email");
 	        session.removeAttribute("participant_password");
 	        session.invalidate();
-	        response.sendRedirect("PartSignUp.jsp");
+	        response.sendRedirect("SignupParticipantBARU.jsp");
 	}
 
 }
