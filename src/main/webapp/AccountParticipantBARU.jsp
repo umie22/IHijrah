@@ -189,7 +189,8 @@ padding-top:30px;
 <% Object name = session.getAttribute("participant_name"); 
 	Object email = session.getAttribute("participant_email");
 	Object phone = session.getAttribute("participant_phoneno");
-	Object password = session.getAttribute("participat_password");%>
+	Object password = session.getAttribute("participat_password");
+	Object status = session.getAttribute("registration_status");%>
 	
 	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:600px; ">
 		
@@ -215,21 +216,24 @@ padding-top:30px;
 		<br><br>
 		<div class="part">
 			<label>Status</label> 
-			<input type="text" name="status" style="margin-left:55px;">
+			<input type="text" name="status" style="margin-left:55px;" value= <%=status%>>
 		</div>
 	</form>
-	
-  <button id="myBtn" style="box-shadow: 0 0 30px rgba(0, 0, 0, 0.40);background-color: #e0b012;color:white;position: relative; left:10px; width: 100px;border-color:grey; padding: 10px; border-radius: 10px;">Log Out</button>
-  <button id="myBtn" style="background-color: #e0b012;color:white;position: relative; left:10px; width: 100px;border-color:grey;padding: 10px; border-radius: 10px;margin-left:850px;">Edit Profile</button>
+
+  			<input type="hidden" name="action" value="logout" >
+			<button type="submit" id="myBtn" style="box-shadow: 0 0 30px rgba(0, 0, 0, 0.40);background-color: #e0b012;color:white;position: relative; left:10px; width: 100px;border-color:grey; padding: 10px; border-radius: 10px;">Log Out</button>
+			
+			<input type="hidden" name="action" value="updateAcc" >
+			<button type="submit" id="myBtn" style="background-color: #e0b012;color:white;position: relative; left:10px; width: 100px;border-color:grey;padding: 10px; border-radius: 10px;margin-left:850px;">Edit Profile</button>
+
   </div>
             
 
  
-</div>
           
 <div id="id02" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate" action="deleteAcc" method="post">
     
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
      <div class="modal-content">
@@ -240,6 +244,7 @@ padding-top:30px;
   	<button id="myBtn" style="background-color: Red;color:white;position: relative; left:10px; width: 20%;border-color:red;padding: 10px; border-radius: 10px;margin-right:120px;"a href="proceedRegister.html">No</a></button>
   
   </div>
+  </form>
     </div>		
 </body>
 
