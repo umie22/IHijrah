@@ -120,12 +120,12 @@ padding-top:30px;
  <!-- TOPBAR -->   
 
 
-	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:460px; ">
+	<div class="container" enctype="multipart/form-data" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:460px; " method="post" action="addPayment">
 		<h2 style="float: left; margin-top: 5em;margin-bottom: 2em;">HAJJ COURSE</h2>
 		
             <p style="background-color: lightgrey; width:50%; border: 5px solid black; padding-top: 2em; padding: 250px 75px; margin-left: 20em; ">Please upload your payment receipt here:<br><br>
             
-            <input style="position: relative; left:10em; top:2px; width: 20%;" type="file" id="myFile" name="filename"><br>
+            <input style="position: relative; left:10em; top:2px; width: 20%;" type="file" id="myFile" name="filename" accept="immage/pdf"><br>
             <br><br><br><br><br>
             <button onclick="myFunction()" style="background-color: #e0b012;color:white;position: relative; left:10px; width: 40%;border-color:grey;padding: 10px; border-radius: 10px;margin-left:70%;">Register Now</button>
             </p>
