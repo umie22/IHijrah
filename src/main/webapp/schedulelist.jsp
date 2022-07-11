@@ -17,7 +17,7 @@
 <a href="AnnouncementList.jsp" class="btn5" style="display:block;">ANNOUNCEMENT</a>
 <a href="#" class="btn1" style="display:block;">REPORT</a>
 <a href="#" class="btn6" style="display:block;">ACCOUNT</a>
-<a href="#" class="btn8" style="display:block;">REGISTER STAFF</a>
+<a href="#" class="btn8" style="display:block;">REGISTER STAFF </a>
 
 </div>
 <!-- SIDEBAR -->
