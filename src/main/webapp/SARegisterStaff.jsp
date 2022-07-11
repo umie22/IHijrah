@@ -69,5 +69,5 @@
 
 <br><br>
 
-<a style= "padding:20px;border-radius:20px;font-size:15px; background-color: #4B6FE8; margin-left:1300px;">Submit</a>
-        <a style="padding:20px;border-radius:20px; font-size:15px;background-color: #e60000;">Reset</a>
+<a href='CreateAnnouncement.jsp?id= <%session.getAttribute("Staff_ID");%>' style= "padding:20px;border-radius:20px;font-size:15px; background-color: #4B6FE8; margin-left:1300px;">Submit</a>
+<a href='CreateAnnouncement.jsp?id= <%session.getAttribute("Staff_ID");%>' style="padding:20px;border-radius:20px; font-size:15px;background-color: #e60000;">Reset</a>
