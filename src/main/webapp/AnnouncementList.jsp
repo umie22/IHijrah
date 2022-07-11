@@ -21,6 +21,7 @@
 <a href="schedulelist" class="btn4" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
 <a href="AnnouncementList.jsp" class="btn5" style="display:block; font-size:13px;">ANNOUNCEMENT</a>
 <a href="dashboardstaff.jsp" class="btn6" style="display:block; font-size:13px;">ACCOUNT</a>
+<a href="StaffList.jsp" class="btn8" style="display:block; font-size:13px;">STAFF LIST</a>
 <a href="StaffLogin.jsp" class="btn8" style="display:block; font-size:13px;">LOGOUT</a>
 
 </div>
@@ -131,3 +132,4 @@ function ConfirmDelete()
 </script>
 </body>
 </html>
+

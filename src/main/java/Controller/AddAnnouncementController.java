@@ -38,6 +38,7 @@ public class AddAnnouncementController extends HttpServlet {
 		// TODO Auto-generated method stub
 		Announcement announ =new Announcement();
 			
+		announ.setAnnouncement_ID(Integer.parseInt(request.getParameter("Id")));
 		announ.setAnnouncement_Detail(request.getParameter("Detail"));
 		announ.setAnnouncement_Date(request.getParameter("Date"));
 

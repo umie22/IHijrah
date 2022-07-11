@@ -1,27 +1,25 @@
 @charset "ISO-8859-1";
+
 body{
-	margin: 0;
-	padding: 0;
+	padding:0; 
+	margin:0;
 }
+
 .container{
-	 	height: 500px;
+	 	height: 100%;
 	 	overflow: hidden;
         background-color: black;/* For browsers that do not support gradients */
 }
 
 a.btn1,a.btn2,a.btn3,a.btn4,a.btn5,a.btn6,a.btn7,a.btn8{
-	height:5px;
+	height:2px;
 	text-align: center;
-	font-size:50px;
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 }
 
-h2{
-	text-align:center;
-	padding-top:2em;
-}
+
 
 a:link{
+  background-color: #353c49;
   color: white;
   padding: 40px 25px;
   text-align: center;
@@ -36,7 +34,6 @@ a:hover, a:active {
 a{
 	color:white;
 }
-
 
 .logo{
 	display: block;
@@ -112,7 +109,12 @@ input[type=submit]:hover {
 input[type=reset]:hover {
   background-color: #45a049;
 }
-
+.container {
+  border-radius: 5px;
+  margin-left:25px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
 
 .col-25 {
   float: left;

@@ -1,10 +1,7 @@
-<%@page import="java.sql.ResultSet" %>
-<%@page import="java.sql.Statement" %>
 <%@page import="java.sql.DriverManager" %>
 <%@page import="java.sql.PreparedStatement" %>
 <%@page import="java.sql.Connection" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-
 <!DOCTYPE html>
 <html>
 <title>Announcement</title>
@@ -36,31 +33,9 @@
 	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:600px; ">
 	
 	<h2>ANNOUNCEMENT DETAILS</h2>
-	
-	<%
-	
-		String DB_DRIVER = "org.postgresql.Driver";
-	   	String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-	   	String DB_USER = "zaiaryvqbpwwcb";	
-	   	String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
-
-       Connection conn = null;
-       Statement stat = null;
-       ResultSet res = null;
-       PreparedStatement stmt = null;
-       Class.forName(DB_DRIVER).newInstance();
-       conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
-       %>
-       <form action="" method="post">
-       <%
-       stat = conn.createStatement();
-       String u = request.getParameter("u");
-       String data = "select * from announcement where announcement_id='"+u+"'";
-       res = stat.executeQuery(data);
-       while(res.next()){
-       %>
 		
 		<!-- FILL IN FORM -->
+		<form action="" method="post">
 		
 			<div class="row">
       			<div class="col-25">
@@ -68,7 +43,7 @@
       			</div>
       		
       			<div class="col-75" >
-        		<input type="text" id="a_id" name="Id" value='<%=res.getString("announcement_id") %>'/>
+        		<input type="text" id="a_id" name="Id">
       			</div>
    			 </div>
 			
@@ -78,7 +53,7 @@
       			</div>
       		
       			<div class="col-75">
-        		<input type="date" id="a_date" name="Date" placeholder="DD-MM-YYYY" value='<%=res.getString("announcement_date") %>'/>
+        		<input type="date" id="a_date" name="Date" placeholder="DD-MM-YYYY">
       			</div>
    			 </div>
     
@@ -88,42 +63,45 @@
       			</div>
       
       			<div class="col-75">
-        		<input id="details" name="Detail" placeholder="Announcement details" style="height:200px" value='<%=res.getString("announcement_detail") %>'/>
+        		<textarea id="details" name="Detail" placeholder="Announcement details" style="height:200px"></textarea>
       			</div>
     		</div><br>
     
     		<div class="row">
-    		 	<%
-            }
-   			%>
-  				<input type="submit">
-  				<input type="reset" style="text-align:left;">
+  				<input type="submit" style="margin-left:20px;">	
+  				<input type="reset" style="text-align:left; ">
     		</div>
-  		  
- 
-   			
-   			</form>
+  		</form>
+		<!-- FILL IN FORM --> 
 		
 	</div>
 		
 </body>
 </html>
+<%
+String a =request.getParameter("Id");
+String b = r
+Connection conn = null;
+PreparedStatement stat = null;
+Class.forName(DB_DRIVER).newInstance();equest.getParameter("Date");
+String c = request.getParameter("Detail");
 
-   			<%
-   			String a = request.getParameter("Id");
-   			String b = request.getParameter("Date");
-   			String c = request.getParameter("Detail");
-   			if(a!=null && b!=null && c!=null){
-   				String query = "update announcement set announcement_id=?,announcement_date=?,announcement_detail=? where announcement_id='"+a+"'";
-   				stmt = conn.prepareStatement(query);
-   				stmt.setString(1,a);
-   				stmt.setString(2,b);
-   				stmt.setString(3,c);
-;
-   				
-   				stmt.executeUpdate();
-   				response.sendRedirect("AnnouncementList.jsp");
-   			}
-   			%>
-   			
-   			
+String DB_DRIVER = "org.postgresql.Driver";
+	String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
+	String DB_USER = "zaiaryvqbpwwcb";	
+	String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+
+if(a!=null && b!=null && c!=null){
+	conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+	String data = "insert into announcement(announcement_id,announcement_date,announcement_detail) values(?,?,?)";
+	stat = conn.prepareStatement(data);
+	stat.setString(1,a);
+	stat.setString(2,b);
+	stat.setString(3,c);
+	stat.executeUpdate();
+	response.sendRedirect("AnnouncementList.jsp");
+}
+
+
+
+%>

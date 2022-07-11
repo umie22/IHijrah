@@ -9,6 +9,9 @@
 <style>
 body {
   background: #c9ccd1;
+  background-image:url('https://wallpapercave.com/wp/wp2122124.jpg');
+  background-repeat: no-repeat;
+  
 
 }
 .form-style input {
@@ -62,16 +65,14 @@ h4{
 </head>
   <div class="container">
   <div class="row m-5 no-gutters shadow-lg">
-    <div class="col-md-6 d-none d-md-block">
-      <img src="https://wallpapercave.com/wp/wp2122124.jpg" class="img-fluid" style="min-height:100%;" />
-    </div>
+
     <div class="col-md-6 bg-white p-5">
-      <h4 class="pb-3" >Login</h4>
+      <h4 class="pb-3" >Staff Login</h4>
       <div class="form-style">
       
       
         <form action ="LoginController" method="post" >
-          <div class="form-group pb-3">
+          <div class="fo	rm-group pb-3">
             <label for="staffid"><b>Staff ID</b></label>
             
             <input type="text" placeholder="Staff Id" class="form-control" id="exampleInputstaffid" name="username">
