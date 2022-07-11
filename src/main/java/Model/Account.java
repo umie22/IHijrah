@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Account implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	public int partID;
+	public String partID;
 	public String partName;
 	public String partEmail;
 	public String partPhone;
@@ -15,13 +15,19 @@ public class Account implements Serializable {
 		
 	}
 
-	public int getPartID() {
+	
+
+	public String getPartID() {
 		return partID;
 	}
 
-	public void setPartID(int partID) {
+
+
+	public void setPartID(String partID) {
 		this.partID = partID;
 	}
+
+
 
 	public String getPartName() {
 		return partName;

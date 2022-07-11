@@ -120,11 +120,10 @@ padding-top:30px;
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden">
 <img class="logo" alt="" src="IHijrahLogo.PNG">
 <h3 style="text-align: center; color: white;">WELCOME</h3>
-<a href="#" class="btn1" style="display:block; padding:35px;">DASHBOARD</a>
-<a href="#" class="btn2" style="display:block;padding:35px;">REGISTER COURSE</a>
-<a href="#" class="btn4" style="display:block;padding:35px;">CLASS SCHEDULE</a>
-<a href="#" class="btn5" style="display:block;padding:35px;">ANNOUNCEMENT</a>
-<a href="#" class="btn6" style="display:block;padding:35px;">ACCOUNT</a>
+<a href="" class="btn2" style="display:block;padding:42px;">REGISTER COURSE</a>
+<a href="SchedulePartBaru.jsp" class="btn4" style="display:block;padding:42px;">CLASS SCHEDULE</a>
+<a href="AccountParticipantBARU.jsp" class="btn6" style="display:block;padding:42px;">ACCOUNT</a>
+<a href="#" class="btn8" style="display:block;padding:42px;">LOGOUT</a>
 <a href="#" class="btn8" style="display:block;padding:35px;">LOGOUT</a>
 
 </div>
@@ -137,7 +136,7 @@ padding-top:30px;
   <div class="dropdown">
     <button class="dropbtn">Announcement 
       <i class="fa fa-caret-down">
-      <a href="#" class="notification">
+      <a href="PartAnnouncement.jsp" class="notification">
       <span class="badge">3</span></i></a>
     </button>
     <div class="dropdown-content">

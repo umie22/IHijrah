@@ -41,7 +41,7 @@ public class AccountServlet extends HttpServlet {
         try {
             switch (action) {
                 case "addAcc":
-                    addAcc(request, response);
+                	addAcc(request, response);
                     break;
                 case "updateAcc":
                     updateAcc(request,response);
@@ -75,7 +75,7 @@ public class AccountServlet extends HttpServlet {
         
 
         ad.addAcc(a);
-        response.sendRedirect("AccountParticipantBARU.jsp");
+        response.sendRedirect("SignupParticipantBARU.jsp");
 	}
 	
     private void updateAcc(HttpServletRequest request, HttpServletResponse response)
@@ -100,7 +100,8 @@ public class AccountServlet extends HttpServlet {
             throws SQLException, IOException {
         String participant_id = request.getParameter("participant");
         ad.deleteAcc(participant_id);
-        response.sendRedirect(" ");
+        response.sendRedirect(" "
+        		+ "");
     }
     
     private void cancel(HttpServletRequest request, HttpServletResponse response)

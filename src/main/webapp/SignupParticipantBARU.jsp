@@ -104,22 +104,22 @@ span.psw {
   <div class="container">
   <div>
   <label for="name" style="font-size:20px;"><b>Full Name</b></label>
-    <input type="text" placeholder="Enter full name" name="name" required>
+    <input type="text" placeholder="Enter full name" name="partName" required>
   </div>
 <br>
 <div>
-	<label for="PhoneNo" style="font-size:20px;"><b>Phone Number</b></label>
-    <input type="text" placeholder="Enter Phone Number" name="PhoneNo" required>
+	<label for="PhoneNo" style="font-size:20px;"><b>Email</b></label>
+    <input type="text" placeholder="Enter Phone Number" name="partEmail" required>
 </div>
 <br>
 <div>
-    <label for="uname" style="font-size:20px;"><b>Email</b></label>
-    <input type="text" placeholder="Enter email" name="uname" required>
+    <label for="uname" style="font-size:20px;"><b>Phone Number</b></label>
+    <input type="text" placeholder="Enter email" name="partPhone" required>
 </div>
 <br>
 <div>
 	<label for="psw" style="font-size:20px;"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="partPass" required>
 </div>
 <br>
 <div>

@@ -29,7 +29,7 @@ public class PLogin extends HttpServlet {
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+	
 		response.setContentType("text/html");
 		
 		  String action = request.getParameter("action");
