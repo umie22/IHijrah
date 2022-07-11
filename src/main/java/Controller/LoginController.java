@@ -20,7 +20,8 @@ import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 
-import Model.Staff;
+
+import Dao.LoginDAO;
 
 /**
  * Servlet implementation class LoginController
@@ -200,12 +201,12 @@ public class LoginController extends HttpServlet {private static final long seri
 		        }
 	}
 
-	public void loginStaff(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  
-	      
+	public void loginStaff(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+		
 		HttpSession session = request.getSession();
         response.setContentType("text/html");  
         StringWriter sWriter = new StringWriter();  
-        PrintWriter out = new PrintWriter(sWriter);  
+        PrintWriter out = new PrintWriter(sWriter);   
         
         
               
@@ -225,14 +226,11 @@ public class LoginController extends HttpServlet {private static final long seri
             
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sql);
-        
-        
+
         while (rs.next()) {
        if(n.equals(rs.getString("staff_id")) && (p.equals(rs.getString("staff_password"))))
        {
 
-    	   
-  
     	    
         	session.setAttribute("Staff_ID",rs.getString(1));
         	session.setAttribute("Staff_Name",rs.getString(2));
@@ -259,6 +257,7 @@ public class LoginController extends HttpServlet {private static final long seri
         }        	
 
 	}
+
 }
 
  

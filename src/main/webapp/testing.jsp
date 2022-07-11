@@ -7,12 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Course ID:
-
-
-Course Type:
-
-
-
+testing lab exercise isp551
 </body>
 </html>
