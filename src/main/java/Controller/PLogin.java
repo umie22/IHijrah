@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/Login")
+@WebServlet("/PLogin")
 public class PLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -77,7 +77,7 @@ public class PLogin extends HttpServlet {
           	          session.setAttribute("participant_email", res.getString(4));
           	          session.setAttribute("participat_password",res.getString(2));
        	     
-          	        response.sendRedirect("LoginParticipantBARU.jsp");
+          	        response.sendRedirect("AccountParticipantBARU.jsp");
 
 
                   }
