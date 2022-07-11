@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <!DOCTYPE html>
 <html>
 <title>Schedule</title>
@@ -148,13 +150,19 @@ padding-top:30px;
  </div>
  <!-- TOPBAR -->   
 
-
+<sql:setDataSource var="ic" driver="org.postgresql.Driver"
+                   url="jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0"
+                   user = "zaiaryvqbpwwcb"
+                   password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
+<sql:query dataSource="${ic}" var="oc">
+    SELECT row_number() over () "rank",schedule_date,schedule_time,schedule_description,schedule_availability from schedule
+</sql:query>
 	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:460px; ">
 	<p style="float: left; font-size: 30px;">SCHEDULE</p><br><br><br><br><br><br><br><br><br>
 	<table class="styled-table"  style="position: relative; right:-5px; width:99%">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>No.</th>
             <th>Date</th>
             <th>Time</th>
             <th>Description</th>
@@ -162,29 +170,25 @@ padding-top:30px;
         </tr>
     </thead>
     <tbody>
-        <tr>
-          <td style="text-align: center;">1.</td>
-          <td style="text-align: center;"></td>
-          <td style="text-align: center;"></td>
-          <td>Session 1<br>Penerangan Ringkas Ibadat Haji & Umrah - Falsafah & Penyucian Jiwa</td>
-          <td style="text-align: center;"></td>
-        </tr>
-       <tr>
-          <td style="text-align: center;">2.</td>
-          <td style="text-align: center;"></td>
-          <td style="text-align: center;"></td>
-          <td>Session 1<br>Penerangan Ringkas Ibadat Haji & Umrah - Falsafah & Penyucian Jiwa</td>
-          <td style="text-align: center;"></td>
-        </tr>
-       
-        <tr>
-         <td style="text-align: center;">3.</td>
-          <td style="text-align: center;"></td>
-          <td style="text-align: center;"></td>
-          <td>Session 3<br>Pengenalan Haji & Umrah</td>
-          <td style="text-align: center;"></td>
-          </tr>
-        <!-- and so on... -->
+            <c:forEach var="result" items="${oc.rows}">
+                <tr>
+                    <td class="no">
+                        <c:out value="${result.rank}"/>
+                    </td>
+                    <td class="date">
+                        <c:out value="${result.schedule_date}"/>
+                    </td>
+                    <td class="time">
+                        <c:out value="${result.schedule_time}"/>
+                    </td>
+                    <td class="description">
+                        <c:out value="${result.schedule_description}"/>
+                    </td>
+                    <td class="description">
+                        <c:out value="${result.schedule_availability}"/>
+                    </td>
+                </tr>
+            </c:forEach>
     </tbody>
 </table>
 </div>	

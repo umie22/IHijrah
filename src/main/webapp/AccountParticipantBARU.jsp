@@ -186,27 +186,31 @@ padding-top:30px;
  </div>
  <!-- TOPBAR -->   
 
-
+<% Object name = session.getAttribute("participant_name"); 
+	Object email = session.getAttribute("participant_email");
+	Object phone = session.getAttribute("participant_phoneno");
+	Object password = session.getAttribute("participat_password");%>
+	
 	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:600px; ">
 		
   <p style="font-size:25px;">ACCOUNT
   <button onclick="document.getElementById('id02').style.display='block'" id="myBtn" style="box-shadow: 0 0 30px rgba(0, 0, 0, 0.40);margin-left:950px;background-color: red;color:white;position: relative; left:10px; width: 100px;border-color:grey; padding: 10px; border-radius: 10px;">Deactivate Account</button>
  </p>
-   <form method="post" action="AccountHandler" >
+   <form method="post" action="AccounServlet" >
 		
 		<div class="part">
 			<label>Name</label> 
-			<input type="text" name="partName" style="margin-left:55px;">
+			<input type="text" name="partName" style="margin-left:55px;" value=<%=name%>>
 		</div>
 		<br><br>
 		<div class="part">
 			<label>Email</label> 
-			<input type="text" name="partEmail"style="margin-left:55px;">
+			<input type="text" name="partEmail"style="margin-left:55px;" value=<%=email%>>
 		</div>
 		<br><br>
 		<div class="part">
 			<label>Phone Number</label> 
-			<input type="text" name="partPhone">
+			<input type="text" name="partPhone" value=<%=phone%>>
 		</div>
 		<br><br>
 		<div class="part">

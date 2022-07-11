@@ -95,26 +95,35 @@ span.psw {
 <div class="grid-container">
 
  <div class="item1">
-<form action="/action_page.php" method="post">
-  <div class="imgcontainer">
+
+ 	<div class="imgcontainer">
     <img src="pic4.jpg" style="width:80%;height:500px;">
   </div>
 </div>
-<div class="item1">
+
+<form action="PLogin" method="post">
+	<div class="item1">
  <h2 style="text-align:center;">Login</h2>
-  <div class="container">
-    <label for="uname"><b>Email</b></label>
-    <input type="text" placeholder="Enter email" name="uname" required>
-<br><br>
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-       <br><br><br><br> 
-    <button type="submit">Login</button>
-    
-  </div>
+  <br>
+  		<div class="partL">
+			<label><b>Email</b></label> 
+			<input type="text" name="participant_email" required>
+		</div>
+		<br><br>
+		<div class="partL">
+			<label><b>Password</b></label> 
+			<input type="password" name="participant_password" required>
+		</div>
+		<br><br><br><br>
+		<div>
+			<input type="hidden" name="action" value="login" >
+			<button type="submit">LOGIN</button>
+		</div>
 </div>
- 
 </form>
+
   </div>
 </body>
 </html>
+
+    

@@ -94,28 +94,40 @@ span.psw {
 <div class="grid-container">
 
  <div class="item1">
-<form action="/action_page.php" method="post">
+<form action="AccountServlet" method="post">
   <div class="imgcontainer">
     <img src="pic4.jpg" style="width:80%;height:500px;">
   </div>
 </div>
 <div class="item1">
- <h2 style="text-align:center;font-size:30px;"">Sign Up</h2>
+ <h2 style="text-align:center;font-size:30px;">Sign Up</h2>
   <div class="container">
+  <div>
   <label for="name" style="font-size:20px;"><b>Full Name</b></label>
     <input type="text" placeholder="Enter full name" name="name" required>
+  </div>
 <br>
-<label for="PhoneNo" style="font-size:20px;"><b>Phone Number</b></label>
+<div>
+	<label for="PhoneNo" style="font-size:20px;"><b>Phone Number</b></label>
     <input type="text" placeholder="Enter Phone Number" name="PhoneNo" required>
+</div>
 <br>
+<div>
     <label for="uname" style="font-size:20px;"><b>Email</b></label>
     <input type="text" placeholder="Enter email" name="uname" required>
+</div>
 <br>
-    <label for="psw" style="font-size:20px;"><b>Password</b></label>
+<div>
+	<label for="psw" style="font-size:20px;"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
-       <br>
-    <button type="submit">Sign Up</button>
-       <a href="#" class="login" style="text-align:center;font-size:15px;" >Already have an account? Log In</a>
+</div>
+<br>
+<div>
+	<input type="hidden" name="action" value="addAcc" >
+	<button type="submit">Sign Up</button>
+	<a href="#" class="login" style="text-align:center;font-size:15px;" >Already have an account? Log In</a>
+</div>
+       
     
   </div>
 </div>
