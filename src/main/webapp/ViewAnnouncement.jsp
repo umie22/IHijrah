@@ -88,7 +88,7 @@
       			</div>
       
       			<div class="col-75">
-        		<input id="details" name="Detail" placeholder="Announcement details" style="height:200px" value='<%=res.getString("announcement_detail") %>'/>
+        		<input id="details" name="Detail" placeholder="Announcement details" style="height:150px;width:930px;" value='<%=res.getString("announcement_detail") %>'/>
       			</div>
     		</div><br>
     
