@@ -156,7 +156,7 @@ padding-top:30px;
     SELECT row_number() over () "rank",announcement_date,announcement_detail from announcement
 </sql:query>
 
-	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:460px; ">
+	
 	<p style="float: left; font-size: 30px;">ANNOUNCEMENT</p><br><br><br><br><br><br><br><br><br>
 	<table class="styled-table"  style="position: relative; right:-5px; width:99%">
     <thead>
@@ -183,6 +183,6 @@ padding-top:30px;
             </c:forEach>
     </tbody>
 </table>
-</div>	
+	
 </body>
 </html>

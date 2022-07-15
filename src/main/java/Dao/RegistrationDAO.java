@@ -9,8 +9,6 @@ import java.sql.SQLException;
 
 import javax.servlet.Registration;
 
-import Model.Account;
-
 public class RegistrationDAO {
 	
 	String dbURL = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0";
@@ -36,8 +34,51 @@ public class RegistrationDAO {
                      ("insert into registration(registration_id,registration_date,registration_status) values(?,?,?)"))
         {
         	ps.setString(1, regis.getRegister_id());
-        	ps.setString(6, regis.getRegister_date());
-        	ps.setString(7, regis.getRegister_status());
+        	ps.setString(2, regis.getRegister_date());
+        	ps.setString(3, regis.getRegister_status());
+        	
+            
+            out.println(ps);
+            ps.executeUpdate();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void addPaymentOnline (Payment pmt) throws SQLException {
+
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement
+                     ("insert into payment(payment_id,payment_type,payment_date,payment_status,Bank_Name) values(?,?,?,?,?)"))
+        {
+        	ps.setString(1, pmt.payment_id());
+        	ps.setString(2, pmt.payment_date());
+        	ps.setString(3, pmt.payment_type());
+        	ps.setString(4, pmt.payment_status());
+        	ps.setString(5, pmt.Bank_Name());
+
+
+        	
+            
+            out.println(ps);
+            ps.executeUpdate();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void addPaymentOffline (Payment pmt) throws SQLException {
+
+        try (Connection con = getConnection();
+             PreparedStatement ps = con.prepareStatement
+                     ("insert into payment(payment_id,payment_type,payment_date,payment_status) values(?,?,?,?)"))
+        {
+        	ps.setString(1, pmt.payment_id());
+        	ps.setString(2, pmt.payment_date());
+        	ps.setString(3, pmt.payment_type());
+        	ps.setString(4, pmt.payment_status());
         	
             
             out.println(ps);

@@ -47,12 +47,55 @@ public class RegistrationServlet extends HttpServlet {
                 case "addRegister":
                 	addRegister(request, response);
                     break;
+                case "online":
+                	online(request, response);
+                case "offline":
+                	offline(request, response);
+                	
 
             }
 
         } catch (SQLException e) {
             throw new ServletException(e);
         }
+	}
+
+	private void offline(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");{
+		// TODO Auto-generated method stub
+		String id = request.getParameter("registration_id");
+		String date = request.getParameter("registration_date");
+        String status = request.getParameter("registration_status");
+
+
+        Registration r = new Registration();
+        
+        r.setRegistration_id(id);
+        r.setRegistration_date(date);
+        r.setRegistration_status(status);
+
+        rd.addRegister(r);
+        response.sendRedirect("#");
+		
+	}
+
+	private void online(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");{
+		// TODO Auto-generated method stub
+		String id = request.getParameter("registration_id");
+		String date = request.getParameter("registration_date");
+        String status = request.getParameter("registration_status");
+
+
+        Registration r = new Registration();
+        
+        r.setRegistration_id(id);
+        r.setRegistration_date(date);
+        r.setRegistration_status(status);
+
+        rd.addRegister(r);
+        response.sendRedirect("#");
+		
 	}
 
 	private void addRegister(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {

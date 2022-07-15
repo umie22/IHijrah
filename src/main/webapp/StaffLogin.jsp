@@ -81,6 +81,7 @@ h4{
           </div>
          
           <div class="pb-2">
+          <input type="hidden" name="action" value="loginStaff">
             <button type= "submit" value="Submit" width="200px;" style="text-align: center;	margin-left: 120px; width:200px;">Log in</button>
           </div>
         </form>

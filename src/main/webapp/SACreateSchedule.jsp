@@ -64,7 +64,7 @@
       			<div class="col-75"style=padding:15px;margin-left:30px;>
         		<input type="time" id="time" name="time" placeholder="" min="09:00" max="18:00">
       			</div>
-    		</div><br>
+    		</div>
     		
     		<div class="row">
       			<div class="col-25"style=margin-left:50px;>
@@ -74,25 +74,25 @@
       			<div class="col-75"style=padding:15px;margin-left:30px;>
         		<input type="text" id="details" name="description" placeholder="Schedule details" style="height:200px">
       			</div>
-    		</div><br>
+    		</div>
     		
 			<label for="cars"style=padding:15px;margin-left:30px;>Choose Availability:</label>
 			  <select name="availability" id="availability">
 			    <option value="Available">Available</option>
 			    <option value="Fully Booked">Fully Booked</option>
 			  </select>
-			  <br><br>
+			  
 			  
 			  <label for="cars"style=padding:15px;margin-left:30px;>Choose Course:</label>
 			  <select name="course" id="course">
 			    <option value="901">901 - Hajj</option>
 			    <option value="902">902 - Umrah</option>
 			  </select>
-			  <br><br>
+			
     
     		<div class="row">
     		  	<input type="hidden" value="AddSchedule" name="action" style="margin-left:20px;">	
-  				<input type="submit" style="margin-left:50px;">	
+  				<input type="submit" style="margin-left:250px;">	
   				<input type="reset" style="text-align:left; ">
   				</div>
     		</div>
