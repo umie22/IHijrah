@@ -17,7 +17,7 @@
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden;">
 <img class="logo" alt="" src="IHijrahLogo.PNG">
 <h3 style="text-align: center; color: white; padding-bottom:2em;">WELCOME</h3>
-<a href="SAVerfiedList.jsp" class="btn1" style="display:block; font-size:13px;">PAYMENT VERIFICATION </a>
+<a href="SAVerifiedList.jsp" class="btn1" style="display:block; font-size:13px;">PAYMENT VERIFICATION </a>
 <a href="SAschedulelist.jsp" class="btn2" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
 <a href="SAAnnouncementList.jsp" class="btn3" style="display:block; font-size:13px;">ANNOUNCEMENT</a>
 <a href="SARegisterStaff.jsp" class="btn4" style="display:block; font-size:13px;">REGISTER STAFF</a>
@@ -45,34 +45,57 @@
                    user = "zaiaryvqbpwwcb"
                    password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
 <sql:query dataSource="${ic}" var="oc">
-    SELECT row_number() over (order by payment_id) "rank",payment_id,payment_date,payment_status from payment where payment_status = 'Not Verified'
+    SELECT row_number() over (order by payment_id) "rank",registration_id,payment_id,payment_date,payment_status,payment_receipt from registration join payment using (registration_id) where payment_status = 'Pending'
 </sql:query>
+
+
 
 <br><br><br>
 <table class="table table-bordered table-striped table-hover" style="margin-left:20px; width:97%; ">
    <thead style="background-color: #000000">
        <tr style="color: white">
-                <th>No.</th>
+                <th>Registration ID</th>
                 <th>Payment ID</th>
                 <th>Payment Date</th>
                 <th>Payment Status</th>
+                <th>Payment Receipt</th>
+                <th>Action</th>
+  
                
 
             </tr>
             <tbody style="border: solid black 1px;">
-            <c:forEach var="payment" items="${oc.rows}">
-                <tr>
-                   <td style=" text-align: center; border: solid black 1px;">
-                        <c:out value="${payment.rank}"/>
+            <c:forEach var="register" items="${oc.rows}">
+             <tr>
+             
+                         <td style=" text-align: center; border: solid black 1px;">
+                    <c:out value="${register.Registration_ID}"/>
+                   
+                </td>
+                
+                     <td style=" text-align: center; border: solid black 1px;">
+                        <c:out value="${register.Payment_ID}"/>
                     </td>
                      <td style=" text-align: center; border: solid black 1px;">
-                        <c:out value="${payment.Payment_ID}"/>
-                    </td>
-                     <td style=" text-align: center; border: solid black 1px;">
-                        <c:out value="${payment.Payment_Date}"/>
+                        <c:out value="${register.Payment_Date}"/>
                     </td>
  					<td style=" text-align: center; border: solid black 1px;background-color: #ff0000;">
-                         <c:out value="${payment.Payment_Status}"/>
+                         <c:out value="${register.Payment_Status}"/>
+                    </td>
+ 					<td style=" text-align: center; border: solid black 1px;background-color: #ff0000;">
+           					  <img src="${register.Payment_Status}" style="width:154px;height:152px;"></td>
+                     <td>
+                     <form action= "" method= "post">
+                   <input type="hidden" name="action" value="verify">
+                   
+                     <button formaction="verifyParticipant?id=${register.Registration_ID}">Verify</button> 
+                                 
+                            
+                     </form>
+                     <form action= "" method= "post">
+                   <input type="hidden" name="action" value="reject">
+                     <button formaction="verifyParticipant?id=${register.Payment_ID}">Reject</button>        
+                     </form>
                     </td>
                      
                    

@@ -1,15 +1,16 @@
 package Model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class Registration implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	public String registration_id;
-	public String participant_id;
+	public int participant_id;
 	public String payment_id;
-	public String course_id;
-	public String staff_id;
+	public int course_id;
+	public int staff_id;
 	public String registration_date;
 	public String registration_status;
 	
@@ -25,12 +26,12 @@ public class Registration implements Serializable {
 		this.registration_id = registration_id;
 	}
 
-	public String getParticipant_id() {
+	public int getParticipant_id() {
 		return participant_id;
 	}
 
-	public void setParticipant_id(String participant_id) {
-		this.participant_id = participant_id;
+	public void setParticipant_id(int id) {
+		this.participant_id = id;
 	}
 
 	public String getPayment_id() {
@@ -41,20 +42,20 @@ public class Registration implements Serializable {
 		this.payment_id = payment_id;
 	}
 
-	public String getCourse_id() {
+	public int getCourse_id() {
 		return course_id;
 	}
 
-	public void setCourse_id(String course_id) {
+	public void setCourse_id(int course_id) {
 		this.course_id = course_id;
 	}
 
-	public String getStaff_id() {
+	public int getStaff_id() {
 		return staff_id;
 	}
 
-	public void setStaff_id(String staff_id) {
-		this.staff_id = staff_id;
+	public void setStaff_id(int staffid) {
+		this.staff_id = staffid;
 	}
 
 	public String getRegistration_date() {

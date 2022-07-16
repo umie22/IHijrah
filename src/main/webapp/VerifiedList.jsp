@@ -28,7 +28,7 @@
     <!-- FILL IN FORM -->
     <h2>VERIFIED LIST</h2><br>
     
-         <a href=SANotVerifiedList.jsp style="  margin-left:1500px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #ff0000; border-radius: 20px; padding:20px;">Unverified List</a>
+         <a href=NotVerifiedList.jsp style="  margin-left:1500px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #ff0000; border-radius: 20px; padding:20px;">Unverified List</a>
 
 
 <sql:setDataSource var="ic" driver="org.postgresql.Driver"

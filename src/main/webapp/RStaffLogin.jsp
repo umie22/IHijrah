@@ -56,20 +56,21 @@ h4{
 
 
 </style>
+
   <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
   <div class="container">
   <div class="row m-5 no-gutters shadow-lg">
     <div class="col-md-6 d-none d-md-block">
-      <img src="https://wallpapercave.com/wp/wp2122124.jpg" class="img-fluid" style="min-height:100%;" />
+      <img src="https://th.bing.com/th/id/R.931a5fa07dce98df5ef0f4469b824adb?rik=32WRrBOx0VVP7Q&riu=http%3a%2f%2fwww.asfar.org.uk%2fwp-content%2fuploads%2f2014%2f12%2fhajj1.jpg&ehk=ec97PxRCB5G7ghpQG2ztxVuxJxaFlEHx2w67%2bmmtYKc%3d&risl=&pid=ImgRaw&r=0" class="img-fluid" style="min-height:100%;" />
     </div>
     <div class="col-md-6 bg-white p-5">
       <h4 class="pb-3" >Login</h4>
-      <div class="form-style">	
+      <div class="form-style">
       
       
-        <form action ="LoginController" method="post" >
+        <form action ="RLoginController" method="post" >
           <div class="form-group pb-3">
             <label for="staffid"><b>Staff ID</b></label>
             
@@ -81,18 +82,16 @@ h4{
           </div>
          
           <div class="pb-2">
-                             <input type="hidden" name="action" value="loginStaff">
-            <button type= "submit" value="Submit" width="200px;" style="text-align: center;	margin-left: 120px; width:200px;">Log in</button>
+                   <input type="hidden" name="action" value="loginStaff">
+            <button type= "submit"  name="submit"  style="text-align: center;	margin-left: 120px; width:200px;">Sign in</button>
           </div>
         </form>
     
        
         
       </div>
- 
+
     </div>
   </div>
 </div>
 </html>
-
-

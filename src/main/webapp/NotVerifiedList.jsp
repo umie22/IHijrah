@@ -17,11 +17,12 @@
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden;">
 <img class="logo" alt="" src="IHijrahLogo.PNG">
 <h3 style="text-align: center; color: white; padding-bottom:2em;">WELCOME</h3>
-<a href="VerfiedList.jsp" class="btn2" style="display:block; font-size:13px;">PAYMENT VERIFICATION </a>
-<a href="schedulelist.jsp" class="btn4" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
-<a href="AnnouncementList.jsp" class="btn5" style="display:block; font-size:13px;">ANNOUNCEMENT</a>
-<a href="dashboardstaff.jsp" class="btn6" style="display:block; font-size:13px;">ACCOUNT</a>
-<a href="StaffLogin.jsp" class="btn8" style="display:block; font-size:13px;">LOGOUT</a>
+<a href="VerifiedList.jsp" class="btn1" style="display:block; font-size:13px;">PAYMENT VERIFICATION </a>
+<a href="schedulelist.jsp" class="btn2" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
+<a href="AnnouncementList.jsp" class="btn3" style="display:block; font-size:13px;">ANNOUNCEMENT</a>
+<a href="Account.jsp" class="btn6" style="display:block; font-size:13px;">ACCOUNT</a>
+<a href="StaffLogin.jsp" class="btn7" style="display:block; font-size:13px;">LOGOUT</a>
+
 </div>
 <!-- SIDEBAR -->
 
@@ -42,7 +43,7 @@
                    user = "zaiaryvqbpwwcb"
                    password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
 <sql:query dataSource="${ic}" var="oc">
-    SELECT row_number() over (order by payment_id) "rank",payment_id,payment_date,payment_status from payment where payment_status = 'Not Verified'
+    SELECT row_number() over (order by payment_id) "rank",payment_id,payment_date,payment_status,payment_receipt from payment where payment_status = 'Pending'
 </sql:query>
 
 <br><br><br>
@@ -53,6 +54,9 @@
                 <th>Payment ID</th>
                 <th>Payment Date</th>
                 <th>Payment Status</th>
+                <th>Payment Receipt</th>
+                <th>Action</th>
+  
                
 
             </tr>
@@ -70,6 +74,18 @@
                     </td>
  					<td style=" text-align: center; border: solid black 1px;background-color: #ff0000;">
                          <c:out value="${payment.Payment_Status}"/>
+                    </td>
+ 					<td style=" text-align: center; border: solid black 1px;background-color: #ff0000;">
+           					  <img src="${payment.Payment_Status}" style="width:154px;height:152px;"></td>
+                     <td>
+                     <form action= "" method= "post">
+                   <input type="hidden" name="action" value="verify">
+                     <button formaction="verifyParticipant?id=${payment.Payment_ID}">Verify</button>        
+                     </form>
+                     <form action= "" method= "post">
+                   <input type="hidden" name="action" value="reject">
+                     <button formaction="verifyParticipant?id=${payment.Payment_ID}">Reject</button>        
+                     </form>
                     </td>
                      
                    

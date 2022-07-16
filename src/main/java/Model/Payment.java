@@ -2,20 +2,17 @@ package Model;
 
 import javax.servlet.http.Part;
 import java.io.Serializable;
+import java.sql.Time;
 
 public class Payment implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	public String payID;
 	public String payDate;
-	public String payTime;
+	public Time payTime;
 	public String payStatus;
-	public Part payReceipt;
 
 
-	public Payment(String payID, String payDate, String payTime, String payStatus, Part payReceipt) {
-	
-	}
 
 
 	public String getPayID() {
@@ -38,12 +35,12 @@ public class Payment implements Serializable {
 	}
 
 
-	public String getPayTime() {
+	public Time getPayTime() {
 		return payTime;
 	}
 
 
-	public void setPayTime(String payTime) {
+	public void setPayTime(Time payTime) {
 		this.payTime = payTime;
 	}
 
@@ -58,14 +55,6 @@ public class Payment implements Serializable {
 	}
 
 
-	public Part getPayReceipt() {
-		return payReceipt;
-	}
-
-
-	public void setPayReceipt(Part payReceipt) {
-		this.payReceipt = payReceipt;
-	}
 
 
 	}

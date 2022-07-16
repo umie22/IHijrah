@@ -78,6 +78,8 @@ public class PLogin extends HttpServlet {
 
           	          session.setAttribute("participant_email", res.getString(4));
           	          session.setAttribute("participat_password",res.getString(2));
+          	          session.setAttribute("participant_id", res.getString(1));
+
        	     
           	        response.sendRedirect("AccountParticipantBARU.jsp");
 

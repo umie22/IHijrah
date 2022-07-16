@@ -20,13 +20,13 @@ import java.sql.Connection;
 /**
  * Servlet implementation class LoginController
  */
-@WebServlet("/LoginController")
-public class LoginController extends HttpServlet {private static final long serialVersionUID = 1L;
+@WebServlet("/RLoginController")
+public class RLoginController extends HttpServlet {private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public RLoginController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -227,7 +227,7 @@ public class LoginController extends HttpServlet {private static final long seri
         	session.setAttribute("Staff_TelNo",rs.getString(5));
         	session.setAttribute("Staff_Role",rs.getString(6));
         	
-        	response.sendRedirect("SAAccount.jsp");}
+        	response.sendRedirect("Account.jsp");}
     	   	
        
     	   }

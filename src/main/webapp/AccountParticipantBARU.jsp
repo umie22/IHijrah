@@ -157,7 +157,7 @@ padding-top:30px;
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden">
 <img class="logo" alt="" src="IHijrahLogo.PNG">
 <h3 style="text-align: center; color: white;">WELCOME</h3>
-<a href="" class="btn2" style="display:block;padding:42px;">REGISTER COURSE</a>
+<a href="Registration.jsp" class="btn2" style="display:block;padding:42px;">REGISTER COURSE</a>
 <a href="SchedulePartBaru.jsp" class="btn4" style="display:block;padding:42px;">CLASS SCHEDULE</a>
 <a href="AccountParticipantBARU.jsp" class="btn6" style="display:block;padding:42px;">ACCOUNT</a>
 <a href="#" class="btn8" style="display:block;padding:42px;">LOGOUT</a>
@@ -176,7 +176,7 @@ padding-top:30px;
       <span class="badge">3</span></i></a>
     </button>
     <div class="dropdown-content">
-      <a href="#">Class is cancelled</a>
+      <a href="#">Class is fdfslifhlsfhlfhhnlsrflrsjlfjnjrfnrajfnalrjrnfrlanflnlrafnaknflanlfnalfnlanfljnalfnlnfljnfljn</a>
       <a href="#">Class will be held at dataran masjid</a>
       <a href="#">Class is postponed to 3 p.m</a>
     </div>

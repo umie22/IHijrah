@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%><!DOCTYPE html>
 <html>
-<title>Admin Dashboard</title>
+<title>Super Admin Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head><link rel="stylesheet" href="main.css"></head>
@@ -14,17 +14,19 @@
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden;">
 <img class="logo" alt="" src="IHijrahLogo.PNG">
 <h3 style="text-align: center; color: white; padding-bottom:2em;">WELCOME</h3>
-<a href="VerifiedList.jsp" class="btn2" style="display:block; font-size:13px;">PAYMENT VERIFICATION </a>
-<a href="schedulelist.jsp" class="btn4" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
-<a href="AnnouncementList.jsp" class="btn5" style="display:block; font-size:13px;">ANNOUNCEMENT</a>
-<a href="dashboardstaff.jsp" class="btn6" style="display:block; font-size:13px;">ACCOUNT</a>
-<a href="StaffLogin.jsp" class="btn8" style="display:block; font-size:13px;">LOGOUT</a>
+<a href="VerifiedList.jsp" class="btn1" style="display:block; font-size:11px;padding:30px;">PAYMENT VERIFICATION </a>
+<a href="schedulelist.jsp" class="btn2" style="display:block; font-size:11px;padding:30px;">CLASS SCHEDULE</a>
+<a href="AnnouncementList.jsp" class="btn3" style="display:block; font-size:11px;padding:30px;">ANNOUNCEMENT</a>
+<a href="Account.jsp" class="btn6" style="display:block; font-size:11px;padding:30px;">ACCOUNT</a>
+<a href="RStaffLogin.jsp" class="btn7" style="display:block; font-size:11px;padding:30px;">LOGOUT</a>
 
+</div>
+<!-- SID
 </div>
 <!-- SIDEBAR -->
 
 <!-- TOPBAR -->      
- <div style=" background-color: #102e44; height:100px; color:blue; padding-left:70px; "><img class="user" alt="" src="user.jpg"></div>
+<div style=" background-color: #102e44; height:100px; color:blue; padding-left:70px; "></div> 
  <!-- TOPBAR -->   
 <div class="divs">
     <div class="card mb-3 content">
@@ -59,13 +61,12 @@
             </div>
             </div>
             <hr>
-            <input type="button" class="edit" style="background-color: #4B6FE8; margin-left:33em; margin-top:5em;" value="Edit">
-          <input type="button" class="delete" onclick="document.getElementById('id01').style.display='block'" style="background-color:red;" value="Delete">
+            <input type="button" class="edit" style="background-color: #4B6FE8; margin-left:60em; margin-top:5em;" value="Edit">
     </div>
     </div>
 </div>
 
-	
+  
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
   <form class="modal-content" action="/action_page.php">
@@ -91,6 +92,6 @@ window.onclick = function(event) {
   }
 }
 </script>
-		
+    
 </body>
 </html>
