@@ -122,7 +122,7 @@ public class PaymentServlet extends HttpServlet {
 				Connection connection = DriverManager.getConnection(dbUrl,username,password);
 				
 				//SQL Statement/Query 
-				PreparedStatement pst = connection.prepareStatement("insert into payment (payment_status,payment_date,registration_id,pt_receipt) values (?,?,?,?)");
+				PreparedStatement pst = connection.prepareStatement("insert into payment (payment_status,payment_date,registration_id,payment_receipt) values (?,?,?,?)");
 				// Set string - set for ? by order
 	            pst.setString(1,status);
 	            pst.setTimestamp(2,Datentime);
@@ -148,7 +148,7 @@ public class PaymentServlet extends HttpServlet {
 					
 		            String BankName= request.getParameter("BankName");
 
-		            st2 = connection.prepareStatement("insert into online(payment_id,payment_status,payment_date,registration_id,bank_name,pt_receipt) values(?,?,?,?,?,?)");
+		            st2 = connection.prepareStatement("insert into online(payment_id,payment_status,payment_date,registration_id,bank_name,payment_receipt) values(?,?,?,?,?,?)");
 
 		            st2.setString(1,payment_id);
 		            st2.setString(2,status);
@@ -196,7 +196,7 @@ public class PaymentServlet extends HttpServlet {
 				Connection connection = DriverManager.getConnection(dbUrl,username,password);
 				
 				//SQL Statement/Query 
-				PreparedStatement pst = connection.prepareStatement("insert into payment (payment_status,payment_date,registration_id,pt_receipt) values (?,?,?,?)");
+				PreparedStatement pst = connection.prepareStatement("insert into payment (payment_status,payment_date,registration_id,payment_receipt) values (?,?,?,?)");
 				// Set string - set for ? by order
 	            pst.setString(1,status);
 	            pst.setTimestamp(2,Datentime);
