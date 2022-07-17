@@ -2,9 +2,14 @@ package Controller;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+import Model.Payment;
+
 import javax.servlet.annotation.*;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -17,6 +22,42 @@ import java.time.format.DateTimeFormatter;
         maxRequestSize = 1024 * 1024 * 50
 )
 public class PaymentServlet extends HttpServlet {
+	
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        PrintWriter out = response.getWriter();
+        String id = request.getParameter("id");
+        java.sql.Connection con = null;
+        Statement st1;
+        try {
+            Class.forName("org.postgresql.Driver");
+            con = DriverManager.getConnection("jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0", "zaiaryvqbpwwcb", "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b");
+            st1 = con.createStatement();
+            PreparedStatement ps = con.prepareStatement("SELECT pt_receipt FROM payment WHERE payment_id=?");
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+ 
+            String imgLen = "";
+            while (rs.next()) {
+                imgLen = rs.getString(1);
+                System.out.println(imgLen.length());
+                int len = imgLen.length();
+                byte[] rb = new byte[len];
+                InputStream readImg = rs.getBinaryStream(1);
+                int index = readImg.read(rb, 0, len);
+                out.println("index----------------" + index);
+                response.reset();
+                response.setContentType("image");
+                response.getOutputStream().write(rb, 0, len);
+                response.getOutputStream().flush();
+ 
+            }
+            rs.close();
+ 
+            ps.close();
+        } catch (Exception e) {
+        //out.println(e);
+        }
+    }
 
     /**
 	 * 
@@ -30,21 +71,14 @@ public class PaymentServlet extends HttpServlet {
 
         String action = request.getParameter("action");
         switch (action) {
-		    case "addPaymentOnline":
-		    	addPaymentOnline(request, response);
+		   case "savefile":
+		    	savefileonline(request, response);
 		        break;
-		   /* case "addPaymentOnline2":
-		    	addPaymentOnline2(request, response);
-		        break;*/
-		    /*case "deleteAnnouncement":
-		        deleteAnnouncement(request,response);
-		        break;*/
-		    case "addPaymentOffline":
-		    	addPaymentOffline(request,response);
-		        break;/*
-		    case "cancel":
-		        cancel(request, response);
-		        break;*/
+
+		    case "saveoffline":
+		    	saveoffline(request,response);
+		        break;
+
 
 		}
 
@@ -60,205 +94,126 @@ public class PaymentServlet extends HttpServlet {
 
 
 
-		private void addPaymentOffline(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        		// TODO Auto-generated method stub
-                response.setContentType("text/html");
+		private void savefileonline(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+			FileInputStream fis=null; 
+	           String status="Pending";
+	            String registration_id = request.getParameter("registration_id");
+                Timestamp Datentime = new Timestamp(System.currentTimeMillis());
 
-        		PrintWriter out = response.getWriter();
-                HttpSession session=request.getSession();
+		 	Part filePart =request.getPart("payimage");  
+		 	
+	        PreparedStatement st2 = null;
 
-                PreparedStatement st = null;
-                ResultSet rs=null;
-                Part part;
-
-                try{
-                    String status="Pending";
-                    String registration_id = request.getParameter("registration_id");
-                    System.out.println(registration_id);
-                    
-                    Timestamp Datentime = new Timestamp(System.currentTimeMillis());
-         		   
-
-                    Class.forName("org.postgresql.Driver");
-                    String dbURL = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-                    String user = "zaiaryvqbpwwcb";
-                    String pass = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
-                    Connection conn = DriverManager.getConnection(dbURL, user, pass);
-
-                    try {
-                        part = request.getPart("payimage");
-                    } catch (Exception err) {
-                        err.printStackTrace();
-                        System.out.println(err.getMessage());
-                        return;
-                    }
-
-                    String host = request.getScheme() + "://" + request.getHeader("host") + "/";
-                    String imageFileName = part.getSubmittedFileName();
-                    String urlPathForDB = host + "upload/" + imageFileName;
-                    String applicationPath = getServletContext().getRealPath("");
-                    String savePath = applicationPath + "upload" + File.separator + imageFileName;
-
-                    if(!new File(applicationPath + "upload").exists()) {
-                        boolean created  = new File(applicationPath + "upload").mkdir();
-                        if(!created) {
-                            System.out.println("Could not create folder: " + applicationPath + "upload");
-                        }
-                    }
-
-                    try {
-                        part.write(savePath);
-                    } catch (Exception err) {
-                        err.printStackTrace();
-                        System.out.println("Could not upload image file!");
-                        return;
-                    }
-
-                    st = conn.prepareStatement("insert into payment ( payment_status, payment_receipt,payment_date,registration_id) values (?,?,?,?)");
-                    st.setString(1,status);
-                    st.setString(2,urlPathForDB);
-                    st.setTimestamp(3,Datentime);
-                    st.setString(4,registration_id);
-                    
-       
-
-                    int count = st.executeUpdate();
-                    if(count>0)
-                    {
-                        out.println("insert successfully");
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("AccountParticipantBARU.jsp");
-                        dispatcher.forward (request, response);
-                    }
-                    else
-                    {
-                        out.println("Not successfully");
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("uploadpayment.jsp");
-                        dispatcher.forward (request, response);
-                    }
-                }catch(Exception e){
-                    out.println(e);
-                    e.printStackTrace();
-                    
-                    
-                }
-            }
-
-		private void addPaymentOnline(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		// TODO Auto-generated method stub
-        response.setContentType("text/html");
-
-		PrintWriter out = response.getWriter();
-        HttpSession session=request.getSession();
-        
-
-        PreparedStatement st = null;
-        PreparedStatement st2 = null;
-        Part part;
-
-        try{
-            String status="Pending";
-            String registration_id = request.getParameter("registration_id");
-            System.out.println(registration_id);
+		 	//InputStream inputStream = null;
+			String name = request.getParameter("BankName");
             String payment_id="";
-            
-            Timestamp Datentime = new Timestamp(System.currentTimeMillis());
- 		   
 
-            Class.forName("org.postgresql.Driver");
-            String dbURL = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-            String user = "zaiaryvqbpwwcb";
-            String pass = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
-            Connection conn = DriverManager.getConnection(dbURL, user, pass);
-
-            try {
-                part = request.getPart("payimage");
-            } catch (Exception err) {
-                err.printStackTrace();
-                System.out.println(err.getMessage());
-                return;
-            }
-
-            String host = request.getScheme() + "://" + request.getHeader("host") + "/";
-            String imageFileName = part.getSubmittedFileName();
-            String urlPathForDB = host + "upload/" + imageFileName;
-            String applicationPath = getServletContext().getRealPath("");
-            String savePath = applicationPath + "upload" + File.separator + imageFileName;
-
-            if(!new File(applicationPath + "upload").exists()) {
-                boolean created  = new File(applicationPath + "upload").mkdir();
-                if(!created) {
-                    System.out.println("Could not create folder: " + applicationPath + "upload");
-                }
-            }
-
-            try {
-                part.write(savePath);
-            } catch (Exception err) {
-                err.printStackTrace();
-                System.out.println("Could not upload image file!");
-                return;
-            }
-            
-            st = conn.prepareStatement("insert into payment (payment_status, payment_receipt,payment_date,registration_id) values (?,?,?,?)");
-            st.setString(1,status);
-            st.setString(2,urlPathForDB);
-            st.setTimestamp(3,Datentime);
-            st.setString(4,registration_id);
-            
-             st.executeUpdate();
-
-            
-            PreparedStatement selectSQL = conn.prepareStatement
-        			( "SELECT payment_id FROM payment WHERE registration_id = ? ");
-            
-            
-			selectSQL.setString(1, registration_id);
+			InputStream fileContent = filePart.getInputStream();
+			Payment t = new Payment();
+			t.setName(name);
 			
-			ResultSet result = selectSQL.executeQuery();
+			String dbUrl = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
+			String username = "zaiaryvqbpwwcb";
+			String password = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+			
+			try {
+				Class.forName("org.postgresql.Driver");
+				Connection connection = DriverManager.getConnection(dbUrl,username,password);
+				
+				//SQL Statement/Query 
+				PreparedStatement pst = connection.prepareStatement("insert into payment (payment_status,payment_date,registration_id,pt_receipt) values (?,?,?,?)");
+				// Set string - set for ? by order
+	            pst.setString(1,status);
+	            pst.setTimestamp(2,Datentime);
+	            pst.setString(3,registration_id);
+	            pst.setBinaryStream(4, fileContent);
 
-			while(result.next()) {
-				payment_id=result.getString("payment_id");
+				
+				
+				pst.executeUpdate();
+				
+		           PreparedStatement selectSQL = connection.prepareStatement
+		        			( "SELECT payment_id FROM payment WHERE registration_id = ? ");
+		            
+		            
+					selectSQL.setString(1, registration_id);
+					
+					ResultSet result = selectSQL.executeQuery();
 
+					while(result.next()) {
+						payment_id=result.getString("payment_id");
+
+					}
+					
+		            String BankName= request.getParameter("BankName");
+
+		            st2 = connection.prepareStatement("insert into online(payment_id,payment_status,payment_date,registration_id,bank_name,pt_receipt) values(?,?,?,?,?,?)");
+
+		            st2.setString(1,payment_id);
+		            st2.setString(2,status);
+		            st2.setTimestamp(3,Datentime);
+		            st2.setString(4,registration_id);
+		            st2.setString(5,BankName);
+		            st2.setBinaryStream(6, fileContent);
+
+		            
+		             int count = st2.executeUpdate();
+		             
+		 			response.sendRedirect("AccountParticipantBARU.jsp");
+			} catch(Exception e) {
+				e.printStackTrace();
 			}
+		}
+		// TODO Auto-generated method stub
+		
+	
+
+
+		private void saveoffline(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			FileInputStream fis=null; 
+	           String status="Pending";
+	            String registration_id = request.getParameter("registration_id");
+             Timestamp Datentime = new Timestamp(System.currentTimeMillis());
+
+		 	Part filePart =request.getPart("payimage");  
+		 	
+	        PreparedStatement st2 = null;
+
+		 	//InputStream inputStream = null;
+			String name = request.getParameter("BankName");
+
+			InputStream fileContent = filePart.getInputStream();
+			Payment t = new Payment();
+			t.setName(name);
 			
-            String BankName= request.getParameter("BankName");
+			String dbUrl = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
+			String username = "zaiaryvqbpwwcb";
+			String password = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+			
+			try {
+				Class.forName("org.postgresql.Driver");
+				Connection connection = DriverManager.getConnection(dbUrl,username,password);
+				
+				//SQL Statement/Query 
+				PreparedStatement pst = connection.prepareStatement("insert into payment (payment_status,payment_date,registration_id,pt_receipt) values (?,?,?,?)");
+				// Set string - set for ? by order
+	            pst.setString(1,status);
+	            pst.setTimestamp(2,Datentime);
+	            pst.setString(3,registration_id);
+	            pst.setBinaryStream(4, fileContent);
 
-            st2 = conn.prepareStatement("insert into online(payment_id,payment_status, payment_receipt,payment_date,registration_id,bank_name) values(?,?,?,?,?,?)");
-
-            st2.setString(1,payment_id);
-            st2.setString(2,status);
-            st2.setString(3,urlPathForDB);
-            st2.setTimestamp(4,Datentime);
-            st2.setString(5,registration_id);
-            st2.setString(6,BankName);
-
-            
-             int count = st2.executeUpdate();
-
-            
-
-
-
-
-            if(count>0)
-            {
-                out.println("insert successfully");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("AccountParticipantBARU.jsp");
-                dispatcher.forward (request, response);
+				
+				
+				pst.executeUpdate();
+				
+		             
+		 			response.sendRedirect("Account.jsp");
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
             }
-            else
-            {
-                out.println("Not successfully");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("uploadpayment.jsp");
-                dispatcher.forward (request, response);
-            }
-        }catch(Exception e){
-            out.println(e);
-            e.printStackTrace();
-            
-            
-        }
-    }
+
 		
 
 		

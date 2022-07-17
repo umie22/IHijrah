@@ -45,7 +45,7 @@
                    user = "zaiaryvqbpwwcb"
                    password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
 <sql:query dataSource="${ic}" var="oc">
-    SELECT row_number() over (order by payment_id) "rank",registration_id,payment_id,payment_date,payment_status,payment_receipt from registration join payment using (registration_id) where payment_status = 'Pending'
+    SELECT  DISTINCT(registration_id)registration_id,payment_id,payment_date,payment_status,payment_receipt from registration join payment using (registration_id) where payment_status = 'Pending'
 </sql:query>
 
 
@@ -83,8 +83,8 @@
                          <c:out value="${register.Payment_Status}"/>
                     </td>
  					<td style=" text-align: center; border: solid black 1px;">
-           					  <img src="${register.Payment_Receipt}" style="width:154px;height:152px;"></td>
-                     <td>
+								<a href="PaymentServlet?id=${register.Payment_ID}">View Receipt</a>                     
+								<td>
                      <form action= "" method= "post">
                    <input type="hidden" name="action" value="verify">
                    

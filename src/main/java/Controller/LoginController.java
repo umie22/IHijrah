@@ -99,7 +99,7 @@ public class LoginController extends HttpServlet {private static final long seri
 				stat.setString(5,role);
 				
 				stat.executeUpdate();
-				response.sendRedirect("StaffLogin.jsp");
+				response.sendRedirect("SAStaffList.jsp");
 			}
 			
 			 catch (Exception e){

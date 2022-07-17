@@ -113,13 +113,16 @@ button:hover {
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden"> 
 <img class="logo" alt="" src="IHijrahLogo.PNG"> 
 <h3 style="text-align: center; color: white;">WELCOME</h3> 
-<a href="RegisterPickCourse.jsp" class="btn2" style="display:block;padding:50px;">REGISTER COURSE</a> 
+<a href="Registration.jsp" class="btn2" style="display:block;padding:50px;">REGISTER COURSE</a> 
 <a href="SchedulePartBaru.jsp" class="btn4" style="display:block;padding:50px;">CLASS SCHEDULE</a> 
 <a href="PartAnnouncement.jsp" class="btn6" style="display:block;padding:50px;">ANNOUNCEMENT</a> 
 <a href="AccountParticipantBARU.jsp" class="btn6" style="display:block;padding:50px;">ACCOUNT</a> 
-<a href="#" class="btn8" style="display:block;padding:50px;">LOGOUT</a> 
+<form name="action" method="post" style="background-color:#353c49; border: 0px; margin: 0px; padding:0px; ">
+<input type="hidden" name="action" value="logout">
+<a href="WelcomePage.jsp" class="btn8" style="display:block;padding:50px;">LOGOUT</a> </form> 
  
-</div> 
+ 
+</div>  
 <!-- SIDEBAR --> 
  
 <!-- TOPBAR -->       
@@ -164,7 +167,7 @@ button:hover {
     			<input type ="text" placeholder="Enter Bank Name" name="BankName" required>
                 
                 <input type="file" id="myFile" name="payimage" accept="image/jpeg, image/png, image/jpg">
-                 <input type="hidden" id="myFile" name="action" value="addPaymentOnline">
+                 <input type="hidden" id="myFile" name="action" value="savefile">
                  
                  
                  <input type="hidden" id="myFile" name="registration_id" value="<%=registration_id%>">

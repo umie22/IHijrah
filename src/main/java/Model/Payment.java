@@ -14,6 +14,32 @@ public class Payment implements Serializable {
 	public Timestamp Payment_Time;
 	public String Payment_Status;
 	public String Payment_Type;
+	public 	String name;
+	public Part file;
+	
+	
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public Part getFile() {
+		return file;
+	}
+
+
+	public void setFile(Part file) {
+		this.file = file;
+	}
+
+
+
+
 	
 	
 	public String getPaymentType() {
