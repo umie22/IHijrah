@@ -161,7 +161,7 @@ button:hover {
                 <label for="myFile">Please upload your payment receipt here:</label>
                  
                  <label style="text-align:center;"><b>Bank Name:</b></label> 
-    			<input type ="text" placeholder="Enter Bank Name" name="bankname" required>
+    			<input type ="text" placeholder="Enter Bank Name" name="BankName" required>
                 
                 <input type="file" id="myFile" name="payimage" accept="image/jpeg, image/png, image/jpg">
                  <input type="hidden" id="myFile" name="action" value="addPaymentOnline">

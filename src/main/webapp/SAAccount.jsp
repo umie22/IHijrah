@@ -20,7 +20,7 @@
 <a href="SARegisterStaff.jsp" class="btn4" style="display:block; font-size:11px;padding:30px;">REGISTER STAFF</a>
 <a href="SAStaffList.jsp" class="btn5" style="display:block; font-size:11px;padding:30px;">STAFF LIST</a>
 <a href="SAAccount.jsp" class="btn6" style="display:block; font-size:11px;padding:30px;">ACCOUNT</a>
-<a href="StaffLogin.jsp" class="btn7" style="display:block; font-size:11px;padding:30px;">LOGOUT</a>
+<a href="WelcomePage.jsp" class="btn7" style="display:block; font-size:11px;padding:30px;">LOGOUT</a>
 
 </div>
 <!-- SID

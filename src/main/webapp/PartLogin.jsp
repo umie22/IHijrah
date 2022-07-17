@@ -2,14 +2,14 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-  <title>Login Staff</title>
+  <title>Login Participant</title>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
   background: #c9ccd1;
-    background-image: url("https://images4.alphacoders.com/719/719005.jpg");
+    background-image: url("https://i.pinimg.com/originals/18/58/36/185836fd5620d1f89553b4737feac59b.jpg");
   
 
 }

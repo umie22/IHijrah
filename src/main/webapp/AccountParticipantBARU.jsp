@@ -158,12 +158,14 @@ padding-top:30px;
 <img class="logo" alt="" src="IHijrahLogo.PNG"> 
 <h3 style="text-align: center; color: white;">WELCOME</h3> 
 <a href="Registration.jsp" class="btn2" style="display:block;padding:50px;">REGISTER COURSE</a> 
-<a href="SchedulePartBaru.jsp" style="display:block;padding:50px;">CLASS SCHEDULE</a>  
-<a href="PartAnnouncement.jsp" style="display:block;padding:50px;">ANNOUNCEMENT</a> 
+<a href="SchedulePartBaru.jsp" class="btn4" style="display:block;padding:50px;">CLASS SCHEDULE</a> 
+<a href="PartAnnouncement.jsp" class="btn6" style="display:block;padding:50px;">ANNOUNCEMENT</a> 
 <a href="AccountParticipantBARU.jsp" class="btn6" style="display:block;padding:50px;">ACCOUNT</a> 
-<form action="Plogin" method="post" style="background-color:#353c49; border: 0px; margin: 0px; padding:0px; ">
+<form name="action" method="post" style="background-color:#353c49; border: 0px; margin: 0px; padding:0px; ">
 <input type="hidden" name="action" value="logout">
-<a href="" class="btn8" style="display:block;padding:50px;">LOGOUT</a> </form>
+<a href="WelcomePage.jsp" class="btn8" style="display:block;padding:50px;">LOGOUT</a> </form> 
+ 
+ 
 </div> 
 <!-- SIDEBAR --> 
  
