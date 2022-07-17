@@ -9,7 +9,9 @@
 <style>
 body {
   background: #c9ccd1;
-
+  background-image: url("https://alfa-logistics-family.com/wp-content/uploads/2021/06/selangor-malaysia-scaled.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .form-style input {
   border: 0;
@@ -81,8 +83,8 @@ h4{
           </div>
          
           <div class="pb-2">
-                             <input type="hidden" name="action" value="loginStaff">
-            <button type= "submit" value="Submit" width="200px;" style="text-align: center;	margin-left: 120px; width:200px;">Log in</button>
+            <input type="hidden" name="action" value="loginStaff">
+            <input type= "submit" value="Submit" width="200px;" style="text-align: center;	margin-left: 120px; width:200px;">
           </div>
         </form>
     

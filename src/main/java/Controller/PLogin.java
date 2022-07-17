@@ -79,21 +79,24 @@ public class PLogin extends HttpServlet {
           	          session.setAttribute("participant_email", res.getString(4));
           	          session.setAttribute("participat_password",res.getString(2));
           	          session.setAttribute("participant_id", res.getString(1));
+          	          session.setAttribute("participant_name", res.getString(3));
+          	          session.setAttribute("participant_phoneno",res.getString(5));
 
        	     
-          	        response.sendRedirect("AccountParticipantBARU.jsp");
+          	        response.sendRedirect("AccountParticipantBARU.jsp");}
+          	        
 
 
-                  }
-                  else{
                   
-                  }
+              else{}
+              
+          }response.sendRedirect("PartLogin.jsp");
 
-              }
-              out.print("Invalid Email/Password");
+             
 
+
+      
           }
-
       }
       catch (Exception e){
           e.printStackTrace();
@@ -103,10 +106,8 @@ public class PLogin extends HttpServlet {
 	private void logout(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
 		  HttpSession session = request.getSession();
-	        session.removeAttribute("participant_email");
-	        session.removeAttribute("participant_password");
 	        session.invalidate();
-	        response.sendRedirect("SignupParticipantBARU.jsp");
+	        response.sendRedirect("WelcomePage.jsp");
 	}
 
 }

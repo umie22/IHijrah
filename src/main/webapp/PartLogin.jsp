@@ -1,128 +1,102 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+  <title>Login Staff</title>
 <head>
-<meta charset="ISO-8859-1">
-<title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
-
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-button {
-  background-color: grey;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  background: white;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-  background: white;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-   
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto ;
-  background-color: white;
-  height: 100%;
+body {
+  background: #c9ccd1;
+    background-image: url("https://images4.alphacoders.com/719/719005.jpg");
   
-}
 
-.grid-container > div {
-  background-color: white;
+}
+.form-style input {
+  border: 0;
+  height: 50px;
+  border-radius: 0;
+  border-bottom: 1px solid #285882;
+
+}
+.form-style input:focus {
+  border-bottom: 1px solid #007bff;
+  box-shadow: none;
+  outline: 0;
+  background-color: #ebebeb;
+}
+.sideline {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
-  height: 100%;
-}
-.item1 {
+  color: #ccc;
 
-  grid-row-start: 1;
-  grid-row-end: 1;
 }
-.item1 {
+button {
+  height: 50px;
+}
+.sideline:before,
+.sideline:after {
+  content: "";
+  border-top: 1px solid #ebebeb;
+  margin: 0 20px 0 0;
+  flex: 1 0 20px;
+  background-color: #285882;
+}
+ 
+.sideline:after {
+  margin: 0 0 0 20px;
 
- height: 250px;
 }
+
+h4{
+  text-align: center;
+}
+
+
 </style>
+  <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
-<body>
-
-<div class="grid-container">
-
- <div class="item1">
-
- 	<div class="imgcontainer">
-    <img src="pic4.jpg" style="width:80%;height:500px;">
+  <div class="container">
+  <div class="row m-5 no-gutters shadow-lg">
+    <div class="col-md-6 d-none d-md-block">
+      <img src="https://th.bing.com/th/id/R.1953bfa6691c4570f26be6000dc8388f?rik=940f%2fVtK3utMyA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-SEzqdmCAXwY%2fUUdIqCn37fI%2fAAAAAAAAC5E%2fTHgxCbpOgmg%2fs1600%2fKaaba%2bHD%2bWallpapers%2b2013%2b(4).jpg&ehk=YIT75F99GXZRv3UvAmweXb1Uluu4%2bXLj0xwem1NFVHw%3d&risl=&pid=ImgRaw&r=0g" class="img-fluid" style="min-height:100%;" />
+    </div>
+    <div class="col-md-6 bg-white p-5">
+      <h4 class="pb-3" >Login</h4>
+      <div class="form-style">	
+      
+      
+        <form action ="PLogin" method="post" >
+          <div class="form-group pb-3">
+            <label for="Email"><b>User Email</b></label>
+            
+            <input type="text" placeholder="User Email" class="form-control" id="exampleInputstaffid" name="participant_email">
+          </div>
+          <div class="form-group pb-3">
+            <label for="email"><b>Password</b></label>
+            <input type="password" placeholder="Password" class="form-control" id="exampleInputPassword1" name="participant_password">
+          </div>
+          
+                 Do not have an account yet?<a href="SignupParticipantBARU.jsp" >Click here</a> to Sign up. <br><br>	
+          
+         
+          <div class="pb-2">
+   		<input type="hidden" name="action" value="login" >             
+   		<button type= "submit" value="Submit" width="200px;" style="text-align: center;	margin-left: 120px; width:200px;">Log in</button>
+          </div>
+        </form>
+       
+        
+      </div>
+ 
+    </div>
   </div>
 </div>
-
-<form action="PLogin" method="post">
-	<div class="item1">
- <h2 style="text-align:center;">Login</h2>
-  <br>
-  		<div class="partL">
-			<label><b>Email</b></label> 
-			<input type="text" name="participant_email" required>
-		</div>
-		<br><br>
-		<div class="partL">
-			<label><b>Password</b></label> 
-			<input type="password" name="participant_password" required>
-		</div>
-		<br><br><br><br>
-		<div>
-			<input type="hidden" name="action" value="login" >
-			<button type="submit">LOGIN</button>
-		</div>
-</div>
-</form>
-
-  </div>
-</body>
 </html>
 
-    
+

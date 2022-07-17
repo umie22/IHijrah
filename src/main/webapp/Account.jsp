@@ -18,7 +18,7 @@
 <a href="schedulelist.jsp" class="btn2" style="display:block; font-size:11px;padding:30px;">CLASS SCHEDULE</a>
 <a href="AnnouncementList.jsp" class="btn3" style="display:block; font-size:11px;padding:30px;">ANNOUNCEMENT</a>
 <a href="Account.jsp" class="btn6" style="display:block; font-size:11px;padding:30px;">ACCOUNT</a>
-<a href="RStaffLogin.jsp" class="btn7" style="display:block; font-size:11px;padding:30px;">LOGOUT</a>
+<a href="WelcomePage.jsp" class="btn7" style="display:block; font-size:13px;">LOGOUT</a>
 
 </div>
 <!-- SID
@@ -61,7 +61,6 @@
             </div>
             </div>
             <hr>
-            <input type="button" class="edit" style="background-color: #4B6FE8; margin-left:60em; margin-top:5em;" value="Edit">
     </div>
     </div>
 </div>

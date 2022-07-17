@@ -33,9 +33,7 @@ public class RegisterDAO {
     	String registration_id = "";
         try (Connection con = getConnection();
         		
-             PreparedStatement ps = con.prepareStatement("insert into registration (participant_id,course_id,registration_date) values (?,?,?)");
-      	     PreparedStatement ps2 = con.prepareStatement("insert into payment(payment_date,payment_time,payment_receipt) values(?,?,?)");)
-
+             PreparedStatement ps = con.prepareStatement("insert into registration(participant_id,course_id,registration_date) values (?,?,?)"))
 
         {
 
@@ -46,14 +44,9 @@ public class RegisterDAO {
             ps.executeUpdate();
 
             
-            //ps2.setString(1,"Approved");
-            //ps2.setString(2,pmt.getPayID());
 
-            
-            //rowUpdated = ps.executeUpdate() > 0;
-          //  ps2.executeUpdate();
             PreparedStatement selectSQL = con.prepareStatement
-        			( "SELECT registration_id FROM registration WHERE participant_id = ? ORDER BY registration_id");
+        			( "SELECT registration_id FROM registration WHERE participant_id=? ORDER BY registration_id");
         			
         			// Set ? values
         			selectSQL.setInt(1, register.getParticipant_id());

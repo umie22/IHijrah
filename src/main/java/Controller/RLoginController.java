@@ -233,7 +233,7 @@ public class RLoginController extends HttpServlet {private static final long ser
     	   }
   
        else{}
-        }response.sendRedirect("StaffLogin.jsp");
+        }response.sendRedirect("RStaffLogin.jsp");
         
    
         

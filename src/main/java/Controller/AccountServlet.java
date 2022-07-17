@@ -75,7 +75,7 @@ public class AccountServlet extends HttpServlet {
         
 
         ad.addAcc(a);
-        response.sendRedirect("SignupParticipantBARU.jsp");
+        response.sendRedirect("PartLogin.jsp");
 	}
 	
     private void updateAcc(HttpServletRequest request, HttpServletResponse response)

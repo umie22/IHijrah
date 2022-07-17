@@ -117,33 +117,24 @@ padding-top:30px;
 
 
 <!-- SIDEBAR -->
-<div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden">
-<img class="logo" alt="" src="IHijrahLogo.PNG">
-<h3 style="text-align: center; color: white;">WELCOME</h3>
-<a href="" class="btn2" style="display:block;padding:42px;">REGISTER COURSE</a>
-<a href="SchedulePartBaru.jsp" class="btn4" style="display:block;padding:42px;">CLASS SCHEDULE</a>
-<a href="AccountParticipantBARU.jsp" class="btn6" style="display:block;padding:42px;">ACCOUNT</a>
-<a href="#" class="btn8" style="display:block;padding:42px;">LOGOUT</a>
-
-</div>
+<div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden"> 
+<img class="logo" alt="" src="IHijrahLogo.PNG"> 
+<h3 style="text-align: center; color: white;">WELCOME</h3> 
+<a href="Registration.jsp" class="btn2" style="display:block;padding:50px;">REGISTER COURSE</a> 
+<a href="SchedulePartBaru.jsp" style="display:block;padding:50px;">CLASS SCHEDULE</a>  
+<a href="PartAnnouncement.jsp" style="display:block;padding:50px;">ANNOUNCEMENT</a> 
+<a href="AccountParticipantBARU.jsp" class="btn6" style="display:block;padding:50px;">ACCOUNT</a> 
+<form name="action" method="post" style="background-color:#353c49; border: 0px; margin: 0px; padding:0px; ">
+<input type="hidden" name="action" value="logout">
+<a href="PartLogin.jsp" class="btn8" style="display:block;padding:50px;">LOGOUT</a> </form> 
+</div> 
 <!-- SIDEBAR -->
 
 <!-- TOPBAR -->      
 <div style=" background-color: #102e44; height:100px; color:blue; padding-left:70px; ">
  <div class="navbar">
 
-  <div class="dropdown">
-    <button class="dropbtn">Announcement 
-      <i class="fa fa-caret-down">
-      <a href="PartAnnouncement.jsp" class="notification">
-      <span class="badge">3</span></i></a>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Class is cancelled</a>
-      <a href="#">Class will be held at dataran masjid</a>
-      <a href="#">Class is postponed to 3 p.m</a>
-    </div>
-  </div> 
+  	
 </div>
  
  </div>
@@ -156,8 +147,8 @@ padding-top:30px;
 <sql:query dataSource="${ic}" var="oc">
     SELECT row_number() over () "rank",schedule_date,schedule_time,schedule_description,schedule_availability from schedule
 </sql:query>
-	<div class="container" style="margin: 20px 10px 0px 210px; background-color:#004a80; height:460px; ">
-	<p style="float: left; font-size: 30px;">SCHEDULE</p><br><br><br><br><br><br><br><br><br>
+	<div class="container" style="margin: 20px 10px 0px 210px; background-color:white; height:460px; ">
+	<p style=" font-size: 30px; margin-left: 600px; font-weight: bold;">SCHEDULE</p><br><br><br><br>
 	<table class="styled-table"  style="position: relative; right:-5px; width:99%">
     <thead>
         <tr>

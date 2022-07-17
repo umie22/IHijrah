@@ -1,57 +1,60 @@
 package Model;
 
 import javax.servlet.http.Part;
+
+import com.google.protobuf.Timestamp;
+
 import java.io.Serializable;
 import java.sql.Time;
 
 public class Payment implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	public String payID;
-	public String payDate;
-	public Time payTime;
-	public String payStatus;
+	public String Payment_ID;
+	public Timestamp Payment_Time;
+	public String Payment_Status;
+	public String Payment_Type;
+	
+	
+	public String getPaymentType() {
+		return Payment_Type;
+	}
 
+
+	public void setPaymentType(String payType) {
+		this.Payment_Type = payType;
+	}
 
 
 
 	public String getPayID() {
-		return payID;
+		return Payment_ID;
 	}
 
 
 	public void setPayID(String payID) {
-		this.payID = payID;
+		this.Payment_ID = payID;
 	}
 
 
-	public String getPayDate() {
-		return payDate;
+
+	public Timestamp getPayTime() {
+		return Payment_Time;
 	}
 
 
-	public void setPayDate(String payDate) {
-		this.payDate = payDate;
-	}
-
-
-	public Time getPayTime() {
-		return payTime;
-	}
-
-
-	public void setPayTime(Time payTime) {
-		this.payTime = payTime;
+	public void setPayTime(Timestamp payTime) {
+		this.Payment_Time = payTime;
 	}
 
 
 	public String getPayStatus() {
-		return payStatus;
+		return Payment_Status;
 	}
 
 
 	public void setPayStatus(String payStatus) {
-		this.payStatus = payStatus;
+		this.Payment_Status = payStatus;
 	}
 
 

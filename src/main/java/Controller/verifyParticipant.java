@@ -84,12 +84,12 @@ public class verifyParticipant extends HttpServlet {
         HttpSession session=request.getSession();
 
         String id = request.getParameter("id");
-        int staffid = Integer.parseInt((String) session.getAttribute("staff_id"));
+        int staffid = Integer.parseInt((String) (session.getAttribute("Staff_ID")));
 
         Payment pmt = new Payment();
         Registration rs = new Registration();
         
-        pmt.setPayID(id);
+        rs.setRegistration_id(id);
         pmt.setPayStatus("Rejected");
         rs.setStaff_id(staffid);
         
@@ -107,8 +107,6 @@ public class verifyParticipant extends HttpServlet {
         String id = request.getParameter("id");
         int staffid = Integer.parseInt((String) session.getAttribute("Staff_ID"));
         
-        System.out.println(staffid);
-        System.out.println(id);
         
         Payment pmt = new Payment();
         Registration rs = new Registration();

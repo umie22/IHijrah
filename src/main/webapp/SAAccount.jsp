@@ -63,7 +63,6 @@
             </div>
             </div>
             <hr>
-            <input type="button" class="edit" style="background-color: #4B6FE8; margin-left:55em; margin-top:5em;" value="Edit">
     </div>
     </div>
 </div>

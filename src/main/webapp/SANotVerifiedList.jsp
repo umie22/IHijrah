@@ -23,7 +23,7 @@
 <a href="SARegisterStaff.jsp" class="btn4" style="display:block; font-size:13px;">REGISTER STAFF</a>
 <a href="SAStaffList.jsp" class="btn5" style="display:block; font-size:13px;">STAFF LIST</a>
 <a href="SAAccount.jsp" class="btn6" style="display:block; font-size:13px;">ACCOUNT</a>
-<a href="StaffLogin.jsp" class="btn7" style="display:block; font-size:13px;">LOGOUT</a>
+<a href="WelcomePage.jsp" class="btn7" style="display:block; font-size:13px;">LOGOUT</a>
 
 </div>
 <!-- SIDEBAR -->
@@ -33,7 +33,7 @@
  <!-- TOPBAR -->   
 
 
-	<div class="container" style="margin: 20px 10px 0px 210px; background-color:lightgrey; height:600px; ">
+	<div class="container" style="margin: 20px 10px 0px 210px; background-color:white; height:600px; ">
 	
 	
 		
@@ -82,8 +82,8 @@
  					<td style=" text-align: center; border: solid black 1px;background-color: #ff0000;">
                          <c:out value="${register.Payment_Status}"/>
                     </td>
- 					<td style=" text-align: center; border: solid black 1px;background-color: #ff0000;">
-           					  <img src="${register.Payment_Status}" style="width:154px;height:152px;"></td>
+ 					<td style=" text-align: center; border: solid black 1px;">
+           					  <img src="${register.Payment_Receipt}" style="width:154px;height:152px;"></td>
                      <td>
                      <form action= "" method= "post">
                    <input type="hidden" name="action" value="verify">
@@ -94,7 +94,7 @@
                      </form>
                      <form action= "" method= "post">
                    <input type="hidden" name="action" value="reject">
-                     <button formaction="verifyParticipant?id=${register.Payment_ID}">Reject</button>        
+                     <button formaction="verifyParticipant?id=${register.Registration_ID}">Reject</button>        
                      </form>
                     </td>
                      

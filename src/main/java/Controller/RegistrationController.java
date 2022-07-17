@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import Dao.RegisterDAO;
 import Dao.ScheduleDAO;
+import Model.Payment;
 import Model.Registration;
 
 /**
@@ -56,20 +57,9 @@ public class RegistrationController extends HttpServlet {
         try {
         switch (action) {
 		    case "register":
-		    	register(request, response);
+		    	registerCourse(request, response);
 		        break;
-		   /*case "reject":
-			   reject(request, response);
-		        break;*/
-		    /*case "viewStaff":
-		        viewStaff(request, response);
-		        break;
-		    case "deleteStaff":
-		        deleteStaff(request, response);
-		        break;
-		    case "updateStaff":
-		        updateStaff(request, response);
-		        break;*/
+
 		
 	}
         } catch (SQLException e) {
@@ -78,8 +68,9 @@ public class RegistrationController extends HttpServlet {
 
 	}
 
-	private void register(HttpServletRequest request, HttpServletResponse response)  throws SQLException, IOException  {
+	private void registerCourse(HttpServletRequest request, HttpServletResponse response)  throws SQLException, IOException  {
 		
+		try {
 	    HttpSession session = request.getSession();
 	    int id = Integer.parseInt((String) session.getAttribute("participant_id"));
 
@@ -87,16 +78,25 @@ public class RegistrationController extends HttpServlet {
 		//String id = session.getAttribute("participant_id").toString(); 
 		int courseid = Integer.parseInt(request.getParameter("courseid")); 
 		
+		String paytype = request.getParameter("paytype");
+		
 		   DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		   LocalDateTime now = LocalDateTime.now();
 		   
 		String date = dtf.format(now);
 
 		Registration register = new Registration();
+		Payment pmt = new Payment();
+
 		
 		register.setParticipant_id(id);
 		register.setCourse_id(courseid);
 		register.setRegistration_date(date);
+		pmt.setPaymentType(paytype);
+		
+		if(pmt.Payment_Type.equals("Online"))
+		{
+
 		
 		String registration_id=rg.register(register);
 		
@@ -105,12 +105,27 @@ public class RegistrationController extends HttpServlet {
 		
 		session.setAttribute("registration_id", registration_id);
 		
-		response.sendRedirect("TryUploadPayment.jsp");
+		response.sendRedirect("PaymentOnline.jsp");
+		}
+		
+		else
+		{
+			
+			String registration_id=rg.register(register);
+
+			
+			session.setAttribute("registration_id", registration_id);
+
+			response.sendRedirect("PaymentOffline.jsp");
+
+			
+		}
 
 
 		// TODO Auto-generated method stub
 		
-	}
+	}catch(Exception e) {}
+}
 }
 
 

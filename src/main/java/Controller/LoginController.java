@@ -46,9 +46,6 @@ public class LoginController extends HttpServlet {private static final long seri
 		    case "logout":
 		    	logout(request, response);
 		    	break;
-		    case "viewStaff":
-		        viewStaff(request, response);
-		        break;
 		    case "deleteStaff":
 		        deleteStaff(request, response);
 		        break;
@@ -60,10 +57,6 @@ public class LoginController extends HttpServlet {private static final long seri
         
 	
  
-	private void viewStaff(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	private void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		  HttpSession session = request.getSession();
@@ -81,7 +74,7 @@ public class LoginController extends HttpServlet {private static final long seri
         response.setContentType("text/html");  
 		
 		String name = request.getParameter("name"); 
-		int phonenumber = Integer.parseInt(request.getParameter("number"));
+		int phonenumber = Integer.parseInt(request.getParameter("telno"));
 		int managerid = Integer.parseInt(request.getParameter("manid"));
 		String password = request.getParameter("pass");
 		String role = request.getParameter("role");
@@ -90,6 +83,7 @@ public class LoginController extends HttpServlet {private static final long seri
 			
 			Connection conn = null;
 			PreparedStatement stat = null;
+		     	Class.forName("org.postgresql.Driver"); 
 				String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
 				String DB_USER = "zaiaryvqbpwwcb";	
 				String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
@@ -99,9 +93,9 @@ public class LoginController extends HttpServlet {private static final long seri
 				stat = conn.prepareStatement(data);
 				
 				stat.setString(1,name);
-				stat.setInt(2,phonenumber);
+				stat.setString(2,password);
 				stat.setInt(3,managerid);
-				stat.setString(4,password);
+				stat.setInt(4,phonenumber);
 				stat.setString(5,role);
 				
 				stat.executeUpdate();
@@ -154,9 +148,9 @@ public class LoginController extends HttpServlet {private static final long seri
 		// TODO Auto-generated method stub
         response.setContentType("text/html");  
 		
-		String id = request.getParameter("id"); 
+		String ID = request.getParameter("ID"); 
 		String name = request.getParameter("name"); 
-		int phonenumber = Integer.parseInt(request.getParameter("number"));
+		String phonenumber = request.getParameter("telno");
 		int managerid = Integer.parseInt(request.getParameter("manid"));
 		String password = request.getParameter("pass");
 		String role = request.getParameter("role");
@@ -170,19 +164,19 @@ public class LoginController extends HttpServlet {private static final long seri
 				String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
 
 				conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
-				String data = "UPDATE staff (staff_name=?,staff_password=?,manager_id=?,staff_telno=?,staff_role=? where staff_id=?)";
+				String data = "UPDATE staff set staff_name=?,staff_password=?,manager_id=?,staff_telno=?,staff_role=? where staff_id=?";
 				stat = conn.prepareStatement(data);
 				
 				stat.setString(1,name);
-				stat.setInt(2,phonenumber);
+				stat.setString(2,password);
 				stat.setInt(3,managerid);
-				stat.setString(4,password);
+				stat.setString(4,phonenumber);
 				stat.setString(5,role);
-				stat.setString(6,id);
+				stat.setString(6,ID);
 
 				
 				stat.executeUpdate();
-				response.sendRedirect("dashboardstaff.jsp");
+				response.sendRedirect("SAStaffList.jsp");
 			}
 			
 			 catch (Exception e){
@@ -218,7 +212,7 @@ public class LoginController extends HttpServlet {private static final long seri
         while (rs.next()) {
        if(n.equals(rs.getString("staff_id")) && (p.equals(rs.getString("staff_password"))))
        {
-    	   	if((rs.getString("staff_role")!="Head Admin")) {
+    	   	if((rs.getString("staff_role").equals("Head Admin"))) {
     	    
         	session.setAttribute("Staff_ID",rs.getString(1));
         	session.setAttribute("Staff_Name",rs.getString(2));
@@ -228,6 +222,17 @@ public class LoginController extends HttpServlet {private static final long seri
         	session.setAttribute("Staff_Role",rs.getString(6));
         	
         	response.sendRedirect("SAAccount.jsp");}
+    	   	
+    	   	else{
+        	    
+            	session.setAttribute("Staff_ID",rs.getString(1));
+            	session.setAttribute("Staff_Name",rs.getString(2));
+            	session.setAttribute("Staff_Password",rs.getString(3));
+            	session.setAttribute("Manager_ID",rs.getInt(4));
+            	session.setAttribute("Staff_TelNo",rs.getString(5));
+            	session.setAttribute("Staff_Role",rs.getString(6));
+            	
+            	response.sendRedirect("Account.jsp");}
     	   	
        
     	   }

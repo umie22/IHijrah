@@ -21,7 +21,7 @@
 <a href="schedulelist.jsp" class="btn2" style="display:block; font-size:13px;">CLASS SCHEDULE</a>
 <a href="AnnouncementList.jsp" class="btn3" style="display:block; font-size:13px;">ANNOUNCEMENT</a>
 <a href="Account.jsp" class="btn6" style="display:block; font-size:13px;">ACCOUNT</a>
-<a href="StaffLogin.jsp" class="btn7" style="display:block; font-size:13px;">LOGOUT</a>
+<a href="WelcomePage.jsp" class="btn7" style="display:block; font-size:13px;">LOGOUT</a>
 
 </div>
 <!-- SIDEBAR -->
@@ -31,7 +31,7 @@
  <!-- TOPBAR -->   
 
 
-	<div class="container" style="margin: 20px 10px 0px 210px; background-color:lightgrey; height:600px; ">
+	<div class="container" style="margin: 20px 10px 0px 210px; background-color:white; height:600px; ">
 	
 	
 		

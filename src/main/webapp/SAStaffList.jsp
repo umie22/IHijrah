@@ -83,8 +83,8 @@
          
 
          <td class="text-center" style=" text-align: center; border: solid black 1px;">
-           <a href='ViewStaff.jsp?u=<%=res.getString("staff_id")%>' class="btn btn-warning" style= "padding:5px; background-color:#33cc33 ">Edit</a>
-           <a href='DeleteStaff.jsp?d=<%=res.getString("staff_id")%>' class="btn btn-danger" style= "padding:5px; background-color: #e60000" onclick="ConfirmDelete()" id="id01">Delete</a>
+           <a href='SAViewStaff.jsp?u=<%=res.getString("staff_id")%>' class="btn btn-warning" style= "padding:5px; background-color:#33cc33 ">Edit</a>
+           <a href='SADeleteStaff.jsp?d=<%=res.getString("staff_id")%>' class="btn btn-danger" style= "padding:5px; background-color: #e60000" onclick="ConfirmDelete()" id="id01">Delete</a>
            
          </td>
         </tr>
