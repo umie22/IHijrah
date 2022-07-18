@@ -83,7 +83,7 @@
                          <c:out value="${register.Payment_Status}"/>
                     </td>
  					<td style=" text-align: center; border: solid black 1px;">
-								<a href="PaymentServlet?id=${register.Payment_ID}">View Receipt</a>                     
+								<a href="PaymentServlet?id=${register.Payment_ID}" style="background-color:white; color:blue; font-size: 20px;">View Receipt</a>                     
 								<td>
                      <form action= "" method= "post">
                    <input type="hidden" name="action" value="verify">

@@ -71,7 +71,6 @@ public class ScheduleServlet extends HttpServlet {
 	    	String date =request.getParameter("date");
 	    	String time = request.getParameter("time");
 	    	String description = request.getParameter("description");
-	    	String availability = request.getParameter("availability");
 	    	int course = Integer.parseInt(request.getParameter("course"));
 	    	
 	    	Schedule stmt = new Schedule();
@@ -80,7 +79,6 @@ public class ScheduleServlet extends HttpServlet {
 			stmt.setSchedule_Date(Date.valueOf(date));
 			stmt.setSchedule_Time(time);
 			stmt.setSchedule_Description(description);
-			stmt.setAvailability(availability);
 			stmt.setCourse_ID(course);
 
 			ad.updateSchedule(stmt);

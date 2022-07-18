@@ -93,12 +93,7 @@
       			</div>
     		</div><br>
     		
-			<label for="cars">Choose Availability:</label>
-			  <select name="availability" id="availability" >
-			    <option value="Available">Available</option>
-			    <option value="Fully Booked">Fully Booked</option>
-			  </select>
-			  <br><br>
+
 			  
 			  <label for="cars">Choose Course:</label>
 			  <select name="course" id="course">
