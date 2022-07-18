@@ -208,7 +208,7 @@ public class PaymentServlet extends HttpServlet {
 				pst.executeUpdate();
 				
 		             
-		 			response.sendRedirect("Account.jsp");
+		 			response.sendRedirect("AccountParticipantBARU.jsp");
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
