@@ -179,7 +179,7 @@ font-weight: bold;}
 
          <td class="text-center" style=" text-align: center; border: solid grey 1px;">
            <a href='ViewAnnouncement.jsp?u=<%=res.getString("announcement_id")%>' class="btn btn-warning" style= "padding:10px;border-radius:20px; background-color:#4B6FE8;font-size:15px;">Edit</a>
-           <a onclick="checkDelete()" href='SADeleteAnnouncement.jsp?u=<%=res.getString("announcement_id")%>' class="btn btn-warning" style= "padding:10px;border-radius:20px; background-color:#4B6FE8;font-size:15px;">Delete</a>
+           <a onclick="checkDelete()" href='SADeleteAnnouncement.jsp?u=<%=res.getString("announcement_id")%>' class="btn btn-warning" style= "padding:10px;border-radius:20px; background-color:red;font-size:15px;">Delete</a>
            
            
          </td>
@@ -191,7 +191,7 @@ font-weight: bold;}
     </tbody>
 </table>
 <br><br>
- <a href='SACreateAnnouncement.jsp?id= <%session.getAttribute("Staff_ID");%>' style="  margin-left:10px;font-size:15px;text-align: left; background-color: #353c49; border-radius: 10px; padding:20px;">Add Announcement</a>
+ <a href='SACreateAnnouncement.jsp?id= <%session.getAttribute("Staff_ID");%>' style="  margin-left:1450px;font-size:15px;text-align: left; background-color: #353c49; border-radius: 10px; padding:20px;">Add Announcement</a>
     <br><br>
   </div>
   

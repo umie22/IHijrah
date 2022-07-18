@@ -38,7 +38,7 @@
                    user = "zaiaryvqbpwwcb"
                    password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
 <sql:query dataSource="${ic}" var="oc">
-    SELECT DISTINCT(registration_id)registration_id,payment_id,payment_date,payment_status from registration join payment using (registration_id) where registration_status != 'Not Verified'
+    SELECT DISTINCT(registration_id)registration_id,payment_id,payment_date,payment_status from registration join payment using (registration_id) 	where registration_status != 'Not Verified'
 </sql:query>
 
  <br><br><br>

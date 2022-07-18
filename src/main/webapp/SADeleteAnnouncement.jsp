@@ -2,7 +2,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%
-String id = request.getParameter("d");
+String id = request.getParameter("u");
 
 String DB_DRIVER = "org.postgresql.Driver";
 	String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
