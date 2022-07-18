@@ -206,7 +206,7 @@ font-weight: bold;}
     
      <td class="text-center" style=" text-align: center; border: solid black 1px;">
         <a href='ViewSchedule.jsp?u=<%=res.getString("schedule_id")%>' class="btn btn-warning" style= "padding:10px;border-radius:20px;font-size:15px; background-color: #4B6FE8;border-color:#4B6FE8;">Edit</a>
-        <button onclick="document.getElementById('id05').style.display='block'" id="myBtn" style= "padding:10px;border-radius:20px;font-size:15px; background-color: #e60000;border-color:#e60000;">Delete</button>
+        <a onclick="checkDelete()" href='SADeleteSchedule.jsp?d=<%=res.getString("schedule_id")%>' class="btn btn-warning" style= "padding:10px;border-radius:20px;font-size:15px; background-color: red;border-color:#4B6FE8;">Delete</a>
       </td>
     </tr>
          <%
@@ -218,37 +218,24 @@ font-weight: bold;}
 </table>
 
 <br><br>
- <a href="SACreateSchedule.jsp <%session.getAttribute("Staff_ID");%>" style="  margin-left:10px;font-size:15px;text-align: left; background-color: #353c49; border-radius: 10px; padding:20px;">Add Schedule</a>
+ <a href="SACreateSchedule.jsp <%session.getAttribute("Staff_ID");%>" style="  margin-left:1500px;font-size:15px;text-align: left; background-color: #353c49; border-radius: 10px; padding:20px;">Add Schedule</a>
     <br><br>
   </div>
 
 
- <div id="id05" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php" method="post">
-    
-      <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
-     <div class="modal-content">
-    <span class="close">&times;</span>
-    <h1>ALERT!!!!</h1>
-    <p>Are you sure you want to delete this schedule?</p><br><br><br>
-  <a href="SACreateSchedule.jsp"  class="btn btn-danger" style="background-color: green;color:white;position: relative; font-size:15px;border-color:green;padding: 10px; border-radius: 10px;margin-right:120px;"onclick="ConfirmDelete()" id="id02">Yes</a>
-    <button id="myBtn" style="background-color: Red;color:white;position: relative; left:10px; border-color:red;padding: 10px; border-radius: 10px;margin-right:120px;"a href="proceedRegister.html">No</a></button>
-  </div>
-    </div>  
 
 </body>
 
 <script>
 //Get the modal
-var modal = document.getElementById('id05');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+
+function checkDelete() {
+	var result = confirm('Sure want to delete?');
+	if (result == false) {
+		event.preventDefault();
+	}
 }
-
 </script>
 </html>

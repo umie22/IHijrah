@@ -45,7 +45,7 @@
                    user = "zaiaryvqbpwwcb"
                    password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
 <sql:query dataSource="${ic}" var="oc">
-    SELECT  DISTINCT(registration_id)registration_id,payment_id,payment_date,payment_status,payment_receipt from registration join payment using (registration_id) where payment_status = 'Pending'
+    SELECT  DISTINCT(registration_id)registration_id,payment_id,payment_date,payment_status,payment_receipt from registration join online using (registration_id) where payment_status = 'Pending'
 </sql:query>
 
 

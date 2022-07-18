@@ -32,7 +32,7 @@ public class PaymentServlet extends HttpServlet {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection("jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0", "zaiaryvqbpwwcb", "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b");
             st1 = con.createStatement();
-            PreparedStatement ps = con.prepareStatement("SELECT pt_receipt FROM payment WHERE payment_id=?");
+            PreparedStatement ps = con.prepareStatement("SELECT payment_receipt FROM payment WHERE payment_id=?");
             ps.setString(1, id);
             ResultSet rs = ps.executeQuery();
  
