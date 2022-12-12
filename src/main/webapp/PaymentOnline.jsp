@@ -164,17 +164,28 @@ button:hover {
                 <label for="myFile">Please upload your payment receipt here:</label>
                  
                  <label style="text-align:center;"><b>Bank Name:</b></label> 
-    			<input type ="text" placeholder="Enter Bank Name" name="BankName" required>
-                
-                <input type="file" id="myFile" name="payimage" accept="image/jpeg, image/png, image/jpg">
+			<select name="productavailability" >
+			  <option value="Available">Available</option>
+			  <option value="Not Available">Not Available</option>			  
+			</select><br>
+						                  
+                <input type="file" id="file" name="payimage" accept="image/jpeg, image/png, image/jpg">
                  <input type="hidden" id="myFile" name="action" value="savefile">
                  
                  
                  <input type="hidden" id="myFile" name="registration_id" value="<%=registration_id%>">
                 
-                <input type="submit">Submit</button>
+                <input type="submit" name="submit" id="submit">
             </form>
             
-  
-             
+ <script>
+  document.getElementById("submit").onclick = function(e) {
+  if (document.getElementById("file").value == "") {
+    e.preventDefault();
+    alert("Please select a file.");
+  }
+  else
+  {alert("Course has been succesfully registered. Please wait pending approval by the satff");}
+}
+  </script>
  

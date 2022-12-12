@@ -88,13 +88,13 @@
                      <form action= "" method= "post">
                    <input type="hidden" name="action" value="verify">
                    
-                     <button formaction="verifyParticipant?id=${register.Registration_ID}">Verify</button> 
+                     <button formaction="verifyParticipant?id=${register.Registration_ID}" onclick="ConfirmVerify()">Verify</button> 
                                  
                             
                      </form>
                      <form action= "" method= "post">
                    <input type="hidden" name="action" value="reject">
-                     <button formaction="verifyParticipant?id=${register.Registration_ID}">Reject</button>        
+                     <button formaction="verifyParticipant?id=${register.Registration_ID}" onclick="ConfirmReject()">Reject</button>        
                      </form>
                     </td>
                      
@@ -106,5 +106,13 @@
             </c:forEach>
         </table>
 </body>
+
+<script>
+
+
+
+
+
+</script>
 
 </html>

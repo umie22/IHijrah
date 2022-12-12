@@ -45,7 +45,7 @@
        <table class="table table-bordered table-striped table-hover" style="margin-left:20px; width:97%; ">
    <thead style="background-color: #000000">
        <tr style="color: white">
-         <th>No.</th>
+         <th>ID</th>
          <th>Name</th>
          <th>Role</th>         
          <th>Action</th>
@@ -84,7 +84,7 @@
 
          <td class="text-center" style=" text-align: center; border: solid black 1px;">
            <a href='SAViewStaff.jsp?u=<%=res.getString("staff_id")%>' class="btn btn-warning" style= "padding:5px; background-color:#33cc33 ">Edit</a>
-           <a href='SADeleteStaff.jsp?d=<%=res.getString("staff_id")%>' class="btn btn-danger" style= "padding:5px; background-color: #e60000" onclick="ConfirmDelete()" id="id01">Delete</a>
+           <a href='SADeleteStaff.jsp?d=<%=res.getString("staff_id")%>' class="btn btn-danger" style= "padding:5px; background-color: #e60000" onclick="return confirm('Are you sure you want to delete this staff?')">Delete</a>
            
          </td>
         </tr>
@@ -98,38 +98,14 @@
 	
 	
 	
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-  <form class="modal-content" action="/action_page.php">
-    <div class="modal-container">
-      <h1>Delete Staff</h1>
-      <p>Are you sure you want to delete this Staff</p>
-      
-    	
-      <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
-      </div>
-    </div>
   </form>
   
 
   
-</div>
 <script>
-//Get the modal
-var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-function ConfirmDelete()
-{
-  return confirm("Are you sure you want to delete?");
+function ConfirmDelete(){
+if (confirm("Are you sure want to delete?") == true)
 }
 </script>
 </body>

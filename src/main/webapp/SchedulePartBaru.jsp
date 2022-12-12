@@ -126,7 +126,7 @@ padding-top:30px;
 <a href="AccountParticipantBARU.jsp" class="btn6" style="display:block;padding:50px;">ACCOUNT</a> 
 <form name="action" method="post" style="background-color:#353c49; border: 0px; margin: 0px; padding:0px; ">
 <input type="hidden" name="action" value="logout">
-<a href="PartLogin.jsp" class="btn8" style="display:block;padding:50px;">LOGOUT</a> </form> 
+<a href="WelcomePage.jsp" class="btn8" style="display:block;padding:50px;">LOGOUT</a> </form> 
 </div> 
 <!-- SIDEBAR -->
 

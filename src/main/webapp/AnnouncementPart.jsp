@@ -114,6 +114,7 @@ padding-top:30px;
 </style></head>
 
 <body>
+    <c:out value= <%session.getAttribute("participant_id");%>/>
 
 
 <!-- SIDEBAR -->
@@ -146,6 +147,8 @@ padding-top:30px;
     SELECT row_number() over () "rank",announcement_date,announcement_detail from announcement
 </sql:query>
 <p style="text-align:center; font-size: 30px;"><b>ANNOUNCEMENT</b></p><br><br><br>
+
+<!--<c:if test></c:if>-->
   <table class="styled-table"  style="position: relative; right:-5px; width:99%">
     <thead>
         <tr>

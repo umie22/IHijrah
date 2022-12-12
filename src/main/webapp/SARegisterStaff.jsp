@@ -1,9 +1,7 @@
-<%@page import="java.sql.DriverManager" %>
-<%@page import="java.sql.ResultSet" %>
-<%@page import="java.sql.Statement" %>
-<%@page import="java.sql.Connection" %>
-<%@page import="java.sql.PreparedStatement" %>
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <!DOCTYPE html>
 <html>
 <title>Announcement List</title>
@@ -38,6 +36,15 @@ button:hover {
 
 <body>
 
+       <sql:setDataSource var="ic" driver="org.postgresql.Driver"
+              url="jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0"
+              user = "zaiaryvqbpwwcb"
+              password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
+
+		<sql:query dataSource="${ic}" var="oc">
+		   SELECT * from staff 
+		</sql:query>
+
 
 <!-- SIDEBAR -->
 <!-- SIDEBAR -->
@@ -65,7 +72,7 @@ button:hover {
   
   <p style="text-align: center;font-size:30px;"><b>STAFF ACCOUNT REGISTRATION</b></p>
   
-<form action="LoginController"method="post">
+<form action="LoginController" method="post">
   
 <div class="registerstaff">
 <label style="margin-left:90px;" for="name"><b>Staff Fullname</b></label>
@@ -75,8 +82,11 @@ button:hover {
 
 <div class="registerstaff">
 <label style="margin-left:90px;" for="pass"><b>Staff Manager ID</b></label>
-<input type="text" name = "manid" style="margin-left:45px;" > <br>
-</div>
+<select name="manid" style="margin-left:45px;" >
+<c:forEach var="result" items="${oc.rows}">		
+  <option value="${result.staff_id}">${result.staff_name}</option>
+ </c:forEach>
+ </select><br></div>
 
 <div class="registerstaff">
 <label style="margin-left:90px;" for="pass"><b>Staff Telephone Number</b></label>
@@ -90,8 +100,10 @@ button:hover {
 
 <div class="registerstaff">
 <label style="margin-left:90px;" for="pass"><b>Staff Role</b></label>
-<input type="text" name = "role" style="margin-left:96px;"> <br>
-</div>
+<select name="role" style="margin-left:100px;" >
+			  <option value="Head Admin">Head Admin</option>
+			  <option value="Staff">Staff</option>	
+ </select></div>
 
 
 <input type=hidden name="action" value="signupStaff">

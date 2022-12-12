@@ -114,8 +114,14 @@ padding-top:30px;
 </style></head> 
  
 <body> 
+
+
+<%  
  
- 
+Object id = session.getAttribute("participant_id");  
+
+  
+%>  
 <!-- SIDEBAR --> 
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden"> 
 <img class="logo" alt="" src="IHijrahLogo.PNG"> 
@@ -126,7 +132,7 @@ padding-top:30px;
 <a href="AccountParticipantBARU.jsp" class="btn6" style="display:block;padding:50px;">ACCOUNT</a> 
 <form name="action" method="post" style="background-color:#353c49; border: 0px; margin: 0px; padding:0px; ">
 <input type="hidden" name="action" value="logout">
-<a href="PartLogin.jsp" class="btn8" style="display:block;padding:50px;">LOGOUT</a> </form> 
+<a href="WelcomePage.jsp" class="btn8" style="display:block;padding:50px;">LOGOUT</a> </form> 
 </div> 
 <!-- SIDEBAR --> 
  
@@ -142,11 +148,36 @@ padding-top:30px;
 <sql:query dataSource="${ic}" var="oc"> 
     SELECT row_number() over () "rank",announcement_date,announcement_detail from announcement 
 </sql:query> 
+
+<sql:query dataSource="${ic}" var="ab"> 
+	SELECT DISTINCT PARTICIPANT_ID FROM REGISTRATION WHERE REGISTRATION_STATUS ='Approved'
+</sql:query> 
 <p style="text-align:center; font-size: 30px;"><b>ANNOUNCEMENT</b></p><br><br><br> 
+
+<c:set var = "ID" scope = "session" value = "<%=id%>"/>
+
+<!-- 
+<c:forEach var="approval" items="${ab.rows}"> 
+<c:if test= "${ID==approval.participant_id }">
+	<c:set var = "approvalstatus" scope = "session" value="false"/>
+</c:if>
+</c:forEach> -->
+
+	<c:set var = "approvalstatus" scope = "session" value="false"/>
+
+<c:choose>
+
+<c:when test="${aprrovalstatus=='false'}">
+<p style="background-color: red; text-align: center; font-weight: bold; font-size: 30px; border-radius: 25px;">Your announcement status has been blocked due to unregistered or rejected status</p>
+
+</c:when>
+
+<c:otherwise>
+
   <table class="styled-table"  style="position: relative; right:-5px; width:99%"> 
     <thead> 
         <tr> 
-            <th>No.</th> 
+            <th>No.</th>  
             <th>Date</th> 
             <th>Description</th></tr> 
     </thead> 
@@ -165,8 +196,15 @@ padding-top:30px;
                      
                 </tr> 
             </c:forEach> 
+            
     </tbody> 
 </table> 
+
+</c:otherwise>
+</c:choose>
+
+
   </div> 
+  
 </body> 
 </html>

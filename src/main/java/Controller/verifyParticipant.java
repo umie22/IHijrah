@@ -84,7 +84,7 @@ public class verifyParticipant extends HttpServlet {
         HttpSession session=request.getSession();
 
         String id = request.getParameter("id");
-        int staffid = Integer.parseInt((String) (session.getAttribute("Staff_ID")));
+        int staffid = Integer.parseInt((String)(session.getAttribute("Staff_ID")));
 
         Payment pmt = new Payment();
         Registration rs = new Registration();

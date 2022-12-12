@@ -64,7 +64,7 @@ h4{
   <div class="container">
   <div class="row m-5 no-gutters shadow-lg">
     <div class="col-md-6 d-none d-md-block">
-      <img src="https://th.bing.com/th/id/R.1953bfa6691c4570f26be6000dc8388f?rik=940f%2fVtK3utMyA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-SEzqdmCAXwY%2fUUdIqCn37fI%2fAAAAAAAAC5E%2fTHgxCbpOgmg%2fs1600%2fKaaba%2bHD%2bWallpapers%2b2013%2b(4).jpg&ehk=YIT75F99GXZRv3UvAmweXb1Uluu4%2bXLj0xwem1NFVHw%3d&risl=&pid=ImgRaw&r=0g" class="img-fluid" style="min-height:100%;" />
+      <img src="pic6.jpg" class="img-fluid" style="min-height:100%;" />
     </div>
     <div class="col-md-6 bg-white p-5">
       <h4 class="pb-3" >Login</h4>
@@ -75,7 +75,7 @@ h4{
           <div class="form-group pb-3">
             <label for="Email"><b>User Email</b></label>
             
-            <input type="text" placeholder="User Email" class="form-control" id="exampleInputstaffid" name="participant_email">
+            <input type="email" placeholder="User Email" class="form-control" id="exampleInputstaffid" name="participant_email">
           </div>
           <div class="form-group pb-3">
             <label for="email"><b>Password</b></label>

@@ -42,8 +42,8 @@ img.avatar {
 } 
  
 .container { 
-  padding: 16px; 
   background: #353c49; 
+  height:900px;
 } 
  
 span.psw { 
@@ -63,14 +63,13 @@ span.psw {
   display: grid; 
   grid-template-columns: auto auto ; 
   background-color: white; 
-  height: 100%; 
+  height: 900px; 
    
 } 
  
 .grid-container > div { 
   background-color: white; 
   text-align: center; 
-  padding: 20px 0; 
   font-size: 30px; 
   height: 100%; 
 } 
@@ -79,10 +78,7 @@ span.psw {
   grid-row-start: 1; 
   grid-row-end: 1; 
 } 
-.item1 { 
- 
- height: 250px; 
-} 
+
 </style> 
 </head> 
 <body> 
@@ -91,9 +87,8 @@ span.psw {
 <div class="grid-container"> 
  
  <div class="item1"> 
-<form> 
   <div class="imgcontainer"> 
-    <img src="pic2.jpg" style="width:500px;height:517px;"> 
+    <img src="pic2.jpg" style="width:950px;height:900px;"> 
   </div> 
 </div> 
 <div class="item1"> 
@@ -118,7 +113,6 @@ span.psw {
   </div> 
 </div> 
   
-</form> 
   </div> 
 </body> 
 </html>

@@ -143,13 +143,13 @@ font-weight: bold;}
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden;">
 <img class="logo" alt="" src="IHijrahLogo.PNG">
 <h3 style="text-align: center; color: white; padding-bottom:2em;">WELCOME</h3>
-<a href="SAVerifiedList.jsp" class="btn1" style="display:block; font-size:11px;padding:28px;">PAYMENT VERIFICATION </a>
-<a href="SAschedulelist.jsp" class="btn2" style="display:block; font-size:11px;padding:28px;">CLASS SCHEDULE</a>
-<a href="SAAnnouncementList.jsp" class="btn3" style="display:block; font-size:11px;padding:28px;">ANNOUNCEMENT</a>
-<a href="SARegisterStaff.jsp" class="btn4" style="display:block; font-size:11px;padding:28px;">REGISTER STAFF</a>
-<a href="SAStaffList.jsp" class="btn5" style="display:block; font-size:11px;padding:28px;">STAFF LIST</a>
-<a href="SAAccount.jsp" class="btn6" style="display:block; font-size:11px;padding:28px;">ACCOUNT</a>
-<a href="WelcomePage.jsp" class="btn7" style="display:block; font-size:13px;">LOGOUT</a>
+<a href="SAVerifiedList.jsp" class="btn1" style="display:block; font-size:15px;padding:28px;">PAYMENT VERIFICATION </a>
+<a href="SAschedulelist.jsp" class="btn2" style="display:block; font-size:15px;padding:28px;">CLASS SCHEDULE</a>
+<a href="SAAnnouncementList.jsp" class="btn3" style="display:block; font-size:15px;padding:28px;">ANNOUNCEMENT</a>
+<a href="SARegisterStaff.jsp" class="btn4" style="display:block; font-size:15px;padding:28px;">REGISTER STAFF</a>
+<a href="SAStaffList.jsp" class="btn5" style="display:block; font-size:15px;padding:28px;">STAFF LIST</a>
+<a href="SAAccount.jsp" class="btn6" style="display:block; font-size:15px;padding:28px;">ACCOUNT</a>
+<a href="WelcomePage.jsp" class="btn7" style="display:block; font-size:15px;">LOGOUT</a>
 </div>
 <!-- SIDEBAR -->
 
@@ -167,7 +167,7 @@ font-weight: bold;}
 
 <thead>
        <tr>
-         <th style=" text-align: center; ">ID</th>
+         <th style=" text-align: center; ">No</th>
          <th style=" text-align: center; ">Description</th>
          <th style=" text-align: center; ">Date</th>
          <th style=" text-align: center; ">Time</th>
@@ -205,7 +205,7 @@ font-weight: bold;}
 
     
      <td class="text-center" style=" text-align: center; border: solid black 1px;">
-        <a href='ViewSchedule.jsp?u=<%=res.getString("schedule_id")%>' class="btn btn-warning" style= "padding:10px;border-radius:20px;font-size:15px; background-color: #4B6FE8;border-color:#4B6FE8;">Edit</a>
+        <a href='SAViewSchedule.jsp?u=<%=res.getString("schedule_id")%>' class="btn btn-warning" style= "padding:10px;border-radius:20px;font-size:15px; background-color: #4B6FE8;border-color:#4B6FE8;">Edit</a>
         <a onclick="checkDelete()" href='SADeleteSchedule.jsp?d=<%=res.getString("schedule_id")%>' class="btn btn-warning" style= "padding:10px;border-radius:20px;font-size:15px; background-color: red;border-color:#4B6FE8;">Delete</a>
       </td>
     </tr>

@@ -7,9 +7,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
 body {
   background: #c9ccd1;
-
+  background-image: url("https://alfa-logistics-family.com/wp-content/uploads/2021/06/selangor-malaysia-scaled.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .form-style input {
   border: 0;
@@ -59,29 +62,27 @@ h4{
   <head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
-  <div class="container">
+  <div class="container" >
   <div class="row m-5 no-gutters shadow-lg">
-    <div class="col-md-6 d-none d-md-block">
-      <img src="https://th.bing.com/th/id/R.1953bfa6691c4570f26be6000dc8388f?rik=940f%2fVtK3utMyA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-SEzqdmCAXwY%2fUUdIqCn37fI%2fAAAAAAAAC5E%2fTHgxCbpOgmg%2fs1600%2fKaaba%2bHD%2bWallpapers%2b2013%2b(4).jpg&ehk=YIT75F99GXZRv3UvAmweXb1Uluu4%2bXLj0xwem1NFVHw%3d&risl=&pid=ImgRaw&r=0g" class="img-fluid" style="min-height:100%;" />
-    </div>
+
     <div class="col-md-6 bg-white p-5">
-      <h4 class="pb-3" >Login</h4>
+      <h4 class="pb-3">Login</h4>
       <div class="form-style">	
       
       
-        <form action ="AccountServlet" method="post" >
+        <form action ="AccountServlet" method="post" name="myForm" >
                   <div class="form-group pb-3">
             <label for="email"><b>Full Name</b></label>
             <input type="text" placeholder="Abu Bin Samad" class="form-control" id="exampleInputPassword1" name="partName" required>
           </div>
                     <div class="form-group pb-3">
             <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="abu@gmail.com" class="form-control" id="exampleInputPassword1" name="partEmail" required>
+            <input type="email" placeholder="abu@gmail.com" class="form-control" id="exampleInputPassword1" name="partEmail" required>
           </div>
           <div class="form-group pb-3">
             <label for="staffid"><b>Phone Number</b></label>
             
-            <input type="text" placeholder="0123949384" class="form-control" id="exampleInputstaffid" name="partPhone" required>
+            <input type="number" placeholder="0123949384" maxlength="10" class="form-control" id="exampleInputstaffid" name="partPhone" required>
           </div>
           <div class="form-group pb-3">
             <label for="email"><b>Password</b></label>
@@ -101,11 +102,10 @@ h4{
     </div>
   </div>
 </div>
-<script> 
-function signupsuccess(){ 
- alert("You have successfully Sign Up."); 
-  
-} 
+<script>
+function signupsuccess() {
+  alert("Your account has been created successfully");
+}
 </script>
 </html>
 
