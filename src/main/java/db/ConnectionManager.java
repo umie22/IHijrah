@@ -8,9 +8,9 @@ public class ConnectionManager {
 	static Connection con;
 
 	private static final String DB_DRIVER = "org.postgresql.Driver";
-	private static final String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-	private static final String DB_USER = "zaiaryvqbpwwcb";	
-	private static final String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+	private static final String DB_CONNECTION = "jdbc:postgres://ihijrah_user:rYEtlKrdeWnvR3vk55hoaNi9TVUqSusS@dpg-cee3pmta4997f3l19ho0-a.oregon-postgres.render.com/ihijrah";
+	private static final String DB_USER = "ihijrah_user";	
+	private static final String DB_PASSWORD = "rYEtlKrdeWnvR3vk55hoaNi9TVUqSusS";
 
 	public static Connection getConnection() {
 		try {
