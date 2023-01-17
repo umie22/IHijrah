@@ -70,7 +70,7 @@
       		    <input type="hidden"  name="id" value='<%=res.getString("schedule_id") %>'>
       		
       			<div class="col-75">
-        		<input type="date" id="a_date" name="date" placeholder="DD-MM-YYYY" value='<%=res.getString("schedule_date") %>'>
+        		<input type="date" id="a_date" name="date" placeholder="DD-MM-YYYY" value='<%=res.getString("schedule_date") %>' required>
       			</div>
    			 </div>
     
@@ -80,7 +80,7 @@
       			</div>
       
       			<div class="col-75">
-        		<input type="time" id="time" name="time" placeholder="" min="09:00" max="18:00">
+        		<input type="time" id="time" name="time" placeholder="" min="09:00" max="18:00" required>
       			</div>
     		</div><br>
     		
