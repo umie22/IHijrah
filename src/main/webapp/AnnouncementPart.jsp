@@ -153,7 +153,6 @@ padding-top:30px;
     <thead>
         <tr>
             <th>No.</th>
-            <th>Date</th>
             <th>Description</th>
         </tr>
     </thead>
@@ -162,9 +161,6 @@ padding-top:30px;
                 <tr>
                     <td class="no">
                         <c:out value="${result.rank}"/>
-                    </td>
-                    <td class="date">
-                        <c:out value="${result.announcement_date}"/>
                     </td>
                     <td class="detail">
                         <c:out value="${result.announcement_detail}"/>

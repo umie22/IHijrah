@@ -76,7 +76,7 @@ button:hover {
   
 <div class="registerstaff">
 <label style="margin-left:90px;" for="name"><b>Staff Fullname</b></label>
-<input type="text" name = "name" style="margin-left:62px;" > <br>
+<input type="text" name = "name" style="margin-left:62px;" required > <br>
 </div>
 
 
@@ -90,12 +90,12 @@ button:hover {
 
 <div class="registerstaff">
 <label style="margin-left:90px;" for="pass"><b>Staff Telephone Number</b></label>
-<input type="text" name = "telno" > <br>
+<input type="tel" maxlength="11" pattern="[0-9]{3}-[0-9]{10}{11}" name = "telno" required> <br>
 </div>
 
 <div class="registerstaff">
 <label style="margin-left:90px;" for="pass"><b>Staff Password</b></label>
-<input type="text" name = "pass" style="margin-left:62px;"> <br>
+<input type="text" name = "pass" style="margin-left:62px;" required> <br>
 </div>
 
 <div class="registerstaff">

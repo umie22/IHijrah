@@ -47,7 +47,7 @@
       			</div>
       		
       			<div class="col-75">
-        		<input type="date" id="a_date" name="Date" placeholder="DD-MM-YYYY">
+        		<input type="date" id="a_date" name="Date" placeholder="DD-MM-YYYY" required>
       			</div>
    			 </div>
     
@@ -57,7 +57,7 @@
       			</div>
       
       			<div class="col-75">
-        		<textarea id="details" name="Detail" placeholder="Announcement details" style="height:200px"></textarea>
+        		<textarea id="details" name="Detail" placeholder="Announcement details" style="height:200px" required></textarea>
       			</div>
     		</div><br>
     

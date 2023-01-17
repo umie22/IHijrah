@@ -83,7 +83,7 @@ public class ScheduleServlet extends HttpServlet {
 
 			ad.updateSchedule(stmt);
 			try {
-				response.sendRedirect("schedulelist.jsp");
+				response.sendRedirect("SAschedulelist.jsp");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

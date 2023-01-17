@@ -223,17 +223,17 @@ padding-top:30px;
      
     <div class="part"> 
       <label>Name</label>        
-      <input type="text" name="partName" style="margin-left:55px;" value='<%=res.getString("participant_name")%>'> 
+      <input type="text" name="partName" style="margin-left:55px;" value='<%=res.getString("participant_name")%>' disabled> 
     </div> 
     <br><br> 
     <div class="part"> 
       <label>Email</label>  
-      <input type="text" name="partEmail"style="margin-left:55px;" value=<%=email%>> 
+      <input type="text" name="partEmail"style="margin-left:55px;" value=<%=email%> disabled> 
     </div> 
     <br><br> 
     <div class="part"> 
       <label>Phone Number</label>  
-      <input type="text" name="partPhone" value=<%=phone%>> 
+      <input type="text" name="partPhone" value=<%=phone%> disabled> 
     </div> 
   </form> 
  

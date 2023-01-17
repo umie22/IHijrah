@@ -151,7 +151,7 @@ padding-top:30px;
   <div class="part"> 
    <label for="partE">Email</label>
    
-   <input type="text" id="partE" name="partEmail" style="margin-left:55px;" value='<%=res.getString("participant_email")%>' /> 
+   <input type="email" id="partE" name="partEmail" style="margin-left:55px;" value='<%=res.getString("participant_email")%>' /> 
      </div> 
       
      <br><br> 
@@ -166,7 +166,7 @@ padding-top:30px;
    
   <div class="part"> 
         <label for="partP">Phone Number</label>  
-        <input type="text" id="partP" name="partPhone"  value='<%=res.getString("participant_phoneno")%>' /> 
+        <input type="tel" maxlength="11"  pattern="[0-9]{3}-[0-9]{10}{11}" id="partP" name="partPhone"  value='<%=res.getString("participant_phoneno")%>' /> 
      </div> 
       
            <br> 
@@ -175,8 +175,7 @@ padding-top:30px;
 <% 
  } 
 %> 
-      <form method="Get" value="updateAcc"> 
-      <input type="submit" style="margin-left: 20px;"> 
+      <input type="submit" onclick=validateEmail() style="margin-left: 20px;"> 
       <input type="reset" style="text-align:left;"> 
       </form> 
        
@@ -184,7 +183,6 @@ padding-top:30px;
  
     
    
- </form> 
    
   </div>    
 </body> 

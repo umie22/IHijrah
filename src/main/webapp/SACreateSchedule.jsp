@@ -51,7 +51,7 @@
             </div>
           
             <div class="col-75"style="padding:15px;margin-left:30px;"  >
-            <input type="date" id="a_date" name="date" placeholder="DD-MM-YYYY" style=" width:1500px;">
+            <input type="date" id="a_date" name="date" placeholder="DD-MM-YYYY" style=" width:1500px;" required>
             </div>
           </div>
     
@@ -61,7 +61,7 @@
             </div>
       
             <div class="col-75"style=padding:15px;margin-left:30px;>
-            <input type="time" id="time" name="time" placeholder="" min="09:00" max="18:00">
+            <input type="time" id="time" name="time" placeholder="" min="09:00" max="18:00" required>
             </div>
         </div>
         
@@ -71,7 +71,7 @@
             </div>
       
             <div class="col-75"style=padding:15px;margin-left:30px;>
-            <input type="text" id="details" name="description" placeholder="Schedule details" style="height:200px; width:1500px;">
+            <input type="text" id="details" name="description" placeholder="Schedule details" style="height:200px; width:1500px;" required>
             </div>
         </div>
         

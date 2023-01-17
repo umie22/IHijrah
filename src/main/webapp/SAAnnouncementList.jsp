@@ -148,7 +148,6 @@ font-weight: bold;}
        <tr>
          <th style=" text-align: center; ">No.</th>
          <th style=" text-align: center; ">Note</th>
-         <th style=" text-align: center; ">Date</th>
          <th style=" text-align: center; ">Action</th>
          
          </tr>
@@ -175,10 +174,9 @@ font-weight: bold;}
        <tr>
          <td style=" text-align: center; border: solid grey 1px;"><%=res.getString("announcement_id")%></td>
          <td style=" text-align: center; border: solid grey 1px;"><%=res.getString("announcement_detail")%></td>
-         <td style=" text-align: center; border: solid grey 1px;"><%=res.getString("announcement_date")%></td>
 
          <td class="text-center" style=" text-align: center; border: solid grey 1px;">
-           <a href='ViewAnnouncement.jsp?u=<%=res.getString("announcement_id")%>' class="btn btn-warning" style= "padding:10px;border-radius:20px; background-color:#4B6FE8;font-size:15px;">Edit</a>
+           <a href='SAViewAnnouncement.jsp?u=<%=res.getString("announcement_id")%>' class="btn btn-warning" style= "padding:10px;border-radius:20px; background-color:#4B6FE8;font-size:15px;">Edit</a>
            <a onclick="checkDelete()" href='SADeleteAnnouncement.jsp?u=<%=res.getString("announcement_id")%>' class="btn btn-warning" style= "padding:10px;border-radius:20px; background-color:red;font-size:15px;">Delete</a>
            
            

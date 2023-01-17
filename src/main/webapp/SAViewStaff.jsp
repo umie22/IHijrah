@@ -4,6 +4,9 @@
 <%@page import="java.sql.Connection" %>
 <%@page import="java.sql.PreparedStatement" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <!DOCTYPE html>
 <html>
 <title>Staff List</title>
@@ -38,7 +41,14 @@ button:hover {
 
 <body>
 
+       <sql:setDataSource var="ic" driver="org.postgresql.Driver"
+              url="jdbc:postgresql://localhost:5432/postgres"
+              user = "postgres"
+              password="system"/>
 
+		<sql:query dataSource="${ic}" var="oc">
+		   SELECT * from staff 
+		</sql:query>
 <!-- SIDEBAR -->
 <!-- SIDEBAR -->
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden;">
@@ -97,13 +107,18 @@ button:hover {
 
 
 <div class="registerstaff">
-<label style="margin-left:90px;" for="pass"><b>Staff Manager ID</b></label>
-<input type="text" name ="manid" style="margin-left:45px;" value='<%=res.getInt("manager_id") %>'/> <br>
+<label style="margin-left:90px;" for="pass"><b>Staff Manager Name & ID</b></label>
+<select name="manid" style="margin-left:45px;" >
+<option  selected disabled hidden><%=res.getString("manager_id") %></option>
+<c:forEach var="result" items="${oc.rows}">		
+  <option value="${result.staff_id}">${result.staff_name} & ${result.staff_id} </option>
+ </c:forEach>
+ </select><br>
 </div>
 
 <div class="registerstaff">
 <label style="margin-left:90px;" for="pass"><b>Staff Telephone Number</b></label>
-<input type="text" name ="telno" value='<%=res.getString("staff_telno") %>'/> <br>
+<input type="text" name ="telno" maxlength="11"  pattern="[0-9]{3}-[0-9]{10}{11}" value='<%=res.getString("staff_telno") %>'/> <br>
 </div>
 
 <div class="registerstaff">

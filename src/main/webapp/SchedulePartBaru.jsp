@@ -200,7 +200,7 @@ Object id = session.getAttribute("participant_id");
 </c:if>
 
 <c:if test= "${approval.registration_status !='Approved'}">
-<p style="background-color: red; text-align: center; font-weight: bold; font-size: 30px; border-radius: 25px;">Your announcement status has been blocked due to unregistered or rejected status</p>
+<p style="background-color: red; text-align: center; font-weight: bold; font-size: 30px; border-radius: 25px;">Your schedule status has been blocked due to unregistered or rejected status</p>
 
 </c:if>
 
