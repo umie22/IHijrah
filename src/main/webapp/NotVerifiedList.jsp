@@ -39,11 +39,11 @@
 		<h2>UNVERIFIED LIST</h2><br><br>
 		<a href=SAVerifiedList.jsp style="  margin-left:1500px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #3CB371; border-radius: 20px; padding:20px;">Verified List</a>
 <sql:setDataSource var="ic" driver="org.postgresql.Driver"
-                   url="jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0"
-                   user = "zaiaryvqbpwwcb"
-                   password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
+                   url="jdbc:postgresql://localhost:5432/postgres"
+                   user = "postgres"
+                   password="system"/>
 <sql:query dataSource="${ic}" var="oc">
-    SELECT row_number() over (order by payment_id) "rank",payment_id,payment_date,payment_status,payment_receipt from payment where payment_status = 'Pending'
+    SELECT DISTINCT(registration_id)registration_id,payment_id,payment_date,payment_status,payment_receipt from registration join payment using (registration_id) where payment_status = 'Pending'
 </sql:query>
 
 <br><br><br>
@@ -75,8 +75,8 @@
  					<td style=" text-align: center; border: solid black 1px;background-color: #ff0000;">
                          <c:out value="${payment.Payment_Status}"/>
                     </td>
- 					<td style=" text-align: center; border: solid black 1px;background-color: #ff0000;">
-           					  <img src="${payment.Payment_Status}" style="width:154px;height:152px;"></td>
+ 					 					<td style=" text-align: center; border: solid black 1px;">
+								<a href="PaymentServlet?id=${register.Payment_ID}" style="background-color:white; color:blue; font-size: 20px;">View Receipt</a> 
                      <td>
                      <form action= "" method= "post">
                    <input type="hidden" name="action" value="verify">

@@ -25,15 +25,14 @@ a:link{
   font-size:11px;
 }
 
-a:hover, a:active {
-  background-color: grey;
-}
 
 a{
 	color:white;
 }
 
 .logo{
+	
+	
 	display: block;
   	margin-left: auto;
   	margin-right: auto;

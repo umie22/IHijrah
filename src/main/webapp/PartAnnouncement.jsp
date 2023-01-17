@@ -142,37 +142,23 @@ Object id = session.getAttribute("participant_id");
  <!-- TOPBAR -->    
  <div class="container" style="margin: 20px 10px 0px 210px; background-color:white; height:500px; "> 
 <sql:setDataSource var="ic" driver="org.postgresql.Driver" 
-                   url="jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0" 
-                   user = "zaiaryvqbpwwcb" 
-                   password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/> 
+                   url="jdbc:postgresql://localhost:5432/postgres"
+                   user = "postgres" 
+                   password="system"/> 
 <sql:query dataSource="${ic}" var="oc"> 
     SELECT row_number() over () "rank",announcement_date,announcement_detail from announcement 
 </sql:query> 
 
+<c:set var = "ID" scope = "session" value = "<%=id%>"/>
+
 <sql:query dataSource="${ic}" var="ab"> 
-	SELECT DISTINCT PARTICIPANT_ID FROM REGISTRATION WHERE REGISTRATION_STATUS ='Approved'
+	SELECT DISTINCT REGISTRATION_STATUS,PARTICIPANT_ID FROM REGISTRATION where participant_id=? <sql:param value = "${ID}" /> limit 1
 </sql:query> 
 <p style="text-align:center; font-size: 30px;"><b>ANNOUNCEMENT</b></p><br><br><br> 
 
-<c:set var = "ID" scope = "session" value = "<%=id%>"/>
 
-<!-- 
 <c:forEach var="approval" items="${ab.rows}"> 
-<c:if test= "${ID==approval.participant_id }">
-	<c:set var = "approvalstatus" scope = "session" value="false"/>
-</c:if>
-</c:forEach> -->
-
-	<c:set var = "approvalstatus" scope = "session" value="false"/>
-
-<c:choose>
-
-<c:when test="${aprrovalstatus=='false'}">
-<p style="background-color: red; text-align: center; font-weight: bold; font-size: 30px; border-radius: 25px;">Your announcement status has been blocked due to unregistered or rejected status</p>
-
-</c:when>
-
-<c:otherwise>
+<c:if test= "${approval.registration_status =='Approved'}">
 
   <table class="styled-table"  style="position: relative; right:-5px; width:99%"> 
     <thead> 
@@ -198,10 +184,19 @@ Object id = session.getAttribute("participant_id");
             </c:forEach> 
             
     </tbody> 
-</table> 
+</table> 		
+</c:if>
 
-</c:otherwise>
-</c:choose>
+<c:if test= "${approval.registration_status !='Approved'}">
+<p style="background-color: red; text-align: center; font-weight: bold; font-size: 30px; border-radius: 25px;">Your announcement status has been blocked due to unregistered or rejected status</p>
+
+</c:if>
+
+
+</c:forEach> 
+
+
+
 
 
   </div> 

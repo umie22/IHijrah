@@ -8,9 +8,9 @@ public class ConnectionManager {
 	static Connection con;
 
 	private static final String DB_DRIVER = "org.postgresql.Driver";
-	private static final String DB_CONNECTION = "jdbc:postgresql://${{ PGUSER }}:${{ PGPASSWORD }}@${{ PGHOST }}:${{ PGPORT }}/${{ PGDATABASE }}";
+	private static final String DB_CONNECTION = "jdbc:postgresql://localhost:5432/postgres";
 	private static final String DB_USER = "postgres";	
-	private static final String DB_PASSWORD = "gLGI0WLy7urtd6VreOky";
+	private static final String DB_PASSWORD = "system";
 
 	public static Connection getConnection() {
 		try {

@@ -74,7 +74,7 @@ public class LoginController extends HttpServlet {private static final long seri
         response.setContentType("text/html");  
 		
 		String name = request.getParameter("name"); 
-		int phonenumber = Integer.parseInt(request.getParameter("telno"));
+		String phonenumber = request.getParameter("telno");
 		int managerid = Integer.parseInt(request.getParameter("manid"));
 		String password = request.getParameter("pass");
 		String role = request.getParameter("role");
@@ -84,9 +84,9 @@ public class LoginController extends HttpServlet {private static final long seri
 			Connection conn = null;
 			PreparedStatement stat = null;
 		     	Class.forName("org.postgresql.Driver"); 
-				String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-				String DB_USER = "zaiaryvqbpwwcb";	
-				String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+				String DB_CONNECTION = "jdbc:postgresql://localhost:5432/postgres";
+				String DB_USER = "postgres";	
+				String DB_PASSWORD = "system";
 
 				conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
 				String data = "insert into staff(staff_name,staff_password,manager_id,staff_telno,staff_role) values(?,?,?,?,?)";
@@ -95,7 +95,7 @@ public class LoginController extends HttpServlet {private static final long seri
 				stat.setString(1,name);
 				stat.setString(2,password);
 				stat.setInt(3,managerid);
-				stat.setInt(4,phonenumber);
+				stat.setString(4,phonenumber);
 				stat.setString(5,role);
 				
 				stat.executeUpdate();
@@ -124,9 +124,9 @@ public class LoginController extends HttpServlet {private static final long seri
 					
 					Connection conn = null;
 					PreparedStatement stat = null;
-						String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-						String DB_USER = "zaiaryvqbpwwcb";	
-						String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+						String DB_CONNECTION = "jdbc:postgresql://localhost:5432/postgres";
+						String DB_USER = "postgres";	
+						String DB_PASSWORD = "system";
 
 						conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
 						String data = "DELETE * staff where staff_id '"+id+"'";
@@ -148,7 +148,7 @@ public class LoginController extends HttpServlet {private static final long seri
 		// TODO Auto-generated method stub
         response.setContentType("text/html");  
 		
-		String ID = request.getParameter("ID"); 
+		int ID = Integer.parseInt(request.getParameter("ID")); 
 		String name = request.getParameter("name"); 
 		String phonenumber = request.getParameter("telno");
 		int managerid = Integer.parseInt(request.getParameter("manid"));
@@ -159,9 +159,9 @@ public class LoginController extends HttpServlet {private static final long seri
 			
 			Connection conn = null;
 			PreparedStatement stat = null;
-				String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-				String DB_USER = "zaiaryvqbpwwcb";	
-				String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+				String DB_CONNECTION = "jdbc:postgresql://localhost:5432/postgres";
+				String DB_USER = "postgres";	
+				String DB_PASSWORD = "system";
 
 				conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
 				String data = "UPDATE staff set staff_name=?,staff_password=?,manager_id=?,staff_telno=?,staff_role=? where staff_id=?";
@@ -172,7 +172,7 @@ public class LoginController extends HttpServlet {private static final long seri
 				stat.setInt(3,managerid);
 				stat.setString(4,phonenumber);
 				stat.setString(5,role);
-				stat.setString(6,ID);
+				stat.setInt(6,ID);
 
 				
 				stat.executeUpdate();
@@ -199,9 +199,9 @@ public class LoginController extends HttpServlet {private static final long seri
         try {
 
             Class.forName("org.postgresql.Driver"); 
-            String dbURL = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0"; 
-            String user = "zaiaryvqbpwwcb"; 
-            String pass = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"; 
+            String dbURL = "jdbc:postgresql://localhost:5432/postgres"; 
+            String user = "postgres"; 
+            String pass = "system"; 
     		Connection conn = DriverManager.getConnection(dbURL, user, pass);
     		
             String sql  ="SELECT * from staff";

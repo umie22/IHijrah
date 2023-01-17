@@ -30,7 +30,7 @@ public class PaymentServlet extends HttpServlet {
         Statement st1;
         try {
             Class.forName("org.postgresql.Driver");
-            con = DriverManager.getConnection("jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0", "zaiaryvqbpwwcb", "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b");
+            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "system");
             st1 = con.createStatement();
             PreparedStatement ps = con.prepareStatement("SELECT payment_receipt FROM payment WHERE payment_id=?");
             ps.setString(1, id);
@@ -113,9 +113,9 @@ public class PaymentServlet extends HttpServlet {
 			Payment t = new Payment();
 			t.setName(name);
 			
-			String dbUrl = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-			String username = "zaiaryvqbpwwcb";
-			String password = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+			String dbUrl = "jdbc:postgresql://localhost:5432/postgres";
+			String username = "postgres";
+			String password = "system";
 			
 			try {
 				Class.forName("org.postgresql.Driver");
@@ -172,8 +172,10 @@ public class PaymentServlet extends HttpServlet {
 
 		private void saveoffline(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			FileInputStream fis=null; 
-	           String status="Pending";
-	            String registration_id = request.getParameter("registration_id");
+	         String status="Pending";
+	         String registration_id = request.getParameter("registration_id").toString();
+	         
+	         System.out.println(registration_id);
              Timestamp Datentime = new Timestamp(System.currentTimeMillis());
 
 		 	Part filePart =request.getPart("payimage");  
@@ -187,21 +189,21 @@ public class PaymentServlet extends HttpServlet {
 			Payment t = new Payment();
 			t.setName(name);
 			
-			String dbUrl = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-			String username = "zaiaryvqbpwwcb";
-			String password = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+			String dbUrl = "jdbc:postgresql://localhost:5432/postgres";
+			String username = "postgres";
+			String password = "system";
 			
 			try {
 				Class.forName("org.postgresql.Driver");
 				Connection connection = DriverManager.getConnection(dbUrl,username,password);
 				
 				//SQL Statement/Query 
-				PreparedStatement pst = connection.prepareStatement("insert into payment (payment_status,payment_date,registration_id,payment_receipt) values (?,?,?,?)");
+				PreparedStatement pst = connection.prepareStatement("insert into payment (payment_date,payment_status,payment_receipt,registration_id) values (?,?,?,?)");
 				// Set string - set for ? by order
-	            pst.setString(1,status);
-	            pst.setTimestamp(2,Datentime);
-	            pst.setString(3,registration_id);
-	            pst.setBinaryStream(4, fileContent);
+	            pst.setString(2,status);
+	            pst.setTimestamp(1,Datentime);
+	            pst.setString(4,registration_id);
+	            pst.setBinaryStream(3, fileContent);
 
 				
 				

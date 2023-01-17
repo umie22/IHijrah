@@ -155,9 +155,9 @@ font-weight: bold;}
  
        <%
         String DB_DRIVER = "org.postgresql.Driver";
-     String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-     String DB_USER = "zaiaryvqbpwwcb";  
-     String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+     String DB_CONNECTION = "jdbc:postgresql://localhost:5432/postgres";
+     String DB_USER = "postgres";  
+     String DB_PASSWORD = "system";
 
        Connection con = null;
        Statement stat = null;
@@ -177,7 +177,7 @@ font-weight: bold;}
 
          <td class="text-center" style=" text-align: center; border: solid grey 1px;">
            <a href='ViewAnnouncement.jsp?u=<%=res.getString("announcement_id")%>' class="btn btn-warning" style= "padding:10px;border-radius:20px; background-color:#4B6FE8;font-size:15px;">Edit</a>
-           <button onclick="document.getElementById('id03').style.display='block'" id="myBtn" style= "padding:10px;border-radius:20px;font-size:15px; background-color: #e60000;border-color:#e60000;">Delete</button>
+           <a onclick="checkDelete()" href='DeleteAnnouncement.jsp?d=<%=res.getString("announcement_id")%>' id="myBtn" style= "padding:10px;border-radius:20px;font-size:15px; background-color: #e60000;border-color:#e60000;">Delete</a>
            
            
          </td>
@@ -192,35 +192,21 @@ font-weight: bold;}
  <a href='CreateAnnouncement.jsp?id= <%session.getAttribute("Staff_ID");%>' style="  margin-left:10px;font-size:15px;text-align: left; background-color: #353c49; border-radius: 10px; padding:20px;">Add Announcement</a>
     <br><br>
   </div>
-  
-  <div id="id03" class="modal">
-  
-  <form class="modal-content animate" action="/action_page.php" method="post">
-    
-      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
-     <div class="modal-content">
-    <span class="close">&times;</span>
-    <h1>ALERT!!!!</h1>
-    <p>Are you sure you want to delete the announcement?</p><br><br><br>
-  <a href="DeleteAnnouncement.jsp?d=" class="btn btn-danger" style="background-color: green;color:white;position: relative; font-size:15px;border-color:green;padding: 10px; border-radius: 10px;margin-right:120px;"onclick="ConfirmDelete()" id="id02">Yes</a>
-    <button id="myBtn" style="background-color: Red;color:white;position: relative; left:10px; border-color:red;padding: 10px; border-radius: 10px;margin-right:120px;"a href="proceedRegister.html">No</a></button>
-  </div>
-    </div>  
+   
   
 </body>
 
 </body>
 <script>
 //Get the modal
-var modal = document.getElementById('id03');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+
+function checkDelete() {
+	var result = confirm('Sure want to delete?');
+	if (result == false) {
+		event.preventDefault();
+	}
 }
-
 </script>
 
 </html>

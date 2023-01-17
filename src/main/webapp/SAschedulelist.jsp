@@ -180,9 +180,9 @@ font-weight: bold;}
 
        <%
        String DB_DRIVER = "org.postgresql.Driver";
-     String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-     String DB_USER = "zaiaryvqbpwwcb";  
-     String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+	   	String DB_CONNECTION = "jdbc:postgresql://localhost:5432/postgres";
+     String DB_USER = "postgres";  
+     String DB_PASSWORD = "system";
 
        Connection con = null;
        Statement stat = null;

@@ -27,9 +27,7 @@ a:link{
   font-size:11px;
 }
 
-a:hover, a:active {
-  background-color: grey;
-}
+
 
 a{
 	color:white;

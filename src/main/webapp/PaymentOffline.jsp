@@ -116,14 +116,14 @@ button:hover {
 		participant_id = session.getAttribute("participant_id").toString();
 		registration_id = session.getAttribute("registration_id").toString();
 	%>
-	
+
 		<sql:setDataSource	var="Ihijrah" driver="org.postgresql.Driver"
-						url="jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0"
-						user="zaiaryvqbpwwcb"
-						password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b" />
+						url="jdbc:postgresql://localhost:5432/postgres"
+						user="postgres"
+						password="system"/>
 						
 	<sql:query dataSource="${Ihijrah}" var="result">
-		SELECT * FROM registration WHERE participant_id = <%=participant_id%>
+		SELECT * FROM registration WHERE participant_id = 	<%="'participant_id'"%>
 	</sql:query>
  
  
@@ -162,7 +162,7 @@ button:hover {
                  <input type="hidden" id="myFile" name="action" value="saveoffline">
                  
                  
-                 <input type="hidden" id="myFile" name="registration_id" value="<%=registration_id%>">
+                 <input type=hidden id="myFile" name="registration_id" value=<%=registration_id%>>
                 
                 <input type="submit" name="submit" id="submit">
             </form>
@@ -182,7 +182,7 @@ if (document.getElementById("file").value == "") {
   alert("Please select a file.");
 }
 else
-{alert("Course has been succesfully registered. Please wait pending approval by the satff");}
+{alert("Course has been succesfully registered. Please wait pending approval by the staff");}
 }
 
 

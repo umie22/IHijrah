@@ -60,9 +60,9 @@ public class PLogin extends HttpServlet {
       
       try {
           Class.forName("org.postgresql.Driver");
-    	  String dbURL = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0";
-    	  String user = "zaiaryvqbpwwcb";
-    	  String pass = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+    	  String dbURL = "jdbc:postgresql://localhost:5432/postgres";
+    	  String user = "postgres";
+    	  String pass = "system";
     	  
           Connection con = DriverManager.getConnection(dbURL, user, pass);
 

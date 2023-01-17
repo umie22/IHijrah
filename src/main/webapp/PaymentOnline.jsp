@@ -140,12 +140,12 @@ button:hover {
 	%>
 	
 		<sql:setDataSource	var="Ihijrah" driver="org.postgresql.Driver"
-						url="jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0"
-						user="zaiaryvqbpwwcb"
-						password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b" />
+	   					url = "jdbc:postgresql://localhost:5432/postgres"
+						user="postgres"
+						password="system" />
 						
 	<sql:query dataSource="${Ihijrah}" var="result">
-		SELECT * FROM registration WHERE participant_id = <%=participant_id%>
+		SELECT * FROM registration WHERE participant_id = <%="'participant_id'"%>
 	</sql:query>
    
   <div class="container" style="margin: 20px 10px 0px 210px; background-color:white; height:100%; "> 
@@ -164,9 +164,12 @@ button:hover {
                 <label for="myFile">Please upload your payment receipt here:</label>
                  
                  <label style="text-align:center;"><b>Bank Name:</b></label> 
-			<select name="productavailability" >
-			  <option value="Available">Available</option>
-			  <option value="Not Available">Not Available</option>			  
+			<select name="BankName" >
+			  <option value="CIMB">CIMB</option>
+			  <option value="MAYBANK">MAYBANK</option>
+			  <option value="RHB">RHB</option>
+			  <option value="BANK ISLAM">BANK ISLAM</option>	
+			  <option value="BSN">BSN</option>
 			</select><br>
 						                  
                 <input type="file" id="file" name="payimage" accept="image/jpeg, image/png, image/jpg">

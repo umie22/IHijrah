@@ -34,11 +34,11 @@
 
 
 <sql:setDataSource var="ic" driver="org.postgresql.Driver"
-                   url="jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0"
-                   user = "zaiaryvqbpwwcb"
-                   password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
+                   url="jdbc:postgresql://localhost:5432/postgres"
+                   user = "postgres"
+                   password="system"/>
 <sql:query dataSource="${ic}" var="oc">
-    SELECT DISTINCT(registration_id)registration_id,payment_id,payment_date,payment_status from registration join payment using (registration_id) 	where registration_status != 'Not Verified'
+    SELECT DISTINCT(registration_id)registration_id,payment_id,payment_date,payment_status from registration join payment using (registration_id) where registration_status != 'Not Verified'
 </sql:query>
 
  <br><br><br>
@@ -49,6 +49,7 @@
          <th>Payment ID</th>
          <th>Payment Date</th>
          <th>Payment Status</th>
+         <th>Payment Receipt</th>
          <th>Remarks</th>
          
 
@@ -62,7 +63,6 @@
                     <c:out value="${register.Registration_ID}"/>
                    
                 </td>
-                
                      <td style=" text-align: center; border: solid black 1px;">
                         <c:out value="${register.Payment_ID}"/>
                     </td>
@@ -71,6 +71,9 @@
                     </td>
  					<td style=" text-align: center; border: solid black 1px;">
                          <c:out value="${register.Payment_Status}"/>
+                    </td>
+  					<td style=" text-align: center; border: solid black 1px;">
+                         <a href="PaymentServlet?id=${register.Payment_ID}" style=" color:blue; font-size: 20px; hover:none;">View Receipt</a>
                     </td>
   					<td style=" text-align: center; border: solid black 1px;">
                          <c:out value="${register.Payment_Status}"/>

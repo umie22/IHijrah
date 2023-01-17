@@ -140,9 +140,9 @@ padding-top:30px;
  <!-- TOPBAR -->   
  <div class="container" style="margin: 20px 10px 0px 210px; background-color:white; height:500px; ">
 <sql:setDataSource var="ic" driver="org.postgresql.Driver"
-                   url="jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0"
-                   user = "zaiaryvqbpwwcb"
-                   password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
+                   url="jdbc:postgresql://localhost:5432/postgres"
+                   user = "postgres"
+                   password="system"/>
 <sql:query dataSource="${ic}" var="oc">
     SELECT row_number() over () "rank",announcement_date,announcement_detail from announcement
 </sql:query>

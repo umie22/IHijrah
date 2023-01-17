@@ -98,7 +98,6 @@ public class ScheduleServlet extends HttpServlet {
     	String date =request.getParameter("date");
     	String time = request.getParameter("time");
     	String description = request.getParameter("description");
-    	String availability = request.getParameter("availability");
     	int course = Integer.parseInt(request.getParameter("course"));
 
 
@@ -107,11 +106,10 @@ public class ScheduleServlet extends HttpServlet {
     		stat.setSchedule_Date(Date.valueOf(date));
     		stat.setSchedule_Time(time);
     		stat.setSchedule_Description(description);
-    		stat.setAvailability(availability);
     		stat.setCourse_ID(course);
 
     		ad.addSchedule(stat);
-    		response.sendRedirect("schedulelist.jsp");
+    		response.sendRedirect("SAschedulelist.jsp");
 
 
     }

@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" 
     pageEncoding="ISO-8859-1"%> 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %> 
+<%@page import="java.sql.ResultSet" %> 
+<%@page import="java.sql.Statement" %> 
+<%@page import="java.sql.DriverManager" %> 
+<%@page import="java.sql.PreparedStatement" %> 
+<%@page import="java.sql.Connection" %> 
 <!DOCTYPE html> 
 <html> 
 <title>Account</title> 
@@ -176,13 +180,35 @@ padding-top:30px;
  
 <%  
  
- Object id = session.getAttribute("participant_id");  
- 
+ String id = (session.getAttribute("participant_id").toString());  
  Object name = session.getAttribute("participant_name");  
  Object email = session.getAttribute("participant_email"); 
  Object phone = session.getAttribute("participant_phoneno"); 
   
 %> 
+
+  <% 
+ String DB_DRIVER = "org.postgresql.Driver"; 
+ String DB_CONNECTION = "jdbc:postgresql://localhost:5432/postgres"; 
+ String DB_USER = "postgres";  
+ String DB_PASSWORD = "system"; 
+ 
+ Connection con = null; 
+ Statement st = null; 
+ ResultSet res = null; 
+ PreparedStatement stmt = null; 
+ Class.forName(DB_DRIVER).newInstance(); 
+ con = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD); 
+%>  
+   
+ 
+   
+  <% 
+ st = con.createStatement(); 
+ String data = "select * from participant where participant_id='"+id+"'"; 
+ res = st.executeQuery(data); 
+ while(res.next()){ 
+%>   
   
  
   <div class="container" style="margin: 20px 10px 0px 210px; background-color:white; height:100%; "> 
@@ -190,15 +216,14 @@ padding-top:30px;
   <p style="font-size:30px;text-align:center;"><b>ACCOUNT </b></p> 
   
   
-      <a type="register" id="myBtn" style="position: relative; left:10px; width: 100px;border-color:grey; padding: 10px; border-radius: 10px;" href='EditAccountPartBARU.jsp?u=<%=id%>'>Edit Profile</a> 
+      <a type="register" id="myBtn" style="position: relative; left:10px; width: 100px;border-color:grey; padding: 10px; border-radius: 10px;" href='EditAccountPartBARU.jsp?u=<%=id%>'>Edit Profile</a><br><br><br> 
        
-      <input type="hidden" name="action" value="deleteAcc" > 
-      <button onclick="document.getElementById('id02').style.display='block'" type="submit" id="myBtn" style="background-color: red;color:white;position: relative; left:10px; width: 100px;border-color:grey;padding: 10px; border-radius: 10px;margin-left:1400px;">Deactivate Account</button> 
-   <form method="post" action="AccounServlet" style="padding:50px 50px 50px 50px; border:solid 1px black; background-color:#C3C6C8; border-radius:20px; text-align:center;" > 
+ 
+   <form method="post" action="AccounServlet" style="padding:70px 50px 50px 50px; border:solid 1px black; background-color:#C3C6C8; border-radius:20px; text-align:center;" > 
      
     <div class="part"> 
       <label>Name</label>        
-      <input type="text" name="partName" style="margin-left:55px;" value=<%=name%>> 
+      <input type="text" name="partName" style="margin-left:55px;" value='<%=res.getString("participant_name")%>'> 
     </div> 
     <br><br> 
     <div class="part"> 
@@ -212,41 +237,16 @@ padding-top:30px;
     </div> 
   </form> 
  
-       
+       <% 
+ } 
+%> 
        
  
   </div> 
              
  
   
-           
-<div id="id02" class="modal"> 
-   
-  <form class="modal-content animate" action="deleteAcc" method="post"> 
-     
-      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span> 
-     <div class="modal-content"> 
-    <span class="close">&times;</span> 
-    <h1>ALERT!!!!</h1> 
-    <p>Are you sure you want to dactivate your account?</p><br><br><br> 
-    <button id="myBtn" style="background-color: green;color:white;position: relative; right:10px; width: 20%;border-color:green;padding: 10px; border-radius: 10px;margin-left:120px;"a href="proceedRegister.html">Yes</a></button> 
-    <button id="myBtn" style="background-color: Red;color:white;position: relative; left:10px; width: 20%;border-color:red;padding: 10px; border-radius: 10px;margin-right:120px;"a href="proceedRegister.html">No</a></button> 
-   
-  </div> 
-  </form> 
-    </div>     
+               
 </body> 
  
-<script> 
-// Get the modal 
-var modal = document.getElementById('id02'); 
- 
-// When the user clicks anywhere outside of the modal, close it 
-window.onclick = function(event) { 
-    if (event.target == modal) { 
-        modal.style.display = "none"; 
-    } 
-} 
- 
-</script> 
 </html>

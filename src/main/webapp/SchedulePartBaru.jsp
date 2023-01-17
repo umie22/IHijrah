@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
@@ -115,6 +115,13 @@ padding-top:30px;
 
 <body>
 
+<%  
+ 
+Object id = session.getAttribute("participant_id");  
+
+  
+%>  
+
 
 <!-- SIDEBAR -->
 <div class="container" style="padding:0; margin:0; height:100%;width:200px;background-color:#353c49;position:fixed!important;z-index:1;overflow:hidden"> 
@@ -141,14 +148,26 @@ padding-top:30px;
  <!-- TOPBAR -->   
 
 <sql:setDataSource var="ic" driver="org.postgresql.Driver"
-                   url="jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0"
-                   user = "zaiaryvqbpwwcb"
-                   password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
+                   url="jdbc:postgresql://localhost:5432/postgres"
+                   user = "postgres"
+                   password="system"/>
 <sql:query dataSource="${ic}" var="oc">
-    SELECT row_number() over () "rank",schedule_date,schedule_time,schedule_description,schedule_availability from schedule
+    SELECT row_number() over () "rank",schedule_date,schedule_time,schedule_description from schedule
 </sql:query>
+
+
+<c:set var = "ID" scope = "session" value = "<%=id%>"/>
+
+<sql:query dataSource="${ic}" var="ab"> 
+	SELECT DISTINCT REGISTRATION_STATUS,PARTICIPANT_ID FROM REGISTRATION where participant_id=? <sql:param value = "${ID}" /> limit 1
+</sql:query> 
+
+
 	<div class="container" style="margin: 20px 10px 0px 210px; background-color:white; height:460px; ">
-	<p style=" font-size: 30px; margin-left: 600px; font-weight: bold;">SCHEDULE</p><br><br><br><br>
+	<p style=" font-size: 30px; margin-left: 690px; font-weight: bold;">SCHEDULE</p><br><br><br><br>
+	
+	<c:forEach var="approval" items="${ab.rows}"> 
+<c:if test= "${approval.registration_status =='Approved'}">
 	<table class="styled-table"  style="position: relative; right:-5px; width:99%">
     <thead>
         <tr>
@@ -177,6 +196,16 @@ padding-top:30px;
             </c:forEach>
     </tbody>
 </table>
+
+</c:if>
+
+<c:if test= "${approval.registration_status !='Approved'}">
+<p style="background-color: red; text-align: center; font-weight: bold; font-size: 30px; border-radius: 25px;">Your announcement status has been blocked due to unregistered or rejected status</p>
+
+</c:if>
+
+
+</c:forEach> 
 </div>	
 </body>
 </html>

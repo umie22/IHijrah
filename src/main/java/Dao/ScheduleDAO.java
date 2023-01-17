@@ -9,9 +9,9 @@ import java.sql.SQLException;
 import Model.Schedule;
 
 public class ScheduleDAO {
-    String dbURL = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0";
-    String user = "zaiaryvqbpwwcb";
-    String pass = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+    String dbURL = "jdbc:postgresql://localhost:5432/postgres";
+    String user = "postgres";
+    String pass = "system";
 
     protected Connection getConnection() {
         Connection con = null;
@@ -30,14 +30,13 @@ public class ScheduleDAO {
 
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement
-                     ("insert into schedule(schedule_date,schedule_time,schedule_description,schedule_availability,course_id) values(?,?,?,?,?)"))
+                     ("insert into schedule(schedule_time,schedule_date,schedule_description,course_id) values(?,?,?,?)"))
         {
 
-            ps.setDate(1, stat.getSchedule_Date());
-            ps.setString(2, stat.getSchedule_Time());
+            ps.setDate(2, stat.getSchedule_Date());
+            ps.setString(1, stat.getSchedule_Time());
             ps.setString(3, stat.getSchedule_Description());
-            ps.setString(4, stat.getAvailability());
-            ps.setInt(5, stat.getCourse_ID());
+            ps.setInt(4, stat.getCourse_ID());
             ps.executeUpdate();
         }
         catch (Exception e) {

@@ -77,15 +77,15 @@
 <%
 String a =request.getParameter("id");
 String b = request.getParameter("Date");
-String id = session.getAttribute("Staff_ID").toString(); 
+int id = Integer.parseInt(session.getAttribute("Staff_ID").toString()); 
 Connection conn = null;
 PreparedStatement stat = null;
 String c = request.getParameter("Detail");
 
 String DB_DRIVER = "org.postgresql.Driver";
-	String DB_CONNECTION = "jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com" +"/delu1t92658u0";
-	String DB_USER = "zaiaryvqbpwwcb";	
-	String DB_PASSWORD = "731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b";
+	String DB_CONNECTION = "jdbc:postgresql://localhost:5432/postgres";
+	String DB_USER = "postgres";	
+	String DB_PASSWORD = "system";
 
 if(b!=null && c!=null){
 	conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
@@ -95,7 +95,7 @@ if(b!=null && c!=null){
 
 	stat.setString(1,b);
 	stat.setString(2,c);
-	stat.setString(3,id);
+	stat.setInt(3,id);
 
 	stat.executeUpdate();
 	response.sendRedirect("SAAnnouncementList.jsp");

@@ -37,15 +37,15 @@
 	
 	
 		
-		<!-- FILL IN FORM -->
+		<!-- FILL IN FORM -->	
 		<h2>UNVERIFIED LIST</h2><br><br>
 		<a href=SAVerifiedList.jsp style="  margin-left:1500px; margin-right:20px;font-size:20px; height:5px; text-align: center; background-color: #3CB371; border-radius: 20px; padding:20px;">Verified List</a>
 <sql:setDataSource var="ic" driver="org.postgresql.Driver"
-                   url="jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0"
-                   user = "zaiaryvqbpwwcb"
-                   password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
+	   				url= "jdbc:postgresql://localhost:5432/postgres"
+                   user = "postgres"
+                   password="system"/>
 <sql:query dataSource="${ic}" var="oc">
-    SELECT  DISTINCT(registration_id)registration_id,payment_id,payment_date,payment_status,payment_receipt from registration join online using (registration_id) where payment_status = 'Pending'
+    SELECT DISTINCT(registration_id)registration_id,payment_id,payment_date,payment_status from registration join payment using (registration_id) where payment_status = 'Pending'
 </sql:query>
 
 

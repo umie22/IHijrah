@@ -66,7 +66,7 @@ h4{
   <div class="row m-5 no-gutters shadow-lg">
 
     <div class="col-md-6 bg-white p-5">
-      <h4 class="pb-3">Login</h4>
+      <h4 class="pb-3">Sign Up</h4>
       <div class="form-style">	
       
       

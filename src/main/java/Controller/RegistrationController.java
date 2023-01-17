@@ -73,6 +73,7 @@ public class RegistrationController extends HttpServlet {
 		try {
 	    HttpSession session = request.getSession();
 	    int id = Integer.parseInt((String) session.getAttribute("participant_id"));
+	    String Rid = (String) session.getAttribute("registration_id");
 
 
 		//String id = session.getAttribute("participant_id").toString(); 
@@ -113,9 +114,8 @@ public class RegistrationController extends HttpServlet {
 			
 			String registration_id=rg.register(register);
 
-			
 			session.setAttribute("registration_id", registration_id);
-
+			
 			response.sendRedirect("PaymentOffline.jsp");
 
 			

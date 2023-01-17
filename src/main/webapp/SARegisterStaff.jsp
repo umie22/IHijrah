@@ -37,9 +37,9 @@ button:hover {
 <body>
 
        <sql:setDataSource var="ic" driver="org.postgresql.Driver"
-              url="jdbc:postgresql://ec2-176-34-215-248.eu-west-1.compute.amazonaws.com/delu1t92658u0"
-              user = "zaiaryvqbpwwcb"
-              password="731fafeb016f84ea7f87300cbd19a24ba3e96adbaaf92504bc8d945d0302489b"/>
+              url="jdbc:postgresql://localhost:5432/postgres"
+              user = "postgres"
+              password="system"/>
 
 		<sql:query dataSource="${ic}" var="oc">
 		   SELECT * from staff 
