@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <!DOCTYPE html>
 <html>
-<title>Staff List</title>
+<title>Update Staff</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head><link rel="stylesheet" href="style.css">
 <style>
@@ -109,7 +109,7 @@ button:hover {
 <div class="registerstaff">
 <label style="margin-left:90px;" for="pass"><b>Staff Manager Name & ID</b></label>
 <select name="manid" style="margin-left:45px;" >
-<option  selected disabled hidden><%=res.getString("manager_id") %></option>
+<option  selected ><%=res.getString("manager_id") %></option>
 <c:forEach var="result" items="${oc.rows}">		
   <option value="${result.staff_id}">${result.staff_name} & ${result.staff_id} </option>
  </c:forEach>

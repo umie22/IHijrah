@@ -41,15 +41,6 @@
 			<div class="row">
 
 			
-    		<div class="row">
-      			<div class="col-25">
-        		<label for="a_date">Date</label>
-      			</div>
-      		
-      			<div class="col-75">
-        		<input type="date" id="a_date" name="Date" placeholder="DD-MM-YYYY" required>
-      			</div>
-   			 </div>
     
     		<div class="row">
       			<div class="col-25">
@@ -85,7 +76,7 @@ String DB_DRIVER = "org.postgresql.Driver";
 	String DB_USER = "postgres";	
 	String DB_PASSWORD = "system";
 
-if(b!=null && c!=null){
+if(c!=null){
 	conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
 	String data = "insert into announcement(announcement_date,announcement_detail,staff_id) values(?,?,?)";
 	

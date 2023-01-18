@@ -146,7 +146,7 @@ Object id = session.getAttribute("participant_id");
                    user = "postgres" 
                    password="system"/> 
 <sql:query dataSource="${ic}" var="oc"> 
-    SELECT row_number() over () "rank",announcement_date,announcement_detail from announcement 
+    SELECT row_number() over () "rank",announcement_detail from announcement 
 </sql:query> 
 
 <c:set var = "ID" scope = "session" value = "<%=id%>"/>

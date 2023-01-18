@@ -148,13 +148,13 @@ Object id = session.getAttribute("participant_id");
                    user = "postgres" 
                    password="system"/> 
 <sql:query dataSource="${ic}" var="oc"> 
-    SELECT row_number() over () "rank",announcement_date,announcement_detail from announcement where announcement_type = 902
+    SELECT row_number() over () "rank",announcement_detail from announcement
 </sql:query> 
 
 <c:set var = "ID" scope = "session" value = "<%=id%>"/>
 
 <sql:query dataSource="${ic}" var="ab"> 
-	SELECT DISTINCT COURSE_ID,REGISTRATION_STATUS,PARTICIPANT_ID FROM REGISTRATION where participant_id=? <sql:param value = "${ID}" /> and course_id=902 limit 1
+	SELECT DISTINCT COURSE_ID,REGISTRATION_STATUS,PARTICIPANT_ID FROM REGISTRATION where participant_id=? <sql:param value = "${ID}" /> limit 1
 </sql:query> 
 <p style="text-align:center; font-size: 30px;"><b>ANNOUNCEMENT</b></p><br><br><br> 
 
@@ -166,7 +166,6 @@ Object id = session.getAttribute("participant_id");
     <thead> 
         <tr> 
             <th>No.</th>  
-            <th>Date</th> 
             <th>Description</th></tr> 
     </thead> 
     <tbody> 
@@ -174,9 +173,6 @@ Object id = session.getAttribute("participant_id");
                 <tr> 
                     <td class="no"> 
                         <c:out value="${result.rank}"/> 
-                    </td> 
-                    <td class="date"> 
-                        <c:out value="${result.announcement_date}"/> 
                     </td> 
                     <td class="detail"> 
                         <c:out value="${result.announcement_detail}"/> 

@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,6 +58,8 @@ public class PLogin extends HttpServlet {
 
       String email = request.getParameter("participant_email");
       String password = request.getParameter("participant_password");
+      String status = "Active";
+
       
       try {
           Class.forName("org.postgresql.Driver");
@@ -73,7 +76,7 @@ public class PLogin extends HttpServlet {
               ResultSet res = statement.executeQuery(sql);
 
               while (res.next()){
-                  if(email.equals(res.getString("participant_email")) && password.equals(res.getString("participant_password")))
+                  if(email.equals(res.getString("participant_email")) && password.equals(res.getString("participant_password")) && status.equals(res.getString("participant_status")) )
                   {
 
           	          session.setAttribute("participant_email", res.getString(4));
@@ -90,7 +93,11 @@ public class PLogin extends HttpServlet {
                   
               else{}
               
-          }response.sendRedirect("PartLogin.jsp");
+          }
+
+              response.sendRedirect("PartLogin.jsp");
+              alert("Wrong verification or inactive account");
+
 
              
 
@@ -102,6 +109,11 @@ public class PLogin extends HttpServlet {
           e.printStackTrace();
       }
   }
+
+	private void alert(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	private void logout(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {

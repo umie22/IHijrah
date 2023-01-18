@@ -151,11 +151,11 @@ padding-top:30px;
   <div class="part"> 
    <label for="partE">Email</label>
    
-   <input type="email" id="partE" name="partEmail" style="margin-left:55px;" value='<%=res.getString("participant_email")%>' /> 
+   <input type="email" id="partE" name="partEmail" style="margin-left:55px; width:1100px; height:30px; border-color: white;" value='<%=res.getString("participant_email")%>' /> 
      </div> 
       
      <br><br> 
- 
+ 	
  
   <div class="part"> 
         <label for="partP">Password</label>  
@@ -166,7 +166,7 @@ padding-top:30px;
    
   <div class="part"> 
         <label for="partP">Phone Number</label>  
-        <input type="tel" maxlength="11"  pattern="[0-9]{3}-[0-9]{10}{11}" id="partP" name="partPhone"  value='<%=res.getString("participant_phoneno")%>' /> 
+        <input style="width:1100px; height:30px; border-color: white;" type="tel" maxlength="11"  pattern="[0-9]{3}-[0-9]{10}{11}" id="partP" name="partPhone"  value='<%=res.getString("participant_phoneno")%>' /> 
      </div> 
       
            <br> 

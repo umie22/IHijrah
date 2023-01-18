@@ -228,12 +228,12 @@ padding-top:30px;
     <br><br> 
     <div class="part"> 
       <label>Email</label>  
-      <input type="text" name="partEmail"style="margin-left:55px;" value=<%=email%> disabled> 
+      <input type="text" name="partEmail"style="margin-left:55px;" value='<%=res.getString("participant_email")%>' disabled> 
     </div> 
     <br><br> 
     <div class="part"> 
       <label>Phone Number</label>  
-      <input type="text" name="partPhone" value=<%=phone%> disabled> 
+      <input type="text" name="partPhone" value='<%=res.getString("participant_phoneno")%>' disabled> 
     </div> 
   </form> 
  

@@ -36,7 +36,7 @@
 
 	<div class="container" style="margin: 20px 10px 0px 210px; background-color:white; height:100%; ">
 	
-	<p style="font-size:30px;text-align:center;"><b>ANNOUNCEMENT DETAIL</b></p>		
+	<p style="font-size:30px;text-align:center;"><b>ANNOUNCEMENT DETAILS</b></p>		
 		<!-- FILL IN FORM -->
 		<form action="" method="post">
 		
@@ -78,15 +78,14 @@ String DB_DRIVER = "org.postgresql.Driver";
 	String DB_USER = "postgres";	
 	String DB_PASSWORD = "system";
 
-if(b!=null && c!=null){
+if(c!=null){
 	conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
-	String data = "insert into announcement(announcement_date,announcement_detail,staff_id) values(?,?,?)";
+	String data = "insert into announcement(announcement_detail,staff_id) values(?,?)";
 	
 	stat = conn.prepareStatement(data);
 
-	stat.setString(1,b);
-	stat.setString(2,c);
-	stat.setInt(3,id);
+	stat.setString(1,c);
+	stat.setInt(2,id);
 
 	stat.executeUpdate();
 	response.sendRedirect("SAAnnouncementList.jsp");

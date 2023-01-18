@@ -69,19 +69,11 @@
       			</div>
       		
       			<div class="col-75" >
-        		<input type="text" id="a_id" name="Id" value='<%=res.getString("announcement_id") %>'/>
+      			<input type="text" id="a_id" name="Id" value='<%=res.getString("announcement_id") %>' disabled 	/>
+        		<input hidden type="text" id="a_id" name="Id" value='<%=res.getString("announcement_id") %>' 	/>
       			</div>
    			 </div>
 			
-    		<div class="row">
-      			<div class="col-25">
-        		<label for="a_date">Date</label>
-      			</div>
-      		
-      			<div class="col-75">
-        		<input type="date" id="a_date" name="Date" placeholder="DD-MM-YYYY" value='<%=res.getString("announcement_date") %>'/>
-      			</div>
-   			 </div>
     
     		<div class="row">
       			<div class="col-25">
@@ -112,14 +104,12 @@
 
    			<%
    			String a = request.getParameter("Id");
-   			String b = request.getParameter("Date");
    			String c = request.getParameter("Detail");
-   			if(a!=null && b!=null && c!=null){
-   				String query = "update announcement set announcement_id=?,announcement_date=?,announcement_detail=? where announcement_id='"+a+"'";
+   			if(c!=null){
+   				String query = "update announcement set announcement_id=?,announcement_detail=? where announcement_id='"+a+"'";
    				stmt = conn.prepareStatement(query);
    				stmt.setString(1,a);
-   				stmt.setString(2,b);
-   				stmt.setString(3,c);
+   				stmt.setString(2,c);
 ;
    				
    				stmt.executeUpdate();

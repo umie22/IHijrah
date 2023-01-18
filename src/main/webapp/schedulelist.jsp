@@ -217,7 +217,7 @@ font-weight: bold;}
 </table>
 
 <br><br>
- <a href="SACreateSchedule.jsp <%session.getAttribute("Staff_ID");%>" style="  margin-left:10px;font-size:15px;text-align: left; background-color: #353c49; border-radius: 10px; padding:20px;">Add Schedule</a>
+ <a href="CreateSchedule.jsp <%session.getAttribute("Staff_ID");%>" style="  margin-left:10px;font-size:15px;text-align: left; background-color: #353c49; border-radius: 10px; padding:20px;">Add Schedule</a>
     <br><br>
   </div>
 

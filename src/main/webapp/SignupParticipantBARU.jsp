@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-  <title>Login Staff</title>
+  <title>Sign up Participant	</title>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,12 +77,12 @@ h4{
           </div>
                     <div class="form-group pb-3">
             <label for="email"><b>Email</b></label>
-            <input type="email" placeholder="abu@gmail.com" class="form-control" id="email-field" name="partEmail" required >
+            <input type="email" placeholder="abu@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="email-field" name="partEmail" required >
           </div>
           <div class="form-group pb-3">
             <label for="staffid"><b>Phone Number</b></label>
-            
-            <input type="tel" placeholder="0123949384" maxlength="11"  pattern="[0-9]{3}-[0-9]{10}{11}" class="form-control" id="exampleInputstaffid" name="partPhone" required>
+          
+            <input type="tel" placeholder="0123949384" maxlength="11" pattern="[0-9]{10,11}" class="form-control" id="exampleInputstaffid" name="partPhone" required>
           </div>
           <div class="form-group pb-3">
             <label for="email"><b>Password</b></label>
@@ -91,7 +91,7 @@ h4{
          
           <div class="pb-2">
  		<input type="hidden" name="action" value="addAcc" >    		
- 		<button onclick="signupsuccess()" type= "submit" value="Submit" width="200px;" style="text-align: center;	margin-left: 120px; width:200px;">Sign Up</button>
+ 		<button type= "submit" value="Submit" width="200px;" style="text-align: center;	margin-left: 120px; width:200px;">Sign Up</button>
           </div>
         </form>
     
@@ -105,22 +105,6 @@ h4{
 <script>
 
 
-	 var email-Field = document.getElementById("email-field");
-	  var validRegex = ;
-
-	  function validateEmail() {
-
-	  if (!email-Field.value.match(/^[a-zA-z\._\-0-9]*[@][A=Za-z]*[\.][com]$/)) {
-
-		emailError.innerHTML="Please Enter A Valid Email";
-	    return false;
-
-	  }
-	  
-	  emailError.innerHTML="";
-	  return true;
-
-	}
 
 function signupsuccess() {
   alert("Your account has been created successfully");

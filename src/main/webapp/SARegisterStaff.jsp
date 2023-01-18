@@ -56,6 +56,7 @@ button:hover {
 <a href="SAAnnouncementList.jsp" class="btn3" style="display:block; font-size:11px;padding:30px;">ANNOUNCEMENT</a>
 <a href="SARegisterStaff.jsp" class="btn4" style="display:block; font-size:11px;padding:30px;">REGISTER STAFF</a>
 <a href="SAStaffList.jsp" class="btn5" style="display:block; font-size:11px;padding:30px;">STAFF LIST</a>
+<a href="ParticipantListAccount.jsp" class="btn5" style="display:block; font-size:11px;padding:30px;">PARTICIPANT LIST</a>
 <a href="SAAccount.jsp" class="btn6" style="display:block; font-size:11px;padding:30px;">ACCOUNT</a>
 <a href="WelcomePage.jsp" class="btn7" style="display:block; font-size:11px;padding:30px;">LOGOUT</a>
 
@@ -82,9 +83,9 @@ button:hover {
 
 <div class="registerstaff">
 <label style="margin-left:90px;" for="pass"><b>Staff Manager ID</b></label>
-<select name="manid" style="margin-left:45px;" >
+<select name="manid" style="margin-left:45px; width:650px;" >
 <c:forEach var="result" items="${oc.rows}">		
-  <option value="${result.staff_id}">${result.staff_name}</option>
+  <option value="${result.staff_id}">${result.staff_name} & ${result.staff_id}</option>
  </c:forEach>
  </select><br></div>
 
