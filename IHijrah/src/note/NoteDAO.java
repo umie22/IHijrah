@@ -110,6 +110,7 @@ e.printStackTrace();
 public void updateTicket(Ticket bean)
 {
 id = bean.getId();
+ss = bean.getId();
 subject = bean.getSubject();
 date = bean.getDate();
 category = bean.getCategory();
