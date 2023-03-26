@@ -192,6 +192,8 @@ public class PaymentServlet extends HttpServlet {
 			String dbUrl = "jdbc:postgresql://localhost:5432/postgres";
 			String username = "postgres";
 			String password = "system";
+			String sda = "system";
+
 			
 			try {
 				Class.forName("org.postgresql.Driver");
